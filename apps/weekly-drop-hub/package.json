@@ -1,0 +1,25 @@
+{
+  "name": "weekly-drop-hub",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "whop-proxy --command 'next dev --port 3001'",
+    "dev:next": "next dev --port 3001",
+    "build": "next build",
+    "start": "next start --port 3001"
+  },
+  "dependencies": {
+    "@madez/whop-shared": "workspace:*",
+    "@whop/react": "0.3.2",
+    "next": "16.1.1",
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.21",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "@whop-apps/dev-proxy": "0.0.1-canary.117",
+    "typescript": "^5.9.3"
+  }
+}

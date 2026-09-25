@@ -1,0 +1,10 @@
+AI Agent Lab — Friday skill drop
+Eval harness for tool calls
+2026-09-18
+
+What shipped
+- A rubric with three checks: right tool, right arguments, stop condition.
+- One failing example and one passing example to copy.
+- A reminder to run the rubric before a skill is called done.
+
+Sample lab notes for the Weekly Drop Hub archive.

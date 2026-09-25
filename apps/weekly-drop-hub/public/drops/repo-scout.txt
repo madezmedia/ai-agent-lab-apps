@@ -1,0 +1,10 @@
+AI Agent Lab — Friday skill drop
+Repo scout
+2026-09-11
+
+What shipped
+- A pass that names entry points before edits.
+- A path trace from the request to the file that owns the behavior.
+- A "do not touch yet" list for files outside the task.
+
+Sample lab notes for the Weekly Drop Hub archive.
