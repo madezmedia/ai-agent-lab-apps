@@ -1,0 +1,14 @@
+node_modules
+.next
+.turbo
+dist
+.wrangler
+.tanstack
+dist
+*.tsbuildinfo
+.DS_Store
+.env
+.env.local
+.env.*.local
+pnpm-debug.log*
+.vercel

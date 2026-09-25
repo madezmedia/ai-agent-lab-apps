@@ -1,0 +1,10 @@
+AI Agent Lab — Tuesday live build
+Operator standup pack
+2026-09-08
+
+What we built
+- Three headings: what changed, what broke, what is next.
+- A prompt that refuses to invent work that did not happen.
+- A closing line that names the owner of the next step.
+
+Sample lab notes for the Weekly Drop Hub archive.

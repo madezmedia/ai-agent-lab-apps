@@ -1,0 +1,10 @@
+AI Agent Lab — Friday skill drop
+Member onboarding flow
+2026-08-28
+
+What shipped
+- The week-one order: path kit, Files, Forum, first build.
+- A one-post Forum template: the job, the tool, the output.
+- A stop rule: do not start a second agent until the first notes exist.
+
+Sample lab notes for the Weekly Drop Hub archive.

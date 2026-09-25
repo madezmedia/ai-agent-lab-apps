@@ -1,0 +1,10 @@
+AI Agent Lab — Tuesday live build
+First-week lab setup
+2026-08-25
+
+What we built
+- Env templates with the app id filled in and the API key left blank.
+- A dev proxy command so localhost receives the Whop user token.
+- A root build that compiles every lab app.
+
+Sample lab notes for the Weekly Drop Hub archive.
