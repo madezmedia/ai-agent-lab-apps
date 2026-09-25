@@ -20,7 +20,7 @@ Message C (refund) is only for if that date slips. Mikey decides; Claude never e
 |---|---|---|
 | `[first name]` | Mikey | From the Whop member record |
 | `[day]` | Mikey | Pick a date you can hit after the setup test + recording. Days, not weeks. |
-| `[Lab section]` | Polar | Whatever Drop #1 is published under: Whop course (e.g. "Mad EZ Guide") or forum channel (e.g. "Weekly Drops") |
+| `[Lab section]` | Polar | **Agent Lab Courses** (existing member page, per Polar 2026-09-25); confirm the course/module name after publishing |
 | `[Drop #1 link]` | Polar | Direct link to the course lesson or forum post, copied after publishing |
 
 ---
@@ -31,8 +31,9 @@ Message C (refund) is only for if that date slips. Mikey decides; Claude never e
 >
 > First: thank you. You're the very first paying member of the Lab, and that means a lot.
 >
-> Second, a straight answer: you joined before the first build was up, so the Lab has
-> looked pretty empty. That's on me, not you.
+> Second, a straight answer: you joined before the first real build was up. The Lab's
+> rooms are set up (chat, forum, courses, files), but the main thing you paid for, the
+> weekly builds, wasn't there yet. That's on me, not you.
 >
 > Here's what's coming. The first drop is **"Your AI Agent Team: The Map"**, part of a
 > series I'm calling *The Mad EZ Guide*. It walks through the real team of AI agents I run
@@ -100,8 +101,10 @@ If it's refunded, consider whether to keep their access through the month as goo
 
 ## Checks before sending
 
-- [ ] Polar has answered: what does this member see in the Lab right now? (Asked in
-      `claudeReplyPolarSurfaceList-1790362000007`.) If something is already there, edit A so it doesn't say "empty."
+- [x] Polar answered (2026-09-25): 8 member pages exist (ACMI Protocol Docs, ACMI Repos +
+      Downloads, Agent Lab Chat/Courses/Forum/Files, AI Image Generator, AI Podcast Generator).
+      Message A now says "rooms set up, no weekly build yet" rather than "empty." Still open: which of those pages
+      actually have content.
 - [ ] `[day]` is a date Mikey can hit after the fresh-account setup test + recording.
 - [ ] No IPs, tokens, hostnames, client or brand names. Agents are described by role only. ✅ (as drafted)
 - [ ] No new prices or products. The refund offer is the only money language. ✅ (as drafted)
