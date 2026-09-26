@@ -69,7 +69,7 @@ Pointing this app at a Vercel URL in the Whop dashboard does not replace https:/
 | Agent Profile Catalog | `apps/agent-profile-catalog` | `app_YP1g8RQygUeXKs` | 3002 | https://agent-profile-catalog.whop.site |
 | Roadmap Vote | `apps/roadmap-vote` | `app_2uAwcCSXpXHmrm` | 3003 | https://roadmap-vote.whop.site |
 
-Starter Checklist is the one ready for `whop apps deploy`. Weekly Drop Hub, Catalog, and Roadmap are still Next.js App Router apps. Their `*.whop.site` hosts show the same empty placeholder until each one is converted the same way or given its own external base URL. App IDs stay as registered.
+All four apps ship with `whop apps deploy`. Drop Hub, Catalog, and Roadmap use the same Vite zip pack as Starter Checklist (`dist/whop-build.zip`). Their old Next.js trees under `app/` are not what Whop hosting serves. App IDs stay as registered. Do not run `whop apps init`. Do not call `experiences_attach` from this repo.
 
 Shared JWT verification, access interpretation, and the lab theme live in `packages/whop-shared`. The Next apps also use `@whop/sdk` `users.checkAccess` through `packages/whop-shared` auth. The checklist worker calls `GET /api/v1/users/{id}/access/{resource_id}` so hosting can attach the API key. No member profile is fetched or rendered.
 
