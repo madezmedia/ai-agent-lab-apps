@@ -1,0 +1,15 @@
+AI Agent Lab — Friday skill drop
+Citation-backed research brief
+2026-09-25
+
+What shipped
+- A skill that starts from the member's question, not from a tool list.
+- A brief shape: answer, sources, and the next action.
+- A rule that every claim names the source you actually opened.
+
+Use it
+1. Restate the question in one sentence.
+2. Open the sources before you write.
+3. Stop when the next action is specific enough to do.
+
+Sample lab notes for the Weekly Drop Hub archive.

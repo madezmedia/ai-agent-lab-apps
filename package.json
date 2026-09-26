@@ -1,0 +1,24 @@
+{
+  "name": "ai-agent-lab-apps",
+  "private": true,
+  "packageManager": "pnpm@10.33.3",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "test": "tsx --test packages/whop-shared/src/interpret-access.test.ts packages/whop-shared/src/verify-user-token.test.ts apps/weekly-drop-hub/data/drops.test.ts",
+    "dev:hub": "pnpm --filter weekly-drop-hub dev",
+    "dev:catalog": "pnpm --filter agent-profile-catalog dev",
+    "dev:roadmap": "pnpm --filter roadmap-vote dev",
+    "dev:checklist": "pnpm --filter starter-checklist dev"
+  },
+  "devDependencies": {
+    "tsx": "^4.20.5",
+    "turbo": "^2.11.4"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["@whop/react", "esbuild", "lightningcss", "sharp", "workerd"]
+  }
+}

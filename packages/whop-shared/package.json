@@ -1,0 +1,30 @@
+{
+  "name": "@madez/whop-shared",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./auth": "./src/auth.ts",
+    "./ui": "./src/ui/index.ts",
+    "./theme.css": "./src/theme.css",
+    "./verify-user-token": "./src/verify-user-token.ts",
+    "./interpret-access": "./src/interpret-access.ts"
+  },
+  "dependencies": {
+    "@whop/sdk": "2.0.0",
+    "jose": "^6.1.0",
+    "server-only": "^0.0.1"
+  },
+  "peerDependencies": {
+    "next": ">=16",
+    "react": ">=19",
+    "react-dom": ">=19"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "next": "16.1.1",
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  }
+}

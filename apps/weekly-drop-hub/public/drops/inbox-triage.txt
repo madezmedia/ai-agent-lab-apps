@@ -1,0 +1,10 @@
+AI Agent Lab — Tuesday live build
+Inbox triage agent
+2026-09-22
+
+What we built
+- Three lanes: answer now, ask for a file, park for office hours.
+- A short prompt that forces one lane per message.
+- A handoff note so the next person can see why a message was parked.
+
+Sample lab notes for the Weekly Drop Hub archive.
