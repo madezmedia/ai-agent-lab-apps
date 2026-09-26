@@ -45,7 +45,7 @@ layer, and works with Claude Code, Claude Desktop, Cursor, Cline and Windsurf.
 People already using AI tools who are tired of starting over in every chat and want their
 agents to work together, not in silos.
 
-**$39/month. Cancel anytime.**
+**Try it for $1 for 3 days, then $39/month. Cancel anytime.**
 
 ## Feature bullets (if the page has a features list)
 
@@ -54,7 +54,7 @@ agents to work together, not in silos.
 - Starter Kit files included
 - Private member chat + forum inside the Lab
 - Works with Claude Code, Claude Desktop, Cursor, Cline, Windsurf
-- Cancel anytime
+- $1 for 3 days, then $39/mo. Cancel anytime
 
 ## FAQ (if the page supports it)
 
@@ -77,7 +77,7 @@ Yes, anytime.
 
 | Slot | File | Alt text |
 |---|---|---|
-| Thumbnail / cover | `06-cover-square.png` | AI Agent Lab: build an AI agent team that remembers. $39/mo, cancel anytime. |
+| Thumbnail / cover | `06-cover-square.png` | AI Agent Lab: build an AI agent team that remembers. $1 for 3 days, then $39/mo. Cancel anytime. |
 | Gallery 1 | `01-hero.png` | Diagram of an AI agent team: chief of staff, personal, server and coding agents sharing one memory. |
 | Gallery 2 | `02-what-you-get.png` | What you get: weekly builds, Starter Kit files, Drop #1, member chat and forum. |
 | Gallery 3 | `03-before-after.png` | Without shared memory vs. with the Agent Lab setup. |

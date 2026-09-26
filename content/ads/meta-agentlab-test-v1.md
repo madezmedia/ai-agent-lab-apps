@@ -11,7 +11,7 @@ design_handoff: open-design (renders creatives; Claude writes copy + brief only)
 ## 0. Gate (read first)
 
 This is copy and creative prep only. **Launch needs Mikey's explicit GO logged in ACMI** after:
-Drop #1 is live and smoke-tested, the "Private Discord" product line is fixed, one $39 plan is
+Drop #1 is live and smoke-tested, the "Private Discord" product line is fixed, the $39 plan + the approved $1/3-day trial are the only plans
 confirmed on the page, an end-to-end test purchase, a stop rule and target cost per signup,
 a bot filter, and a connected ads identity (Mikey-only). Earliest suggested start: **Wed Sep 30,
 7 days, $10/day**.
@@ -32,7 +32,7 @@ Compare variants A/B/C/D using Whop's per-ad reporting, not our tags.
 
 | ✅ True today, OK to use | ❌ Do not use |
 |---|---|
-| $39/month membership | Member counts, "join 35+ builders", testimonials |
+| $39/month membership, with a $1 / 3-day trial (plan approved by Mikey 2026-09-26) | Member counts, "join 35+ builders", testimonials |
 | Weekly agent builds + skill drops (the Lab's own headline) | "Private Discord" (cut) |
 | Drop #1 "Your AI Agent Team: The Map" is available on signup *(only once it's live Mon Sep 28)* | Income/revenue promises, lead counts, "$ recovered" stats, or any results not on record |
 | ~30 min to your first agent that remembers between sessions | A dollar value for the kit ("$47 value"). Just say the files are included |
@@ -45,26 +45,26 @@ Compare variants A/B/C/D using Whop's per-ad reporting, not our tags.
 ## 3. Ad copy — 3 variants
 
 Meta limits: primary text shows ~125 characters before "See more"; headline ≤ 40; description ≤ 30.
-CTA button for all: **Subscribe**. If Subscribe isn't available on the placement, use **Learn more**.
+CTA button for all: **Subscribe** (the page leads with the $1 / 3-day trial). If Subscribe isn't available on the placement, use **Learn more**.
 
 ### A. `map`: "See the whole team"
 
 - **Primary text:** I run my business with a team of AI agents that remember what each other did yesterday. Here's the map, and your first agent in 30 minutes.
 - **Headline:** Build an AI agent team that remembers
-- **Description:** $39/mo · Cancel anytime
+- **Description:** $1 for 3 days · then $39/mo
 - **Creative:** Concept 1 (fleet map)
 
 ### B. `amnesia`: the pain
 
 - **Primary text:** Tired of re-explaining your project every time you open a new AI chat? Give your agents a shared memory. New build every week inside AI Agent Lab.
 - **Headline:** Your AI agents keep forgetting. Fix it.
-- **Description:** Weekly builds · $39/mo
+- **Description:** $1 for 3 days · then $39/mo
 - **Creative:** Concept 2 (new chat, remembered)
 
 ### C. `team`: builder identity
 
 - **Primary text:** Claude plans. Cursor builds. Gemini researches. Now make them work as one team. Weekly builds + the Starter Kit files, inside AI Agent Lab.
-- **Headline:** Weekly agent builds. $39/mo.
+- **Headline:** Weekly agent builds. $1 to try.
 - **Description:** Join AI Agent Lab
 - **Creative:** Concept 3 (tools → one memory)
 
@@ -74,7 +74,7 @@ Deliberate crossover from the creator lane. See ACMI `mikeyFolanaAdAngle-1790434
 
 - **Primary text:** Meet Folana, an AI persona. Her content brand is run by a team of AI agents with a shared memory. AI Agent Lab shows you how the team works, one build a week.
 - **Headline:** This creator is run by AI agents
-- **Description:** $39/mo · Cancel anytime
+- **Description:** $1 for 3 days · then $39/mo
 - **Creative:** Folana image with a visible **"AI persona"** tag in a corner, plus a small role diagram (content agent → shared memory → chief of staff).
 - **Rules:** she is never shown as a real person, a Lab member, or the builder. No follower, revenue or results numbers. CTA goes to the Agent Lab checkout only (same URL as the other ads), never EZ Influencer Lab. No shared audiences/pixels with the creator lane.
 
@@ -87,7 +87,7 @@ Deliberate crossover from the creator lane. See ACMI `mikeyFolanaAdAngle-1790434
 > first agent that remembers its work between sessions.
 >
 > Members also get the Starter Kit files, plus private member chat and forum inside the Lab.
-> $39/month. Cancel anytime.
+> Try it for $1 for 3 days, then $39/month. Cancel anytime.
 
 ## 4. Creative brief — for open-design
 

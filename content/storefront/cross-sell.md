@@ -14,7 +14,7 @@ block at the end of its description. Links point at the live product URLs below.
 
 | Product | Price | URL |
 |---|---|---|
-| AI Agent Lab | $39/mo | https://whop.com/ai-automation-tools/ai-agent-lab-c1/ |
+| AI Agent Lab | $1 for 3 days, then $39/mo | https://whop.com/ai-automation-tools/ai-agent-lab-c1/ |
 | AI Agent Fleet Starter Kit | $47 | https://whop.com/ai-automation-tools/ai-agent-fleet-starter-kit/ |
 | AI Automation Toolkit | Free | https://whop.com/ai-automation-tools/ai-automation-tools/ |
 | AI Unfiltered-Image Gen Tools | Free | https://whop.com/ai-automation-tools/ai-unfiltered-image-gen-tools-9/ |
@@ -51,11 +51,11 @@ Rules for cross-links:
 
 ### AI Agent Fleet Starter Kit ($47)
 > **Related from Mad EZ Media**
-> - **Want new builds every week?** [AI Agent Lab](https://whop.com/ai-automation-tools/ai-agent-lab-c1/) ($39/mo) includes these Starter Kit files, plus a new agent build every week and member chat and forum. Cancel anytime.
+> - **Want new builds every week?** [AI Agent Lab](https://whop.com/ai-automation-tools/ai-agent-lab-c1/) ($1 for 3 days, then $39/mo) includes these Starter Kit files, plus a new agent build every week and member chat and forum. Cancel anytime.
 
 ### AI Automation Toolkit (free)
 > **Next step**
-> - **Ready to run a team of AI agents?** [AI Agent Lab](https://whop.com/ai-automation-tools/ai-agent-lab-c1/) ($39/mo): weekly agent builds, Starter Kit files and member chat. Cancel anytime.
+> - **Ready to run a team of AI agents?** [AI Agent Lab](https://whop.com/ai-automation-tools/ai-agent-lab-c1/) ($1 for 3 days, then $39/mo): weekly agent builds, Starter Kit files and member chat. Cancel anytime.
 
 ### AI Unfiltered-Image Gen Tools (free)
 > **Next step**
@@ -64,12 +64,12 @@ Rules for cross-links:
 ### EZ Influencer Creator 360 ($100/mo)
 > **Related from Mad EZ Media**
 > - **See an AI creator built this way:** [Folana's Inner Circle](https://whop.com/ai-automation-tools/folana-s-inner-circle/) ($7/mo). Folana is an AI artist made by Mad EZ Media.
-> - **Want the agent team behind the content?** [AI Agent Lab](https://whop.com/ai-automation-tools/ai-agent-lab-c1/) ($39/mo) shows how we run AI agents that share one memory.
+> - **Want the agent team behind the content?** [AI Agent Lab](https://whop.com/ai-automation-tools/ai-agent-lab-c1/) ($1 for 3 days, then $39/mo) shows how we run AI agents that share one memory.
 
 ### Folana's Inner Circle ($7/mo)
 > **Behind Folana**
 > - **Create your own AI creator:** [EZ Influencer Creator 360](https://whop.com/ai-automation-tools/ez-influencer-creator-360/) ($100/mo, 7-day free trial).
-> - **Curious how Folana's AI team works?** [AI Agent Lab](https://whop.com/ai-automation-tools/ai-agent-lab-c1/) ($39/mo).
+> - **Curious how Folana's AI team works?** [AI Agent Lab](https://whop.com/ai-automation-tools/ai-agent-lab-c1/) ($1 for 3 days, then $39/mo).
 
 # Folana AI disclosure (required)
 
