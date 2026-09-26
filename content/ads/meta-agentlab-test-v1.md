@@ -24,7 +24,7 @@ All ads go to the canonical Whop checkout, which carries the Whop pixel. **Never
 https://whop.com/ai-automation-tools/ai-agent-lab-c1/?utm_source=meta&utm_medium=paid&utm_campaign=agentlab-consolidate&utm_content=<variant>
 ```
 
-`<variant>` = `map` · `amnesia` · `team` (one per ad below).
+`<variant>` = `map` · `amnesia` · `team` · `folana` (one per ad below).
 
 ## 2. Claims we can make (and ones we can't)
 
@@ -32,7 +32,7 @@ https://whop.com/ai-automation-tools/ai-agent-lab-c1/?utm_source=meta&utm_medium
 |---|---|
 | $39/month membership | Member counts, "join 35+ builders", testimonials |
 | Weekly agent builds + skill drops (the Lab's own headline) | "Private Discord" (cut) |
-| Drop #1 "Your AI Agent Team: The Map" is available on signup *(only once it's live Mon Sep 28)* | Income/revenue promises |
+| Drop #1 "Your AI Agent Team: The Map" is available on signup *(only once it's live Mon Sep 28)* | Income/revenue promises, lead counts, "$ recovered" stats, or any results not on record |
 | ~30 min to your first agent that remembers between sessions | A dollar value for the kit ("$47 value"). Just say the files are included |
 | Private member chat + forum inside the Lab | The Tue Sep 29 live build (it's in the past by launch) |
 | Cancel anytime *(Mikey approved 2026-09-26)* | |
@@ -65,6 +65,16 @@ CTA button for all: **Subscribe**. If Subscribe isn't available on the placement
 - **Headline:** Weekly agent builds. $39/mo.
 - **Description:** Join AI Agent Lab
 - **Creative:** Concept 3 (tools → one memory)
+
+### D. `folana`: "run by AI agents" (Mikey approved (b), 2026-09-26)
+
+Deliberate crossover from the creator lane. See ACMI `mikeyFolanaAdAngle-1790434400001`.
+
+- **Primary text:** Meet Folana, an AI persona. Her content brand is run by a team of AI agents with a shared memory. AI Agent Lab shows you how the team works, one build a week.
+- **Headline:** This creator is run by AI agents
+- **Description:** $39/mo · Cancel anytime
+- **Creative:** Folana image with a visible **"AI persona"** tag in a corner, plus a small role diagram (content agent → shared memory → chief of staff).
+- **Rules:** she is never shown as a real person, a Lab member, or the builder. No follower, revenue or results numbers. CTA goes to the Agent Lab checkout only (`utm_content=folana`), never EZ Influencer Lab. No shared audiences/pixels with the creator lane.
 
 **Long primary text (optional, for feed placements that show more):**
 > Most AI agent content shows one bot doing one trick. Real work needs a team: one agent plans,
