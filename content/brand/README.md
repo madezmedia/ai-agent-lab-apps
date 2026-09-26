@@ -53,3 +53,14 @@ What changed from the current bio, and why:
 **Product order on the store:** 1. AI Agent Lab (featured) · 2. Agent Fleet Starter Kit.
 
 **Links to add** (only real ones): `https://github.com/madezmedia/acmi`, plus Mikey's actual X/LinkedIn handles, if he wants them shown.
+
+## Where the look is applied
+
+| Surface | Source | Status |
+|---|---|---|
+| Whop store (banner, avatar, bio) | `content/brand/` | Mikey GO, delegated for upload |
+| AI Agent Lab product page (gallery + copy) | `content/storefront/` | Mikey GO, delegated for upload |
+| Lab member apps (Drop Hub, Checklist, Catalog, Roadmap) | `packages/whop-shared/src/theme.css` | Code done; needs `whop apps deploy` per app |
+| ACMI bridge page | `bridge/acmi-5min/` | Live: https://acmi-5min.vercel.app |
+| Meta ad creatives A/B/C (4:5, 1:1, 9:16) | `content/ads/creatives.html` → `content/ads/png/` | Ready; replaces Polar's earlier set |
+| Welcome one-pager + Drop #1 cover | Design (Drive `04-AI-Agent-Lab`) | Already black/orange; Design to re-check tokens |

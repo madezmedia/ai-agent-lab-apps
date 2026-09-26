@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Agent Lab Meta Creatives</title>
+<!--
+  Meta ad creatives for the AI Agent Lab test (copy: content/ads/meta-agentlab-test-v1.md).
+  Mad EZ Media base look (content/brand/README.md). Variants A/B/C x sizes 4:5, 1:1, 9:16.
+  Render: node content/storefront/render.mjs content/ads/creatives.html content/ads/png
+  Text-only, role labels only: no member counts, stats, brand logos or real names.
+-->
+<style>
+  :root { --bg:#07070a; --panel:#111117; --line:#2a2a33; --text:#f4f4f7; --muted:#a6a6b0; --o:#ff5a1f; --r:#ff2d55; --glow:rgba(255,90,31,.45); }
+  * { box-sizing: border-box; margin: 0; }
+  body { background:#222; font-family: system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; color: var(--text); }
+  .panel { position: relative; overflow: hidden; width: 1080px; margin-bottom: 40px;
+    background: radial-gradient(70% 55% at 80% 15%, rgba(255,90,31,.30), transparent 70%),
+                radial-gradient(60% 45% at 5% 100%, rgba(255,45,85,.22), transparent 70%), var(--bg);
+    display: flex; flex-direction: column; justify-content: center; padding: 0 84px; }
+  .panel::before { content:""; position:absolute; inset:0; pointer-events:none;
+    background-image: linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px), linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+    background-size: 60px 60px; mask-image: radial-gradient(80% 70% at 50% 45%,#000 35%,transparent 100%); }
+  .panel > * { position: relative; }
+  .s45 { height: 1350px; } .s11 { height: 1080px; } .s916 { height: 1920px; }
+  .s11 .visual { margin: 40px 0; }
+  .s11 .visual svg { height: 440px; width: auto; }
+  .s11 .chat { width: 400px; font-size: 25px; }
+  .brand { font-size: 24px; font-weight: 800; letter-spacing: .2em; color: var(--muted); }
+  h1 { font-size: 92px; line-height: 1.02; font-weight: 850; letter-spacing: -.03em; margin: 22px 0 0; }
+  .s11 h1 { font-size: 80px; }
+  .hot { background: linear-gradient(90deg,var(--o),var(--r)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .visual { margin: 64px 0; display: flex; justify-content: center; }
+  .foot { display: flex; justify-content: space-between; align-items: center; }
+  .pill { border: 2px solid var(--o); color: var(--o); border-radius: 999px; padding: 12px 26px; font-weight: 800; font-size: 30px; }
+  .cta { background: linear-gradient(90deg,var(--o),var(--r)); color: #0b0b0f; border-radius: 16px; padding: 18px 30px; font-weight: 850; font-size: 30px; box-shadow: 0 0 30px var(--glow); }
+  svg text { font-family: system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+  .chat { width: 420px; background: var(--panel); border: 2px solid var(--line); border-radius: 26px; padding: 26px; font-size: 27px; }
+  .chat.on { border-color: var(--o); box-shadow: 0 0 34px rgba(255,90,31,.25); }
+  .chat .t { font-size: 20px; letter-spacing: .14em; color: var(--muted); font-weight: 800; margin-bottom: 18px; }
+  .bubble { background: #1a1a22; border-radius: 18px; padding: 16px 18px; margin-top: 12px; line-height: 1.35; }
+  .bubble.me { background: rgba(255,90,31,.14); margin-left: 40px; }
+</style>
+</head>
+<body>
+
+<template id="map">
+  <div class="brand">MAD EZ MEDIA · AI AGENT LAB</div>
+  <h1>Your AI agent team, <span class="hot">mapped.</span></h1>
+  <div class="visual">
+    <svg viewBox="0 0 800 560" width="880" height="616">
+      <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#ff5a1f"/><stop offset="1" stop-color="#ff2d55"/></linearGradient>
+      <filter id="glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+      <g stroke="url(#g)" stroke-width="4" fill="none" filter="url(#glow)">
+        <line x1="400" y1="100" x2="135" y2="250"/><line x1="400" y1="100" x2="400.5" y2="250"/><line x1="400" y1="100" x2="665" y2="250"/>
+        <line x1="135" y1="320" x2="400" y2="450"/><line x1="400" y1="320" x2="400.5" y2="450"/><line x1="665" y1="320" x2="400" y2="450"/></g>
+      <g font-size="25" font-weight="700" text-anchor="middle" fill="#f4f4f7">
+        <rect x="265" y="30" width="270" height="70" rx="18" fill="#111117" stroke="url(#g)" stroke-width="3"/><text x="400" y="74">Chief of Staff</text>
+        <rect x="10" y="250" width="250" height="70" rx="18" fill="#111117" stroke="#3a3a45" stroke-width="3"/><text x="135" y="294">Personal agents</text>
+        <rect x="275" y="250" width="250" height="70" rx="18" fill="#111117" stroke="#3a3a45" stroke-width="3"/><text x="400" y="294">Server agent</text>
+        <rect x="540" y="250" width="250" height="70" rx="18" fill="#111117" stroke="#3a3a45" stroke-width="3"/><text x="665" y="294">Coding agents</text>
+        <rect x="230" y="450" width="340" height="90" rx="22" fill="url(#g)" filter="url(#glow)"/><text x="400" y="507" fill="#0b0b0f" font-size="32" font-weight="850">Shared memory</text></g>
+    </svg>
+  </div>
+  <div class="foot"><span class="pill">$39/mo · Cancel anytime</span><span class="cta">Join AI Agent Lab</span></div>
+</template>
+
+<template id="amnesia">
+  <div class="brand">MAD EZ MEDIA · AI AGENT LAB</div>
+  <h1>New chat. <span class="hot">Same memory.</span></h1>
+  <div class="visual" style="gap:32px;align-items:flex-start">
+    <div class="chat"><div class="t">NEW CHAT · BEFORE</div>
+      <div class="bubble me">Continue the project</div>
+      <div class="bubble">Sorry, what project? Can you explain it from the start?</div></div>
+    <div class="chat on"><div class="t" style="color:var(--o)">NEW CHAT · AFTER</div>
+      <div class="bubble me">Continue the project</div>
+      <div class="bubble">Picking up where we left off: step 3 of the agent map.</div></div>
+  </div>
+  <div class="foot"><span class="pill">$39/mo · Cancel anytime</span><span class="cta">Join AI Agent Lab</span></div>
+</template>
+
+<template id="team">
+  <div class="brand">MAD EZ MEDIA · AI AGENT LAB</div>
+  <h1>Make your agents work as <span class="hot">one team.</span></h1>
+  <div class="visual">
+    <svg viewBox="0 0 800 520" width="880" height="572">
+      <defs><linearGradient id="g2" x1="0" x2="1"><stop offset="0" stop-color="#ff5a1f"/><stop offset="1" stop-color="#ff2d55"/></linearGradient>
+      <filter id="glow2" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+      <g stroke="url(#g2)" stroke-width="4" filter="url(#glow2)"><line x1="135" y1="100" x2="400" y2="330"/><line x1="400" y1="100" x2="400.5" y2="330"/><line x1="665" y1="100" x2="400" y2="330"/></g>
+      <g font-size="30" font-weight="800" text-anchor="middle" fill="#f4f4f7">
+        <rect x="20" y="20" width="230" height="80" rx="20" fill="#111117" stroke="#3a3a45" stroke-width="3"/><text x="135" y="72">Claude</text>
+        <rect x="285" y="20" width="230" height="80" rx="20" fill="#111117" stroke="#3a3a45" stroke-width="3"/><text x="400" y="72">Cursor</text>
+        <rect x="550" y="20" width="230" height="80" rx="20" fill="#111117" stroke="#3a3a45" stroke-width="3"/><text x="665" y="72">Gemini</text>
+        <circle cx="400" cy="400" r="95" fill="url(#g2)" filter="url(#glow2)"/><text x="400" y="392" fill="#0b0b0f" font-size="28">One</text><text x="400" y="428" fill="#0b0b0f" font-size="28">memory</text></g>
+    </svg>
+  </div>
+  <div class="foot"><span class="pill">Weekly builds · $39/mo</span><span class="cta">Join AI Agent Lab</span></div>
+</template>
+
+<div id="out"></div>
+<script>
+  // Stamp each variant into each Meta size so all nine share one source.
+  const sizes = [['4x5','s45'], ['1x1','s11'], ['9x16','s916']];
+  for (const v of ['map','amnesia','team']) for (const [name, cls] of sizes) {
+    const s = document.createElement('section');
+    s.className = 'panel ' + cls; s.id = `ad-${v}-${name}`;
+    s.appendChild(document.getElementById(v).content.cloneNode(true));
+    document.getElementById('out').appendChild(s);
+  }
+</script>
+</body>
+</html>
