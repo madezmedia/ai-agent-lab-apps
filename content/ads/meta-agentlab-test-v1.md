@@ -21,10 +21,12 @@ a bot filter, and a connected ads identity (Mikey-only). Earliest suggested star
 All ads go to the canonical Whop checkout, which carries the Whop pixel. **Never GitHub.**
 
 ```
-https://whop.com/ai-automation-tools/ai-agent-lab-c1/?utm_source=meta&utm_medium=paid&utm_campaign=agentlab-consolidate&utm_content=<variant>
+https://whop.com/ai-automation-tools/ai-agent-lab-c1/?utm_campaign=agentlab-consolidate
 ```
 
-`<variant>` = `map` · `amnesia` · `team` · `folana` (one per ad below).
+Same URL for every ad. **Do not add `utm_source`, `utm_medium` or `utm_content`.** Whop's ad
+tool sets those itself for click attribution and overwrites them (per Whop ads, 2026-09-26).
+Compare variants A/B/C/D using Whop's per-ad reporting, not our tags.
 
 ## 2. Claims we can make (and ones we can't)
 
@@ -74,7 +76,7 @@ Deliberate crossover from the creator lane. See ACMI `mikeyFolanaAdAngle-1790434
 - **Headline:** This creator is run by AI agents
 - **Description:** $39/mo · Cancel anytime
 - **Creative:** Folana image with a visible **"AI persona"** tag in a corner, plus a small role diagram (content agent → shared memory → chief of staff).
-- **Rules:** she is never shown as a real person, a Lab member, or the builder. No follower, revenue or results numbers. CTA goes to the Agent Lab checkout only (`utm_content=folana`), never EZ Influencer Lab. No shared audiences/pixels with the creator lane.
+- **Rules:** she is never shown as a real person, a Lab member, or the builder. No follower, revenue or results numbers. CTA goes to the Agent Lab checkout only (same URL as the other ads), never EZ Influencer Lab. No shared audiences/pixels with the creator lane.
 
 **Long primary text (optional, for feed placements that show more):**
 > Most AI agent content shows one bot doing one trick. Real work needs a team: one agent plans,
@@ -122,7 +124,7 @@ pixel-pass note. **Do not upload to Whop/Meta.** The launch owner does that afte
 - Consider widening beyond one "software development" interest: add AI tools / ChatGPT / automation interests. At $10/day, a too-narrow audience won't exit learning.
 - One ad set, 3 ads (A/B/C), and let Meta pick. Don't split the $10/day across ad sets.
 - **Bot filter** (lesson from the closed LoRA Lab wave): exclude Audience Network, and watch for junk signups or chargebacks on day 1.
-- **Read the results by `utm_content`** so we know which angle sold.
+- **Read the results per ad in Whop's ad reporting** so we know which angle sold.
 
 ## 6. Mikey decisions (2026-09-26)
 
