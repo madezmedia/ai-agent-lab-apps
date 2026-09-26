@@ -33,10 +33,12 @@ https://whop.com/ai-automation-tools/ai-agent-lab-c1/?utm_source=meta&utm_medium
 | $39/month membership | Member counts, "join 35+ builders", testimonials |
 | Weekly agent builds + skill drops (the Lab's own headline) | "Private Discord" (cut) |
 | Drop #1 "Your AI Agent Team: The Map" is available on signup *(only once it's live Mon Sep 28)* | Income/revenue promises |
-| ~30 min to your first agent that remembers between sessions | "Cancel anytime" *unless Mikey confirms the Whop cancel policy* |
+| ~30 min to your first agent that remembers between sessions | A dollar value for the kit ("$47 value"). Just say the files are included |
 | Private member chat + forum inside the Lab | The Tue Sep 29 live build (it's in the past by launch) |
+| Cancel anytime *(Mikey approved 2026-09-26)* | |
+| Members get the Starter Kit files in the Lab *(Mikey approved 2026-09-26)* | |
 | Works with Claude, Cursor, Gemini, and other MCP tools | New prices, bundles, tiers, discounts |
-| ACMI, the memory layer underneath, is open source (MIT) | Starter Kit "$47 value" *(needs Mikey OK; see variant C alt)* |
+| ACMI, the memory layer underneath, is open source (MIT) | |
 
 ## 3. Ad copy — 3 variants
 
@@ -47,7 +49,7 @@ CTA button for all: **Subscribe**. If Subscribe isn't available on the placement
 
 - **Primary text:** I run my business with a team of AI agents that remember what each other did yesterday. Here's the map, and your first agent in 30 minutes.
 - **Headline:** Build an AI agent team that remembers
-- **Description:** AI Agent Lab · $39/mo
+- **Description:** $39/mo · Cancel anytime
 - **Creative:** Concept 1 (fleet map)
 
 ### B. `amnesia`: the pain
@@ -59,11 +61,10 @@ CTA button for all: **Subscribe**. If Subscribe isn't available on the placement
 
 ### C. `team`: builder identity
 
-- **Primary text:** Claude plans. Cursor builds. Gemini researches. Now make them work as one team. Weekly agent builds and skill drops for people building with AI.
+- **Primary text:** Claude plans. Cursor builds. Gemini researches. Now make them work as one team. Weekly builds + the Starter Kit files, inside AI Agent Lab.
 - **Headline:** Weekly agent builds. $39/mo.
 - **Description:** Join AI Agent Lab
 - **Creative:** Concept 3 (tools → one memory)
-- **Alt primary text, only if Mikey approves naming the kit:** …Members also get the Starter Kit files in the Lab.
 
 **Long primary text (optional, for feed placements that show more):**
 > Most AI agent content shows one bot doing one trick. Real work needs a team: one agent plans,
@@ -73,7 +74,8 @@ CTA button for all: **Subscribe**. If Subscribe isn't available on the placement
 > Start with Drop #1: "Your AI Agent Team: The Map." In about 30 minutes you'll have your
 > first agent that remembers its work between sessions.
 >
-> $39/month. Private member chat + forum inside the Lab.
+> Members also get the Starter Kit files, plus private member chat and forum inside the Lab.
+> $39/month. Cancel anytime.
 
 ## 4. Creative brief — for open-design
 
@@ -112,9 +114,9 @@ pixel-pass note. **Do not upload to Whop/Meta.** The launch owner does that afte
 - **Bot filter** (lesson from the closed LoRA Lab wave): exclude Audience Network, and watch for junk signups or chargebacks on day 1.
 - **Read the results by `utm_content`** so we know which angle sold.
 
-## 6. Open for Mikey
+## 6. Mikey decisions (2026-09-26)
 
-1. Can we say "cancel anytime"? (Confirm Whop's policy for this plan.)
-2. OK to mention the Starter Kit files in variant C?
-3. Stop rule and target cost per signup (e.g. pause at day 4 with 0 signups).
-4. Your face or voice in any creative, or text-only?
+1. "Cancel anytime": **approved.** Launch owner still does a 2-minute check that the Whop plan cancels with no fee.
+2. Starter Kit files in variant C: **approved** (as "files included", no dollar value).
+3. **Stop rule: pause the campaign if there are 0 signups by end of day 4.** Target cost per signup is not set. With $70 total and 7 days, the hard cap is the budget.
+4. Face/voice: **OPEN.** Mikey suggested Folana. Held because (a) the Folana brand was scrubbed from Agent Lab public copy by Mikey's own rule, (b) it crosses into the separate creator lane, and (c) consent/AI-disclosure depends on who Folana is. See ACMI `claudeAdsFaceDecision-1790434000000`. **Launch with text-only creatives until resolved.**
