@@ -147,7 +147,7 @@ Bootstrap agent:my-first-agent from ACMI and tell me what it was doing.
 If it answers "learning the fleet map", your agent now has memory that lasts between
 sessions. Every agent in this series builds on that.
 
-**✅ Check this off in the Starter Checklist app when you're done.**
+**✅ Done? Post a screenshot of Step 5 in the Agent Lab Forum with one line on what you want your agent to do next.** That's the "Post in the Forum" step on your Starter Checklist.
 
 ---
 
@@ -162,6 +162,10 @@ sessions. Every agent in this series builds on that.
   Only a human approves them. Log the approval as a `decision` event so there's a record.
 
 ---
+
+## Live build — Tuesday, Sep 29, 2pm ET
+
+Bring your Step 5 result. We'll build live inside the Lab and fix anyone who got stuck.
 
 ## Next week — Drop #2: Grok Bot as Chief of Staff
 
