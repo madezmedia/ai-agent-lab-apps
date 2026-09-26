@@ -130,6 +130,13 @@
   .lab ul { text-align: left; display: inline-block; margin: 8px 0 24px; }
   footer { padding: 28px 0 40px; color: var(--muted); font-size: 14px; text-align: center; }
 </style>
+<!-- Whop Pixel (Mad EZ Media biz_KcfL8Gsb1rw7SL): page views + funnel events for Whop Ads attribution.
+     Do NOT fire "purchase" here; Whop tracks checkout/subscriptions server-side. -->
+<script>
+!function(w,d,s,u,n,a,b){if(w[n])return;a=w[n]={q:[],t:+new Date,s:[],o:u,track:function(){a.q.push([+new Date].concat([].slice.call(arguments)))},setScope:function(){a.s=[].slice.call(arguments).filter(function(x){return typeof x==="string"});a.q.push([+new Date,"setScope"].concat(a.s))},scope:function(){var c=[].slice.call(arguments);return{track:function(){a.q.push([+new Date].concat([].slice.call(arguments)).concat([{__scope:c}]))}}}};b=d.createElement(s);b.async=1;b.src=u+"/s.js";d.getElementsByTagName(s)[0].parentNode.insertBefore(b,d.getElementsByTagName(s)[0])}(window,document,"script","https://t.whop.tw","whop");
+whop.setScope("biz_KcfL8Gsb1rw7SL");
+whop.track("page");
+</script>
 <!-- Vercel Web Analytics (active when deployed on Vercel with Analytics enabled) -->
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
@@ -255,7 +262,12 @@
 <script>
   // Lightweight human-vs-bot signals for the pop test: clicks, scroll depth, time on page.
   (function () {
-    function track(name, data) { try { window.va('event', { name: name, data: data || {} }); } catch (e) {} }
+    // Whop Pixel event names: guide_open -> standard "view_content"; others sent as custom events.
+    var WHOP_EVENT = { guide_open: 'view_content' };
+    function track(name, data) {
+      try { window.va('event', { name: name, data: data || {} }); } catch (e) {}
+      try { window.whop.track(WHOP_EVENT[name] || name); } catch (e) {}
+    }
     document.addEventListener('click', function (e) {
       var el = e.target.closest('[data-track]');
       if (el) track(el.getAttribute('data-track'));
