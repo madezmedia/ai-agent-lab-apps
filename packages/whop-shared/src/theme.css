@@ -1,20 +1,21 @@
 :root {
-  --lab-bg: #090b0e;
-  --lab-raise: #14181f;
-  --lab-raise-2: #1c232c;
-  --lab-line: rgba(244, 241, 234, 0.12);
-  --lab-text: #f4f1ea;
-  --lab-muted: #a8b1ba;
-  --lab-faint: #727c86;
-  --lab-lime: #d6ff3f;
-  --lab-lime-ink: #152000;
-  --lab-coral: #ff6b4a;
-  --lab-coral-ink: #2a0d07;
+  /* Mad EZ Media base look (content/brand/README.md): black + orange→red neon, heavy sans. */
+  --lab-bg: #07070a;
+  --lab-raise: #111117;
+  --lab-raise-2: #1a1a22;
+  --lab-line: #2a2a33;
+  --lab-text: #f4f4f7;
+  --lab-muted: #a6a6b0;
+  --lab-faint: #74747e;
+  --lab-accent: #ff5a1f;
+  --lab-accent-ink: #0b0b0f;
+  --lab-accent-2: #ff2d55;
+  --lab-accent-2-ink: #0b0b0f;
+  --lab-gradient: linear-gradient(90deg, #ff5a1f, #ff2d55);
+  --lab-glow: 0 0 24px rgba(255, 90, 31, 0.35);
   --lab-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
   --lab-radius: 20px;
   --lab-max: 920px;
-  --font-sans: var(--font-lab-sans), "Avenir Next", "Segoe UI", sans-serif;
-  --font-display: var(--font-lab-display), Georgia, "Times New Roman", serif;
   color-scheme: dark;
 }
 
@@ -29,13 +30,16 @@ body {
   margin: 0;
   min-height: 100%;
   background:
-    radial-gradient(1100px 480px at 0% -10%, rgba(214, 255, 63, 0.09), transparent 55%),
-    radial-gradient(900px 420px at 100% 0%, rgba(255, 107, 74, 0.1), transparent 46%),
+    radial-gradient(1100px 480px at 0% -10%, rgba(255, 45, 85, 0.08), transparent 55%),
+    radial-gradient(900px 420px at 100% 0%, rgba(255, 90, 31, 0.14), transparent 46%),
     var(--lab-bg);
   color: var(--lab-text);
 }
 
 body {
+  /* Declared on body, not :root: next/font sets --font-lab-sans on <body>, so :root can't see it. */
+  --font-sans: var(--font-lab-sans, "Outfit"), "Avenir Next", "Segoe UI", sans-serif;
+  --font-display: var(--font-sans);
   font-family: var(--font-sans);
   font-size: 16px;
   line-height: 1.5;
@@ -49,7 +53,7 @@ body {
 
 .lab-kicker {
   margin: 0 0 10px;
-  color: var(--lab-lime);
+  color: var(--lab-accent);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -68,7 +72,7 @@ body {
 .lab-month h2,
 .lab-step h2 {
   font-family: var(--font-display);
-  font-weight: 560;
+  font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.05;
 }
@@ -123,8 +127,9 @@ body {
 
 .lab-chip.is-active,
 .lab-button-primary {
-  background: var(--lab-lime);
-  color: var(--lab-lime-ink);
+  background: var(--lab-gradient);
+  box-shadow: var(--lab-glow);
+  color: var(--lab-accent-ink);
   border-color: transparent;
 }
 
@@ -146,7 +151,7 @@ body {
 .lab-chip:focus-visible,
 .lab-button:focus-visible,
 .lab-input:focus-visible {
-  outline: 2px solid var(--lab-lime);
+  outline: 2px solid var(--lab-accent);
   outline-offset: 3px;
 }
 
@@ -213,13 +218,13 @@ body {
 }
 
 .lab-badge-tuesday {
-  background: var(--lab-lime);
-  color: var(--lab-lime-ink);
+  background: var(--lab-accent);
+  color: var(--lab-accent-ink);
 }
 
 .lab-badge-friday {
-  background: var(--lab-coral);
-  color: var(--lab-coral-ink);
+  background: var(--lab-accent-2);
+  color: var(--lab-accent-2-ink);
 }
 
 .lab-card h2,
@@ -307,18 +312,18 @@ body {
 }
 
 .lab-step.is-current .lab-step-index {
-  background: var(--lab-lime);
-  color: var(--lab-lime-ink);
+  background: var(--lab-accent);
+  color: var(--lab-accent-ink);
 }
 
 .lab-step.is-next .lab-step-index {
-  background: var(--lab-coral);
-  color: var(--lab-coral-ink);
+  background: var(--lab-accent-2);
+  color: var(--lab-accent-2-ink);
 }
 
 .lab-step-status {
   margin: 4px 0 6px !important;
-  color: var(--lab-lime) !important;
+  color: var(--lab-accent) !important;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.14em;
