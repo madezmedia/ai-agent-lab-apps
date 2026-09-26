@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mad EZ Media Store Kit</title>
+<!--
+  Mad EZ Media — Whop store (biz_KcfL8Gsb1rw7SL) base look.
+  Each <section class="panel"> renders to content/brand/png/<id>.png via ../storefront/render.mjs
+  (run with the page path as an argument). Same tokens as content/storefront/storefront.html.
+  Mascot source: content/brand/src/mascot-2024.png (the existing store avatar).
+-->
+<style>
+  :root {
+    --bg: #07070a; --panel: #111117; --line: #2a2a33; --text: #f4f4f7; --muted: #a6a6b0;
+    --o: #ff5a1f; --r: #ff2d55; --glow: rgba(255, 90, 31, .45);
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: #222; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--text); }
+  .panel { position: relative; overflow: hidden; margin-bottom: 40px; background: var(--bg); }
+  .panel::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(80% 80% at 60% 40%, #000 35%, transparent 100%);
+  }
+  .panel > * { position: relative; }
+  .hot { background: linear-gradient(90deg, var(--o), var(--r)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .chip { display: inline-flex; align-items: center; gap: 12px; border: 2px solid var(--line); background: rgba(17,17,23,.85);
+          border-radius: 999px; padding: 12px 24px; font-size: 26px; font-weight: 700; }
+  .chip i { width: 12px; height: 12px; border-radius: 50%; background: linear-gradient(135deg, var(--o), var(--r)); box-shadow: 0 0 12px var(--glow); }
+  .chip.primary { border-color: var(--o); box-shadow: 0 0 26px rgba(255,90,31,.25); }
+
+  /* Avatar: existing mascot, framed in the neon system */
+  .avatar-ring { border-radius: 50%; padding: 22px; background: conic-gradient(from 200deg, var(--o), var(--r), var(--o)); box-shadow: 0 0 60px var(--glow); }
+  .avatar-ring > div { border-radius: 50%; background: var(--bg); overflow: hidden; display: grid; place-items: center; }
+  .avatar-ring > div:has(img) { background: #fcc53a; } /* mascot disc yellow, hides the source image's black corners */
+  .avatar-ring img { width: 120%; height: 120%; object-fit: cover; clip-path: circle(41% at 50% 50%); }
+</style>
+</head>
+<body>
+
+<!-- 1. STORE BANNER 1920x1080 (16:9, matches current banner ratio). Key content kept in the centre-left safe area. -->
+<section class="panel" id="01-store-banner" style="width:1920px;height:1080px;
+  background: radial-gradient(55% 65% at 80% 30%, rgba(255,90,31,.30), transparent 70%),
+              radial-gradient(40% 50% at 5% 100%, rgba(255,45,85,.20), transparent 70%), var(--bg);">
+  <div style="position:absolute;left:170px;top:50%;transform:translateY(-50%);width:1060px">
+    <div style="font-size:30px;font-weight:800;letter-spacing:.2em;color:var(--muted);margin-bottom:30px">MAD EZ MEDIA</div>
+    <div style="font-size:108px;line-height:1.02;font-weight:850;letter-spacing:-.03em">We build AI agent teams that <span class="hot">remember.</span></div>
+    <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:54px">
+      <span class="chip primary"><i></i>AI Agent Lab · $39/mo</span>
+      <span class="chip"><i></i>ACMI · open source</span>
+      <span class="chip"><i></i>Agent Fleet Starter Kit</span>
+    </div>
+  </div>
+  <div style="position:absolute;right:170px;top:50%;transform:translateY(-50%)">
+    <div class="avatar-ring" style="width:500px;height:500px"><div style="width:456px;height:456px"><img src="src/mascot-2024.png" alt=""></div></div>
+  </div>
+</section>
+
+<!-- 2. STORE AVATAR 1024x1024: same mascot, neon ring, black field (reads at 40px) -->
+<section class="panel" id="02-store-avatar" style="width:1024px;height:1024px;display:grid;place-items:center;
+  background: radial-gradient(60% 60% at 50% 45%, rgba(255,90,31,.25), transparent 70%), var(--bg);">
+  <div class="avatar-ring" style="width:880px;height:880px"><div style="width:836px;height:836px"><img src="src/mascot-2024.png" alt=""></div></div>
+</section>
+
+<!-- 3. ALT AVATAR 1024x1024: monogram, for places where the mascot is too detailed (favicons, tiny badges) -->
+<section class="panel" id="03-avatar-monogram" style="width:1024px;height:1024px;display:grid;place-items:center;
+  background: radial-gradient(60% 60% at 50% 45%, rgba(255,90,31,.25), transparent 70%), var(--bg);">
+  <div class="avatar-ring" style="width:880px;height:880px"><div style="width:836px;height:836px">
+    <div style="font-size:330px;font-weight:900;letter-spacing:-.06em;line-height:1"><span class="hot">EZ</span></div>
+  </div></div>
+</section>
+
+<!-- 4. SOCIAL / LINK PREVIEW 1200x630 (og-image style: X, LinkedIn, Discord unfurls of the store link) -->
+<section class="panel" id="04-social-card" style="width:1200px;height:630px;
+  background: radial-gradient(60% 70% at 85% 25%, rgba(255,90,31,.30), transparent 70%), var(--bg);">
+  <div style="position:absolute;left:80px;top:50%;transform:translateY(-50%);width:760px">
+    <div style="font-size:22px;font-weight:800;letter-spacing:.2em;color:var(--muted);margin-bottom:20px">MAD EZ MEDIA</div>
+    <div style="font-size:66px;line-height:1.04;font-weight:850;letter-spacing:-.025em">AI agent teams that <span class="hot">remember.</span></div>
+    <div style="font-size:28px;color:var(--muted);margin-top:22px">Weekly builds in AI Agent Lab · $39/mo</div>
+  </div>
+  <div style="position:absolute;right:70px;top:50%;transform:translateY(-50%)">
+    <div class="avatar-ring" style="width:300px;height:300px;padding:14px"><div style="width:272px;height:272px"><img src="src/mascot-2024.png" alt=""></div></div>
+  </div>
+</section>
+
+</body>
+</html>
