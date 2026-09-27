@@ -1,0 +1,14 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Store grid preview</title>
+<!-- Mock of the Whop "Products" grid to check card art under Whop's title overlay. Not uploaded anywhere. -->
+<style>
+ body{margin:0;background:#161618;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#fff}
+ .panel{width:900px;padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+ .c{border:1px solid #2c2c30;border-radius:18px;overflow:hidden;background:#1d1d20}
+ .img{position:relative;aspect-ratio:16/9;background-size:cover;background-position:center}
+ .img span{position:absolute;left:18px;bottom:14px;right:18px;font-size:27px;font-weight:700;line-height:1.15;text-shadow:0 2px 8px rgba(0,0,0,.6)}
+ .p{padding:16px 18px;color:#7aa0ff;font-size:22px;font-weight:600;border-top:1px solid #2c2c30}
+</style></head><body><section class="panel" id="store-grid-preview">
+<script>
+const items=[["automation-toolkit","AI Automation Toolkit","Free"],["image-gen-tools","AI Unfiltered-Image Gen Tools","Free"],["ai-agent-lab","AI Agent Lab","$39 / month"],["vibe-coding","Vibe Coding Tips And Tricks",""],["creator-360","EZ Influencer Creator 360","$100 / month"],["starter-kit","AI Agent Fleet Starter Kit","$47 one-time"],["folana-inner-circle","Folana's Inner Circle","$7 / month"]];
+document.write(items.map(([s,n,p])=>`<div class="c"><div class="img" style="background-image:url(png/catalog/card-${s}.png)"><span>${n}</span></div><div class="p">${p||"&nbsp;"}</div></div>`).join(""));
+</script></section></body></html>
