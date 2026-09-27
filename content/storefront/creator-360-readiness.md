@@ -8,6 +8,18 @@ acmi: work:agent-lab-offer-consolidate-20260925 (cid claudePolarDataPull-1790472
 
 # Creator 360: is it ready to take $100/month?
 
+## 0. Update 2026-09-27 (Polar data pull + public page check)
+
+- **PRICE MISMATCH, fix before approving anyone.** The public page shows **"$100/ month"** (hero + card)
+  with a "Start free trial" button. Polar says the plan behind it is **$29.99/mo**. Mikey decides which
+  price is right. Then either the page or the plan changes so they match. Claude does not pick a price.
+- **Waitlist:** Polar counts **4 pending** (Mikey's export showed 1, possibly filtered). Approving
+  **starts the 7-day free trial**; it doesn't charge right away. The 3 others still need the same check
+  (real name, non-disposable email, a social profile). The mail.tm entry stays a decline.
+- **Member view:** AI Image Generator works. **AI Podcast Generator still 404** (exp_ciwNR5in46VTDU):
+  hide it or fix it before anyone new joins.
+- **Folana disclosure + cross-sell blocks: LIVE** (verified on the public Inner Circle page).
+
 ## 1. The waitlist entry: do NOT approve
 
 Mikey's waitlist export has **one entry**:
