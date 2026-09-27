@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { AppShell } from "@madez/whop-shared/ui";
 import { PERSONA, replyTo } from "#/persona";
 
@@ -8,6 +8,15 @@ export function PersonaChat() {
   const [text, setText] = useState("");
   const [msgs, setMsgs] = useState<Msg[]>(() => [{ role: "them", text: PERSONA.welcome }]);
   const historyKey = useMemo(() => `persona-chat:${PERSONA.id}`, []);
+  // Restore this tab's history after mount (sessionStorage is not available during SSR).
+  useEffect(() => {
+    try {
+      const saved = sessionStorage.getItem(historyKey);
+      if (saved) setMsgs(JSON.parse(saved) as Msg[]);
+    } catch {
+      /* ignore */
+    }
+  }, [historyKey]);
   function send() {
     const clean = text.trim();
     if (!clean) return;
