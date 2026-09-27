@@ -128,6 +128,23 @@
     background: radial-gradient(50% 60% at 50% 0%, var(--glow), transparent 70%);
   }
   .lab ul { text-align: left; display: inline-block; margin: 8px 0 24px; }
+  .capture {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 22px;
+    margin-top: 30px;
+  }
+  .capture h3 { margin: 0 0 6px; font-size: 21px; }
+  .capture p { margin: 0 0 16px; color: var(--muted); }
+  .btn.ghost {
+    background: transparent;
+    color: var(--text);
+    border: 2px solid var(--accent);
+    box-shadow: none;
+    font-size: 16px;
+    padding: 12px 22px;
+  }
   footer { padding: 28px 0 40px; color: var(--muted); font-size: 14px; text-align: center; }
 </style>
 <!-- Whop Pixel (Mad EZ Media biz_KcfL8Gsb1rw7SL): page views + funnel events for Whop Ads attribution.
@@ -154,7 +171,7 @@ whop.track("page");
       <li>Copy-paste steps, no code to write</li>
     </ul>
     <a class="btn" href="#guide" data-track="guide_open">Get the free guide ↓</a>
-    <p class="fine">No signup. The whole guide is on this page.</p>
+    <p class="fine">No signup. The whole guide is on this page. <a href="#free" data-track="free_anchor">Want new guides by email?</a></p>
   </div>
 </header>
 
@@ -236,6 +253,12 @@ whop.track("page");
       </div>
 
       <p class="sub" style="margin-top:28px">Source code and docs: <a href="https://github.com/madezmedia/acmi" target="_blank" rel="noopener" data-track="github_click">github.com/madezmedia/acmi</a></p>
+
+      <div class="capture" id="free">
+        <h3>Want the next free guide?</h3>
+        <p>Join Mad EZ Media's free AI Automation Toolkit on Whop. It's free. We'll send new agent guides to the email you join with. Unsubscribe anytime.</p>
+        <a class="btn ghost" href="/free_join" data-track="free_join_click">Join free on Whop →</a>
+      </div>
     </div>
   </section>
 
