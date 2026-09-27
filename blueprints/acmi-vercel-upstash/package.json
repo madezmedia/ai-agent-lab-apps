@@ -1,0 +1,15 @@
+{
+  "name": "acmi-vercel-upstash",
+  "private": true,
+  "type": "module",
+  "description": "Hosted ACMI memory for your AI agents: a remote MCP endpoint on Vercel, backed by your own Upstash Redis.",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "@madezmedia/acmi": "^1.2.0",
+    "@modelcontextprotocol/sdk": "^1.20.0",
+    "zod": "^3.25.0"
+  }
+}

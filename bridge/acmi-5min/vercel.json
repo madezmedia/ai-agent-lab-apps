@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/lab_click",
+      "destination": "https://whop.com/checkout/plan_a3r1JmyB7VZIO?utm_source=traffics&utm_medium=pop&utm_campaign=agentlab-pop-test",
+      "permanent": false
+    }
+  ]
+}

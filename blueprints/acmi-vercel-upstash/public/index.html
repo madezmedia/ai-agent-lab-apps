@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>ACMI Memory Viewer</title>
+<style>
+  :root { --bg:#07070a; --panel:#111117; --line:#2a2a33; --text:#f4f4f7; --muted:#a6a6b0; --o:#ff5a1f; --r:#ff2d55; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 34px; margin: 0 0 4px; letter-spacing: -.02em; }
+  h1 span { background: linear-gradient(90deg,var(--o),var(--r)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .muted { color: var(--muted); }
+  form { display: grid; grid-template-columns: 1fr 140px 1fr auto; gap: 8px; margin: 24px 0; }
+  @media (max-width: 700px) { form { grid-template-columns: 1fr; } }
+  input, select, button { font: inherit; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--panel); color: var(--text); min-width: 0; }
+  button { background: linear-gradient(90deg,var(--o),var(--r)); color:#0b0b0f; font-weight: 800; border: 0; cursor: pointer; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; overflow: auto; }
+  .card h2 { margin: 0 0 8px; font-size: 13px; letter-spacing: .14em; color: var(--o); }
+  pre { margin: 0; white-space: pre-wrap; word-break: break-word; font: 13px/1.5 ui-monospace,Menlo,Consolas,monospace; color: #ffd2c2; }
+  .ev { border-top: 1px solid var(--line); padding: 10px 0; }
+  .ev:first-child { border-top: 0; }
+  .ev .meta { font-size: 12px; color: var(--muted); }
+  .ids a { color: var(--o); margin-right: 12px; cursor: pointer; }
+  .err { color: var(--r); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>ACMI <span>Memory Viewer</span></h1>
+  <p class="muted">Read-only view of your agents' shared memory. Your token stays in this browser tab.</p>
+
+  <form id="f">
+    <input id="token" type="password" placeholder="ACMI_MCP_TOKEN" autocomplete="off" required>
+    <select id="ns"><option>agent</option><option>work</option><option>thread</option><option>user</option></select>
+    <input id="id" placeholder="id (blank = list all)">
+    <button>Load</button>
+  </form>
+
+  <div id="out"></div>
+</div>
+<script>
+  const $ = (id) => document.getElementById(id);
+  try { $("token").value = sessionStorage.getItem("acmi_token") || ""; } catch {}
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  async function load() {
+    const token = $("token").value.trim(), ns = $("ns").value, id = $("id").value.trim();
+    try { sessionStorage.setItem("acmi_token", token); } catch {}
+    const q = new URLSearchParams({ namespace: ns, ...(id ? { id } : {}) });
+    $("out").innerHTML = '<p class="muted">Loading…</p>';
+    try {
+      const res = await fetch(`/api/entity?${q}`, { headers: { Authorization: `Bearer ${token}` } });
+      const body = await res.json();
+      if (!res.ok) throw new Error(body.error || res.status);
+      if (!id) {
+        $("out").innerHTML = body.ids.length
+          ? `<div class="card ids"><h2>${esc(ns.toUpperCase())}</h2>${body.ids.map((x) => `<a data-id="${esc(x)}">${esc(x)}</a>`).join("")}</div>`
+          : '<p class="muted">Nothing here yet.</p>';
+        return;
+      }
+      const events = (body.timeline || []).map((e) => `<div class="ev"><div class="meta">${new Date(e.ts).toLocaleString()} · ${esc(e.kind)} · ${esc(e.source)}</div>${esc(e.summary)}<div class="meta">${esc(e.correlationId)}</div></div>`).join("");
+      $("out").innerHTML = `
+        <div class="grid">
+          <div class="card"><h2>PROFILE</h2><pre>${esc(JSON.stringify(body.profile, null, 2))}</pre></div>
+          <div class="card"><h2>SIGNALS</h2><pre>${esc(JSON.stringify(body.signals, null, 2))}</pre></div>
+        </div>
+        <div class="card" style="margin-top:12px"><h2>TIMELINE (NEWEST FIRST)</h2>${events || '<p class="muted">No events.</p>'}</div>`;
+    } catch (err) {
+      $("out").innerHTML = `<p class="err">${esc(err.message)}</p>`;
+    }
+  }
+  $("f").addEventListener("submit", (e) => { e.preventDefault(); load(); });
+  $("out").addEventListener("click", (e) => { const a = e.target.closest("[data-id]"); if (a) { $("id").value = a.dataset.id; load(); } });
+</script>
+</body>
+</html>
