@@ -15,6 +15,7 @@ const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PAT
 const tab = await browser.newPage({ viewport: { width: 2000, height: 1200 } });
 await tab.goto('file://' + page);
 await tab.waitForLoadState('networkidle');
+await tab.evaluate(() => document.fonts.ready);
 for (const el of await tab.$$('section.panel')) {
   const id = await el.getAttribute('id');
   await el.screenshot({ path: path.join(outDir, `${id}.png`) });

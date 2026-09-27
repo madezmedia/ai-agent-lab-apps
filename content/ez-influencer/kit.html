@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>EZ Influencer Lab asset kit</title>
+<!-- Renders every Whop asset for the EZ Influencer Lab store (biz_EFva9rJXKAfThM).
+     node content/storefront/render.mjs content/ez-influencer/kit.html content/ez-influencer/png
+     Tokens mirror the design system (tokens.json). Copy only states what each live product page says. -->
+<style>
+  @font-face { font-family: "Bricolage Grotesque"; src: url(fonts/BricolageGrotesque-ExtraBold.woff2) format("woff2"); font-weight: 800; }
+  @font-face { font-family: "Figtree"; src: url(fonts/Figtree-Regular.woff2) format("woff2"); font-weight: 400; }
+  @font-face { font-family: "Figtree"; src: url(fonts/Figtree-SemiBold.woff2) format("woff2"); font-weight: 600; }
+  @font-face { font-family: "DM Mono"; src: url(fonts/DMMono-Medium.woff2) format("woff2"); font-weight: 500; }
+
+  :root {
+    --studio: #0e0b10;
+    --studio-raised: #1a1419;
+    --line: #33282f;
+    --ink: #fbf1f4;
+    --ink-muted: #b9a8b0;
+    --flash: #ff3dbb;
+    --flash-soft: #3a1030;
+    --on-flash: #1c0714;
+    --lock: #ffc94d;
+    --peach: #ffb199;
+    --display: "Bricolage Grotesque", "Arial Black", system-ui, sans-serif;
+    --body: "Figtree", system-ui, sans-serif;
+    --mono: "DM Mono", ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #2a2a2a; font-family: var(--body); color: var(--ink); }
+  section.panel { position: relative; overflow: hidden; background: var(--studio); margin: 0 0 40px; }
+
+  /* shared studio atmosphere: ring-light glow + viewfinder corners + frame counter */
+  .glow { position: absolute; border-radius: 50%; pointer-events: none;
+    background: radial-gradient(circle, rgba(255,61,187,.34), rgba(255,61,187,0) 62%); }
+  .glow.gold { background: radial-gradient(circle, rgba(255,201,77,.16), rgba(255,201,77,0) 60%); }
+  .vf { position: absolute; width: 64px; height: 64px; border-color: var(--ink-muted); border-style: solid; border-width: 0; opacity: .55; }
+  .vf.tl { border-top-width: 4px; border-left-width: 4px; }
+  .vf.tr { border-top-width: 4px; border-right-width: 4px; }
+  .vf.bl { border-bottom-width: 4px; border-left-width: 4px; }
+  .vf.br { border-bottom-width: 4px; border-right-width: 4px; }
+  .counter { position: absolute; font: 500 22px/1 var(--mono); letter-spacing: .14em; color: var(--ink-muted); text-transform: uppercase; }
+  .counter b { color: var(--flash); font-weight: 500; }
+  .rec { display: inline-block; width: 14px; height: 14px; border-radius: 50%; background: var(--flash); margin-right: 12px; vertical-align: 1px; }
+
+  .eyebrow { font: 500 24px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--ink-muted); }
+  .eyebrow b { color: var(--lock); font-weight: 500; }
+  h2 { font-family: var(--display); font-weight: 800; letter-spacing: -.03em; margin: 0; text-wrap: balance; }
+  h2 em { font-style: normal; color: var(--flash); }
+  .chip { display: inline-flex; align-items: center; gap: 12px; padding: 14px 26px; border-radius: 999px;
+    border: 2px solid var(--line); background: var(--studio-raised); font: 600 28px/1 var(--body); color: var(--ink); }
+  .chip.hot { background: var(--flash); border-color: var(--flash); color: var(--on-flash); }
+  .chip.gold { border-color: var(--lock); color: var(--lock); background: transparent; }
+  .chips { display: flex; flex-wrap: wrap; gap: 16px; }
+
+  /* glyph tile */
+  .tile { position: absolute; border-radius: 48px; background: var(--studio-raised); border: 3px solid var(--line);
+    display: grid; place-items: center; box-shadow: 0 0 120px rgba(255,61,187,.25); }
+  .tile svg { width: 58%; height: 58%; overflow: visible; }
+  .g { fill: none; stroke: var(--flash); stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+  .g2 { fill: none; stroke: var(--lock); stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+  .gf { fill: var(--lock); }
+  .badge { position: absolute; font: 500 22px/1 var(--mono); letter-spacing: .14em; background: var(--lock); color: #1c1400;
+    padding: 10px 16px; border-radius: 8px; }
+
+  /* card: 1920x1080, bottom 46% kept dark for Whop's white title overlay */
+  .card { width: 1920px; height: 1080px; }
+  .card .shade { position: absolute; left: 0; right: 0; bottom: 0; height: 46%;
+    background: linear-gradient(to bottom, rgba(14,11,16,0), rgba(14,11,16,.94) 34%, var(--studio)); }
+  .card .hook { position: absolute; left: 120px; top: 150px; width: 1060px; }
+  .card .hook h2 { font-size: 112px; line-height: .98; margin-top: 26px; }
+  .card .tile { right: 150px; top: 120px; width: 460px; height: 460px; }
+
+  /* icon: 1024 */
+  .icon { width: 1024px; height: 1024px; }
+  .icon .tile { inset: 112px; width: auto; height: auto; border-radius: 120px; }
+
+  /* gallery: 1920x1080 headline + bullets + chips */
+  .gallery { width: 1920px; height: 1080px; }
+  .gallery .copy { position: absolute; left: 120px; top: 130px; width: 1080px; display: flex; flex-direction: column; gap: 34px; }
+  .gallery h2 { font-size: 96px; line-height: 1; }
+  .gallery .lede { font: 400 34px/1.45 var(--body); color: var(--ink-muted); margin: 0; max-width: 980px; }
+  .gallery ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 18px; }
+  .gallery li { font: 400 32px/1.35 var(--body); padding-left: 44px; position: relative; }
+  .gallery li::before { content: ""; position: absolute; left: 0; top: 12px; width: 18px; height: 18px; border: 4px solid var(--flash); border-radius: 4px; }
+  .gallery .tile { right: 150px; top: 250px; width: 480px; height: 480px; }
+  .gallery .note { position: absolute; left: 120px; bottom: 70px; font: 500 22px/1.4 var(--mono); letter-spacing: .08em; color: var(--ink-muted); }
+
+  /* store banner / avatar / social */
+  .banner { width: 1920px; height: 1080px; }
+  .avatar { width: 1024px; height: 1024px; display: grid; place-items: center; }
+  .social { width: 1200px; height: 630px; }
+  .mark { font-family: var(--display); font-weight: 800; letter-spacing: -.05em; line-height: .8; color: var(--ink); }
+  .mark i { font-style: normal; color: var(--flash); }
+
+  /* tiers + steps */
+  .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; position: absolute; left: 120px; right: 120px; top: 360px; }
+  .tier { background: var(--studio-raised); border: 3px solid var(--line); border-radius: 28px; padding: 44px 44px 48px; display: flex; flex-direction: column; gap: 22px; min-height: 520px; }
+  .tier.open { border-color: var(--flash); box-shadow: 0 0 80px rgba(255,61,187,.22); }
+  .tier .name { font: 800 60px/1 var(--display); letter-spacing: -.02em; }
+  .tier .price { font: 800 88px/1 var(--display); letter-spacing: -.03em; color: var(--flash); }
+  .tier .price small { font: 600 30px/1 var(--body); color: var(--ink-muted); letter-spacing: 0; }
+  .tier p { margin: 0; font: 400 30px/1.4 var(--body); color: var(--ink-muted); }
+  .tier .chip { align-self: flex-start; margin-top: auto; }
+  .steps { position: absolute; left: 120px; right: 120px; top: 380px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 26px; }
+  .step { border-top: 4px solid var(--line); padding-top: 30px; display: flex; flex-direction: column; gap: 18px; }
+  .step .n { font: 500 26px/1 var(--mono); letter-spacing: .14em; color: var(--flash); }
+  .step .t { font: 800 44px/1.02 var(--display); letter-spacing: -.02em; }
+  .step p { margin: 0; font: 400 26px/1.4 var(--body); color: var(--ink-muted); }
+  .step.lock { border-top-color: var(--lock); }
+  .step.lock .n { color: var(--lock); }
+</style>
+</head>
+<body>
+<div id="out"></div>
+<script>
+const G = {
+  lab: '<path class="g" d="M8 34V8h26M86 8h26v26M112 86v26H86M34 112H8V86"/><rect class="g2" x="42" y="56" width="36" height="30" rx="6"/><path class="g2" d="M49 56v-8a11 11 0 0 1 22 0v8"/>',
+  access: '<circle class="g" cx="38" cy="60" r="22"/><path class="g" d="M60 60h52M96 60v18M112 60v12"/><circle class="gf" cx="38" cy="60" r="7"/>',
+  ops: '<rect class="g" x="10" y="18" width="100" height="90" rx="14"/><path class="g" d="M10 44h100M36 8v20M84 8v20"/><path class="g2" d="M34 76l14 14 36-30"/>',
+  seat: '<rect class="g" x="14" y="12" width="92" height="38" rx="10"/><rect class="g" x="14" y="62" width="92" height="38" rx="10"/><circle class="gf" cx="34" cy="31" r="6"/><circle class="gf" cx="34" cy="81" r="6"/><path class="g" d="M60 31h28M60 81h28"/>',
+  credits: '<ellipse class="g" cx="60" cy="30" rx="40" ry="14"/><path class="g" d="M20 30v22c0 8 18 14 40 14s40-6 40-14V30M20 52v22c0 8 18 14 40 14s40-6 40-14V52M20 74v18c0 8 18 14 40 14s40-6 40-14V74"/><path class="g2" d="M60 22v16"/>',
+  team: '<ellipse class="g" cx="40" cy="44" rx="28" ry="10"/><path class="g" d="M12 44v44c0 6 12 10 28 10s28-4 28-10V44M12 66c0 6 12 10 28 10s28-4 28-10"/><ellipse class="g2" cx="84" cy="24" rx="26" ry="9"/><path class="g2" d="M58 24v24M110 24v44c0 5-8 9-18 10"/>',
+  lora: '<path class="g" d="M60 10l50 24-50 24-50-24z"/><path class="g" d="M10 60l50 24 50-24"/><path class="g2" d="M10 84l50 24 50-24"/>',
+  note: '<path class="g" d="M44 92V20l60-12v70"/><circle class="g" cx="30" cy="92" r="16"/><circle class="g" cx="90" cy="80" r="16"/><path class="g2" d="M44 40l60-12"/>',
+  wave: '<path class="g" d="M10 60h8M30 40v40M46 22v76M62 44v32M78 14v92M94 34v52M110 60h0"/><path class="g2" d="M110 52v16"/>',
+  studio: '<path class="g" d="M26 10v100M60 10v100M94 10v100"/><rect class="g2" x="14" y="66" width="24" height="16" rx="5" style="fill:var(--studio-raised)"/><rect class="g2" x="48" y="30" width="24" height="16" rx="5" style="fill:var(--studio-raised)"/><rect class="g2" x="82" y="80" width="24" height="16" rx="5" style="fill:var(--studio-raised)"/>',
+  mic: '<rect class="g" x="40" y="8" width="40" height="64" rx="20"/><path class="g" d="M22 56a38 38 0 0 0 76 0M60 94v18M40 112h40"/><path class="g2" d="M52 30h16M52 46h16"/>',
+};
+const glyph = (k) => `<svg viewBox="0 0 120 120" aria-hidden="true">${G[k]}</svg>`;
+const atmos = (w, h, n) => `
+  <div class="glow" style="width:${w * .9}px;height:${w * .9}px;right:${-w * .22}px;top:${-w * .38}px"></div>
+  <div class="glow gold" style="width:${w * .5}px;height:${w * .5}px;left:${-w * .15}px;bottom:${-w * .2}px"></div>
+  <div class="vf tl" style="left:48px;top:48px"></div><div class="vf tr" style="right:48px;top:48px"></div>
+  <div class="vf bl" style="left:48px;bottom:48px"></div><div class="vf br" style="right:48px;bottom:48px"></div>
+  ${n ? `<div class="counter" style="right:132px;top:62px"><span class="rec"></span>EZ LAB · FR <b>${n}</b></div>` : ''}`;
+
+// One entry per live product. Hooks, bullets and chips only restate that product's own Whop page (checked 2026-09-27).
+const P = [
+  { slug: 'ez-influencer-lab', n: '01', glyph: 'lab', eyebrow: 'EZ Influencer Lab · <b>Foundations open</b>',
+    hook: 'AI influencers you can <em>actually run.</em>', lede: 'Not another prompt pack. Start with Lab Foundations: enter the Lab, pick a niche, choose a base model, verify.',
+    bullets: ['Enter the Lab, niche, base model, verify', 'Face-lock Lab Agent pack after the structure pass', 'Operator and Studio tracks open by waitlist'],
+    chips: [['Foundations $7/mo', 'hot'], ['3-day trial', ''], ['Operator + Studio: waitlist', 'gold']] },
+  { slug: 'member-access', n: '02', glyph: 'access', eyebrow: 'Legacy public beta',
+    hook: 'Browse the catalog <em>and the community.</em>', lede: 'Early-member access to EZ Influencer Lab (formerly AI Music Influencer Public Beta).',
+    bullets: ['Browse the persona catalog and community', 'Deploy a persona agent by adding Ops + a pack license', 'Start with the Folana pack'],
+    chips: [['Early members', 'gold']] },
+  { slug: 'ops-membership', n: '03', glyph: 'ops', eyebrow: 'Ops Membership',
+    hook: 'The weekly <em>operator drop.</em>', lede: 'For people running AI influencers for real: new packs, lock updates, and the weekly drop.',
+    bullets: ['The catalog as it grows', 'Fanvue-first playbooks', 'Credit hygiene and approval gates', 'Community with other operators'],
+    chips: [['$49/mo', 'hot'], ['7-day trial', '']] },
+  { slug: 'hosted-agent-seat', n: '04', glyph: 'seat', eyebrow: 'Hosted Agent Seat',
+    hook: 'We run the agent. <em>You approve the posts.</em>', lede: 'One hosted runtime seat for a licensed pack. We run Eve + ACMI; you connect accounts.',
+    bullets: ['Deploy, schedules and connector hooks', 'Your own ACMI entity', 'You approve anything that spends or posts publicly', 'Needs an active pack license + your Fanvue/X tokens'],
+    chips: [['$39/mo', 'hot'], ['Needs a pack license', 'gold']] },
+  { slug: 'credits-creator-pro', n: '05', glyph: 'credits', eyebrow: 'Credits · Creator Pro',
+    hook: '300 credits. <em>They never expire.</em>', lede: '250 generation credits plus 50 bonus, across FLUX Pro, Bytedance 4.0 and ComfyUI.',
+    bullets: ['Full HD, no watermarks', 'All templates and effects unlocked', 'Pro character profile system', 'Export JPG, PNG or WebP'],
+    chips: [['$19 one-time', 'hot'], ['250 + 50 bonus', '']] },
+  { slug: 'credits-pro-team', n: '06', glyph: 'team', eyebrow: 'Credits · Pro Team',
+    hook: '850 credits for <em>regular creators.</em>', lede: '700 generation credits plus 150 bonus, with everything in Creator Pro.',
+    bullets: ['Up to 2K resolution (2048px)', '2× priority queue', 'Prompt generator + avatar creator', 'Batch editing and credit gifting'],
+    chips: [['$49 one-time', 'hot'], ['700 + 150 bonus', '']] },
+  { slug: 'nextgen-lora-lab', n: '07', glyph: 'lora', eyebrow: 'NextGen LoRA Lab',
+    hook: 'A LoRA library for <em>FLUX, WAN and Qwen.</em>', lede: 'Browse, filter and download LoRA models, with regular updates.',
+    bullets: ['Models for FLUX, WAN and Qwen', 'Browse, filter and download', 'Continuous updates'],
+    chips: [['$9/mo', 'hot']] },
+  { slug: 'ai-music-starter-pack', n: '08', glyph: 'note', eyebrow: 'AI Music Starter Pack',
+    hook: 'Start making <em>AI music.</em>', lede: 'The starter pack for AI music creators.',
+    bullets: [], chips: [['$47', 'hot']] },
+  { slug: 'ai-music-creator-pro', n: '09', glyph: 'wave', eyebrow: 'AI Music Creator Pro',
+    hook: 'AI music production <em>in 30 days.</em>', lede: 'Master AI-powered music production in 30 days.',
+    bullets: [], chips: [['$97', 'hot']] },
+  { slug: 'premium-studio-access', n: '10', glyph: 'studio', eyebrow: 'Premium Studio Access',
+    hook: 'Beatmaking with <em>pro studio tools.</em>', lede: 'Master beatmaking with industry-standard production tools.',
+    bullets: [], chips: [['$197/mo', 'hot'], ['7-day trial', '']] },
+  { slug: 'folana-inner-circle', n: '11', glyph: 'mic', eyebrow: 'Folana · <b>AI artist</b>', badge: 'AI ARTIST',
+    hook: 'Early access to <em>Folana\'s world.</em>', lede: 'Folana is an AI artist created by Mad EZ Media. Her music, art, voice and messages are AI-generated, and a human team produces and curates everything.',
+    bullets: ['AI-generated voice notes from Folana', 'Monthly listening parties (her music is AI-generated)'],
+    chips: [['$7/mo', 'hot'], ['AI artist, disclosed', 'gold']] },
+];
+
+const chips = (c) => `<div class="chips">${c.map(([t, k]) => `<span class="chip ${k}">${t}</span>`).join('')}</div>`;
+let html = '';
+
+// store kit
+html += `<section class="panel banner" id="01-store-banner">${atmos(1920, 1080, '00')}
+  <div style="position:absolute;left:150px;top:210px;width:1180px;display:flex;flex-direction:column;gap:40px">
+    <div class="eyebrow">EZ Influencer Lab · <b>AI influencer studio</b></div>
+    <h2 style="font-size:150px;line-height:.94">AI influencers you can <em>actually run.</em></h2>
+    <p style="margin:0;font:400 40px/1.4 var(--body);color:var(--ink-muted);max-width:1000px">Pick a locked persona, deploy it as an agent, connect Fanvue, and approve every post.</p>
+  </div>
+  <div class="tile" style="right:170px;top:300px;width:420px;height:420px">${glyph('lab')}</div></section>`;
+html += `<section class="panel avatar" id="02-store-avatar">
+  <div class="glow" style="width:900px;height:900px;right:-260px;top:-360px"></div>
+  <div style="position:relative;width:640px;height:640px;display:grid;place-items:center">
+    <div class="vf tl" style="left:0;top:0;width:150px;height:150px;border-width:0;border-top-width:22px;border-left-width:22px;border-color:var(--flash);opacity:1"></div>
+    <div class="vf br" style="right:0;bottom:0;width:150px;height:150px;border-width:0;border-bottom-width:22px;border-right-width:22px;border-color:var(--lock);opacity:1"></div>
+    <div class="mark" style="font-size:380px">EZ<i>.</i></div>
+  </div></section>`;
+html += `<section class="panel social" id="03-social-card">${atmos(1200, 630, '')}
+  <div style="position:absolute;left:84px;top:96px;width:720px;display:flex;flex-direction:column;gap:26px">
+    <div class="eyebrow" style="font-size:18px">EZ Influencer Lab</div>
+    <h2 style="font-size:84px;line-height:.96">AI influencers you can <em>actually run.</em></h2>
+    <div class="chips" style="gap:12px"><span class="chip hot" style="font-size:22px;padding:10px 18px">Foundations $7/mo</span><span class="chip" style="font-size:22px;padding:10px 18px">3-day trial</span></div>
+  </div>
+  <div class="tile" style="right:90px;top:150px;width:300px;height:300px;border-radius:36px">${glyph('lab')}</div></section>`;
+
+// per product
+for (const p of P) {
+  html += `<section class="panel card" id="card-${p.slug}">${atmos(1920, 1080, p.n)}<div class="shade"></div>
+    <div class="hook"><div class="eyebrow">${p.eyebrow}</div><h2>${p.hook}</h2></div>
+    <div class="tile">${glyph(p.glyph)}</div>${p.badge ? `<div class="badge" style="right:170px;top:600px">${p.badge}</div>` : ''}</section>`;
+  html += `<section class="panel icon" id="icon-${p.slug}">${atmos(1024, 1024, '')}<div class="tile">${glyph(p.glyph)}</div>
+    ${p.badge ? `<div class="badge" style="left:50%;transform:translateX(-50%);bottom:150px;font-size:34px;padding:14px 22px">${p.badge}</div>` : ''}</section>`;
+  html += `<section class="panel gallery" id="gallery-${p.slug}">${atmos(1920, 1080, p.n)}
+    <div class="copy"><div class="eyebrow">${p.eyebrow}</div><h2>${p.hook}</h2><p class="lede">${p.lede}</p>
+    ${p.bullets.length ? `<ul>${p.bullets.map((b) => `<li>${b}</li>`).join('')}</ul>` : ''}${chips(p.chips)}</div>
+    <div class="tile">${glyph(p.glyph)}</div>
+    ${p.badge ? '<div class="note">Folana is an AI artist created by Mad EZ Media · AI-generated, human-curated</div>' : ''}</section>`;
+}
+
+// EZ Influencer Lab extras: tiers + how it works
+html += `<section class="panel gallery" id="gallery-ez-influencer-lab-tiers">${atmos(1920, 1080, '01')}
+  <div style="position:absolute;left:120px;top:120px;display:flex;flex-direction:column;gap:24px">
+    <div class="eyebrow">EZ Influencer Lab · <b>Three tracks</b></div>
+    <h2 style="font-size:96px;line-height:1">Start at Foundations. <em>Grow into Studio.</em></h2></div>
+  <div class="tiers">
+    <div class="tier open"><div class="name">Foundations</div><div class="price">$7<small> /month</small></div>
+      <p>Enter the Lab, pick a niche, choose a base model, verify.</p><span class="chip hot">Open now · 3-day trial</span></div>
+    <div class="tier"><div class="name">Operator</div><div class="price">$47<small> /month</small></div>
+      <p>The Operator track.</p><span class="chip gold">Waitlist</span></div>
+    <div class="tier"><div class="name">Studio</div><div class="price">$97<small> /month</small></div>
+      <p>The Studio (agency) track.</p><span class="chip gold">Waitlist</span></div>
+  </div></section>`;
+html += `<section class="panel gallery" id="gallery-ez-influencer-lab-how">${atmos(1920, 1080, '01')}
+  <div style="position:absolute;left:120px;top:120px;display:flex;flex-direction:column;gap:24px">
+    <div class="eyebrow">How the Lab works</div>
+    <h2 style="font-size:96px;line-height:1">From niche to <em>approved post.</em></h2></div>
+  <div class="steps">
+    <div class="step"><div class="n">STEP 1</div><div class="t">Pick a niche</div><p>Choose who your AI influencer is for.</p></div>
+    <div class="step"><div class="n">STEP 2</div><div class="t">Base model</div><p>Choose the base model the persona is built on.</p></div>
+    <div class="step lock"><div class="n">STEP 3</div><div class="t">Face-lock</div><p>Verify, then lock the persona's look so every image stays consistent.</p></div>
+    <div class="step"><div class="n">STEP 4</div><div class="t">Deploy the agent</div><p>Run the persona as an agent, yourself or on a hosted seat.</p></div>
+    <div class="step"><div class="n">STEP 5</div><div class="t">Approve posts</div><p>Connect Fanvue and approve what goes out.</p></div>
+  </div></section>`;
+
+document.getElementById('out').innerHTML = html;
+</script>
+</body>
+</html>
