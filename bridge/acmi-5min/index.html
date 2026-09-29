@@ -154,6 +154,7 @@
 whop.setScope("biz_KcfL8Gsb1rw7SL");
 whop.track("page");
 </script>
+<script src="/analytics.js"></script>
 <!-- Vercel Web Analytics (active when deployed on Vercel with Analytics enabled) -->
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
@@ -291,6 +292,7 @@ whop.track("page");
     function track(name, data) {
       try { window.va('event', { name: name, data: data || {} }); } catch (e) {}
       try { window.whop.track(WHOP_EVENT[name] || name); } catch (e) {}
+      try { window.madezTrack(name, data); } catch (e) {}
     }
     document.addEventListener('click', function (e) {
       var el = e.target.closest('[data-track]');

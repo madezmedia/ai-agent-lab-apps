@@ -22,30 +22,31 @@
   a.ghost { color: var(--text); border: 2px solid var(--a1); }
   .fine { font-size: 13px; }
 </style>
+<script src="/analytics.js"></script>
 <script>
 !function(w,d,s,u,n,a,b){if(w[n])return;a=w[n]={q:[],t:+new Date,s:[],o:u,track:function(){a.q.push([+new Date].concat([].slice.call(arguments)))},setScope:function(){a.s=[].slice.call(arguments).filter(function(x){return typeof x==="string"});a.q.push([+new Date,"setScope"].concat(a.s))},scope:function(){var c=[].slice.call(arguments);return{track:function(){a.q.push([+new Date].concat([].slice.call(arguments)).concat([{__scope:c}]))}}}};b=d.createElement(s);b.async=1;b.src=u+"/s.js";d.getElementsByTagName(s)[0].parentNode.insertBefore(b,d.getElementsByTagName(s)[0])}(window,document,"script","https://t.whop.tw","whop");
 whop.setScope("biz_KcfL8Gsb1rw7SL");
 whop.track("page");
-if (new URLSearchParams(location.search).get('ok') === '1') whop.track("lead");
+if (new URLSearchParams(location.search).get('ok') === '1') { whop.track("lead"); window.madezTrack && window.madezTrack("blitz_optin"); }
 </script>
 </head>
 <body>
 <main>
   <h1>Your map is <span>ready.</span></h1>
   <p>It's also on its way to your inbox.</p>
-  <a class="btn primary" href="/downloads/agent-memory-map.pdf" download>Download the Agent Memory Map (PDF)</a>
+  <a class="btn primary" href="/downloads/agent-memory-map.pdf" download onclick="window.madezTrack&&madezTrack('pdf_download')">Download the Agent Memory Map (PDF)</a>
 
   <div class="card">
     <b>Step 2: get the next free guide</b>
     <p>Join Mad EZ Media's free AI Automation Toolkit on Whop. It's free. New agent guides land there first.</p>
-    <a class="btn ghost" href="/free_join">Join free on Whop →</a>
+    <a class="btn ghost" href="/free_join" onclick="window.madezTrack&&madezTrack('whop_claim_click')">Join free on Whop →</a>
   </div>
 
   <div class="card">
     <b>Want the whole agent team?</b>
     <p>AI Agent Lab walks you through the chief of staff, always-on agents and coding agents, one build a week, starting with Drop #1, "Your AI Agent Team: The Map."</p>
     <p class="fine">$1 for 3 days, then $39/month. Cancel anytime. 7-day money-back guarantee on your first $39.</p>
-    <a class="btn ghost" href="/lab_click">Try AI Agent Lab for $1 →</a>
+    <a class="btn ghost" href="/lab_click" onclick="window.madezTrack&&madezTrack('lab_click')">Try AI Agent Lab for $1 →</a>
   </div>
 </main>
 </body>
