@@ -1,25 +1,53 @@
 import type { GateResult } from "../types";
 import { AppShell } from "./app-shell";
 
+const DEFAULT_PRODUCT_NAME = "AI Agent Lab";
+
+type GateCopy = {
+  appName: string;
+  /** Membership product in the access-denied lede. Defaults to AI Agent Lab. */
+  productName?: string;
+  /** Header lockup. A custom productName is used when this is omitted. */
+  brand?: string;
+};
+
+function shellBrand(productName?: string, brand?: string): string | undefined {
+  if (brand) return brand;
+  if (productName && productName !== DEFAULT_PRODUCT_NAME) return productName;
+  return undefined;
+}
+
 export function GateFallback({
   status,
   appName,
-}: {
+  productName,
+  brand,
+}: GateCopy & {
   status: Exclude<GateResult["status"], "ok">;
-  appName: string;
 }) {
-  if (status === "misconfigured") return <Misconfigured appName={appName} />;
-  if (status === "admin_required") return <AdminRequired appName={appName} />;
-  if (status === "unavailable") return <Unavailable appName={appName} />;
-  return <AccessDenied appName={appName} />;
+  if (status === "misconfigured") {
+    return <Misconfigured appName={appName} productName={productName} brand={brand} />;
+  }
+  if (status === "admin_required") {
+    return <AdminRequired appName={appName} productName={productName} brand={brand} />;
+  }
+  if (status === "unavailable") {
+    return <Unavailable appName={appName} productName={productName} brand={brand} />;
+  }
+  return <AccessDenied appName={appName} productName={productName} brand={brand} />;
 }
 
-export function AccessDenied({ appName }: { appName: string }) {
+export function AccessDenied({
+  appName,
+  productName = DEFAULT_PRODUCT_NAME,
+  brand,
+}: GateCopy) {
   return (
     <AppShell
       kicker={appName}
       title="Access denied"
-      lede="This experience is for AI Agent Lab members."
+      lede={`This experience is for ${productName} members.`}
+      brand={shellBrand(productName, brand)}
     >
       <section className="lab-card">
         <h2>No access to this experience</h2>
@@ -32,12 +60,13 @@ export function AccessDenied({ appName }: { appName: string }) {
   );
 }
 
-export function AdminRequired({ appName }: { appName: string }) {
+export function AdminRequired({ appName, productName, brand }: GateCopy) {
   return (
     <AppShell
       kicker={appName}
       title="Admin access required"
       lede="The creator dashboard is limited to account team members."
+      brand={shellBrand(productName, brand)}
     >
       <section className="lab-card">
         <h2>Team members only</h2>
@@ -47,12 +76,13 @@ export function AdminRequired({ appName }: { appName: string }) {
   );
 }
 
-export function Misconfigured({ appName }: { appName: string }) {
+export function Misconfigured({ appName, productName, brand }: GateCopy) {
   return (
     <AppShell
       kicker={appName}
       title="App configuration incomplete"
       lede="The server is missing the Whop credentials it needs to check access."
+      brand={shellBrand(productName, brand)}
     >
       <section className="lab-card">
         <h2>Set the environment variables</h2>
@@ -65,12 +95,13 @@ export function Misconfigured({ appName }: { appName: string }) {
   );
 }
 
-export function Unavailable({ appName }: { appName: string }) {
+export function Unavailable({ appName, productName, brand }: GateCopy) {
   return (
     <AppShell
       kicker={appName}
       title="Access check unavailable"
       lede="The app could not confirm access with Whop just now."
+      brand={shellBrand(productName, brand)}
     >
       <section className="lab-card">
         <h2>Try again from Whop</h2>

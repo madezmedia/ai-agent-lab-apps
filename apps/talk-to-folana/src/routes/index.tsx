@@ -19,7 +19,9 @@ export const Route = createFileRoute("/")({
 function Home() {
   const gate = Route.useLoaderData();
   if (gate.status !== "ok") {
-    return <GateFallback status={gate.status} appName="Talk to Folana" />;
+    return (
+      <GateFallback status={gate.status} appName="Talk to Folana" productName="EZ Influencer Lab" />
+    );
   }
   return <PersonaChat />;
 }
