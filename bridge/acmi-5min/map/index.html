@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The 1-Page Agent Memory Map</title>
+<meta name="description" content="Stop Claude, Cursor and your other AI tools from forgetting context between sessions. Free 2-page cheat sheet.">
+<meta name="robots" content="noindex">
+<style>
+  :root { --bg:#07070a; --panel:#111117; --line:#2a2a33; --text:#f4f4f7; --muted:#a6a6b0; --a1:#ff5a1f; --a2:#ff2d55; }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px 16px; color: var(--text);
+    background: radial-gradient(60% 50% at 80% 10%, rgba(255,90,31,.28), transparent 70%), var(--bg);
+    font: 17px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { width: 100%; max-width: 560px; }
+  .tag { display: inline-block; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--a1); border: 1px solid var(--a1); border-radius: 999px; padding: 4px 12px; }
+  h1 { font-size: clamp(30px, 6vw, 44px); line-height: 1.08; margin: 16px 0 14px; letter-spacing: -.02em; }
+  h1 span { background: linear-gradient(90deg, var(--a1), var(--a2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  ul { list-style: none; padding: 0; margin: 0 0 22px; }
+  li { padding-left: 28px; position: relative; margin: 8px 0; }
+  li::before { content: "✓"; position: absolute; left: 0; color: var(--a1); font-weight: 800; }
+  form { display: flex; gap: 10px; flex-wrap: wrap; }
+  input[type=email] { flex: 1 1 240px; min-width: 0; font-size: 17px; padding: 15px 16px; border-radius: 12px; border: 1px solid var(--line); background: var(--panel); color: var(--text); }
+  input[type=email]:focus { outline: 2px solid var(--a1); outline-offset: 1px; }
+  button { flex: 0 0 auto; font: 700 17px/1 system-ui, sans-serif; padding: 15px 22px; border: 0; border-radius: 12px; color: #0b0b0f; cursor: pointer;
+    background: linear-gradient(90deg, var(--a1), var(--a2)); box-shadow: 0 8px 30px rgba(255,90,31,.35); }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .fine { font-size: 13px; color: var(--muted); margin-top: 12px; }
+  .err { color: #ff8a8a; font-size: 14px; margin: 10px 0 0; }
+</style>
+<script>
+!function(w,d,s,u,n,a,b){if(w[n])return;a=w[n]={q:[],t:+new Date,s:[],o:u,track:function(){a.q.push([+new Date].concat([].slice.call(arguments)))},setScope:function(){a.s=[].slice.call(arguments).filter(function(x){return typeof x==="string"});a.q.push([+new Date,"setScope"].concat(a.s))},scope:function(){var c=[].slice.call(arguments);return{track:function(){a.q.push([+new Date].concat([].slice.call(arguments)).concat([{__scope:c}]))}}}};b=d.createElement(s);b.async=1;b.src=u+"/s.js";d.getElementsByTagName(s)[0].parentNode.insertBefore(b,d.getElementsByTagName(s)[0])}(window,document,"script","https://t.whop.tw","whop");
+whop.setScope("biz_KcfL8Gsb1rw7SL");
+whop.track("page");
+</script>
+</head>
+<body>
+<main>
+  <span class="tag">Free · 2-page cheat sheet</span>
+  <h1>Stop your AI coding agents from <span>losing context.</span></h1>
+  <ul>
+    <li>The 3-slot memory model that makes Claude, Cursor and friends remember</li>
+    <li>A map of a real multi-agent team, on one page</li>
+    <li>5-minute free setup: your first agent that remembers between chats</li>
+  </ul>
+  <form method="post" action="/api/subscribe" id="f">
+    <label for="email" class="hp">Email</label>
+    <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@email.com" aria-label="Your email">
+    <div class="hp" aria-hidden="true"><label for="website">Website</label><input type="text" id="website" name="website" tabindex="-1" autocomplete="off"></div>
+    <input type="hidden" name="t" id="t">
+    <input type="hidden" name="utm_source" id="utm_source">
+    <input type="hidden" name="utm_campaign" id="utm_campaign">
+    <input type="hidden" name="utm_content" id="utm_content">
+    <button type="submit">Send me the map</button>
+  </form>
+  <p class="err" id="err" hidden></p>
+  <p class="fine">You'll get the cheat sheet and a few emails about building AI agent teams from Mad EZ Media. Unsubscribe anytime.</p>
+</main>
+<script>
+  (function () {
+    var q = new URLSearchParams(location.search);
+    document.getElementById('t').value = String(Date.now());
+    ['utm_source', 'utm_campaign', 'utm_content'].forEach(function (k) { document.getElementById(k).value = q.get(k) || ''; });
+    if (q.get('error')) { var e = document.getElementById('err'); e.textContent = q.get('error') === 'email' ? 'That email doesn’t look right. Try again?' : 'Something went wrong on our side. Try again in a minute.'; e.hidden = false; }
+  })();
+</script>
+</body>
+</html>

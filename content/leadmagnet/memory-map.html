@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The 1-Page Agent Memory Map</title>
+<!-- Source for downloads/agent-memory-map.pdf (2 pages, US Letter). Printed with Chromium. -->
+<style>
+  @page { size: Letter; margin: 0; }
+  :root { --bg:#07070a; --panel:#111117; --line:#2a2a33; --text:#f4f4f7; --muted:#a6a6b0; --a1:#ff5a1f; --a2:#ff2d55; }
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 13px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  .page { width: 8.5in; height: 11in; padding: 0.6in 0.65in; position: relative; overflow: hidden; page-break-after: always;
+    background: radial-gradient(60% 40% at 90% 0%, rgba(255,90,31,.22), transparent 70%), var(--bg); }
+  .eyebrow { font: 700 10px/1 system-ui, sans-serif; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+  .eyebrow b { color: var(--a1); }
+  h1 { font-size: 34px; line-height: 1.05; margin: 12px 0 10px; letter-spacing: -.02em; }
+  h1 span, .hot { background: linear-gradient(90deg, var(--a1), var(--a2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  h2 { font-size: 17px; margin: 0 0 8px; }
+  p { margin: 0 0 10px; color: #d6d6dc; }
+  .lede { font-size: 14.5px; color: var(--muted); max-width: 6.4in; }
+  .slots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 16px 0; }
+  .slot { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
+  .slot h3 { margin: 0 0 4px; font-size: 15px; color: var(--a1); }
+  .slot small { color: var(--muted); display: block; margin-bottom: 8px; }
+  pre { margin: 0; background: #0b0b10; border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; font: 10.5px/1.45 ui-monospace, Menlo, Consolas, monospace; color: #ffd2c2; white-space: pre-wrap; }
+  .map { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 12px; margin: 14px 0; }
+  .rules { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 22px; margin-top: 8px; }
+  .rules div { padding-left: 16px; position: relative; color: #d6d6dc; }
+  .rules div::before { content: ""; position: absolute; left: 0; top: 6px; width: 8px; height: 8px; border-radius: 2px; background: linear-gradient(135deg, var(--a1), var(--a2)); }
+  .step { display: grid; grid-template-columns: 30px 1fr; gap: 10px; margin: 12px 0; }
+  .num { width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--a1); color: var(--a1); display: grid; place-items: center; font-weight: 800; }
+  .cta { position: absolute; left: .65in; right: .65in; bottom: .6in; border: 1px solid var(--a1); border-radius: 14px; padding: 14px 16px; background: rgba(255,90,31,.08); }
+  .cta b { color: var(--text); }
+  .foot { position: absolute; left: .65in; right: .65in; bottom: .25in; font-size: 9.5px; color: var(--muted); display: flex; justify-content: space-between; }
+</style>
+</head>
+<body>
+<section class="page">
+  <div class="eyebrow">Mad EZ Media · <b>Free cheat sheet</b></div>
+  <h1>Stop your AI agents from <span>forgetting.</span></h1>
+  <p class="lede">Claude, Cursor and every other AI tool start each chat from zero. The fix is one shared memory that every agent reads when it starts and writes to as it works. Here's the whole model on one page.</p>
+
+  <h2 style="margin-top:18px">The 3-slot memory model</h2>
+  <div class="slots">
+    <div class="slot"><h3>Profile</h3><small>Who the agent is. Changes rarely.</small>
+<pre>{
+  "role": "coding agent",
+  "owner": "you",
+  "rules": ["tests before push"]
+}</pre></div>
+    <div class="slot"><h3>Signals</h3><small>What's true right now. Overwritten.</small>
+<pre>{
+  "current_task": "fix login bug",
+  "blocked_on": null,
+  "last_heartbeat": "09:14"
+}</pre></div>
+    <div class="slot"><h3>Timeline</h3><small>What happened, in order. Append-only.</small>
+<pre>09:02 picked up login bug
+09:10 found cause: expired token
+09:14 opened fix, waiting review</pre></div>
+  </div>
+
+  <h2>The agent team, mapped</h2>
+  <div class="map">
+    <svg viewBox="0 0 720 210" width="100%" height="190" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="720" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ff5a1f"/><stop offset="1" stop-color="#ff2d55"/></linearGradient></defs>
+      <g stroke="url(#g)" stroke-width="2.5" fill="none">
+        <path d="M360 44 L130 100 M360 44 L360 100 M360 44 L590 100 M130 128 L360 170 M360 128 L360 170 M590 128 L360 170"/>
+      </g>
+      <rect x="275" y="12" width="170" height="34" rx="9" fill="#111117" stroke="#ff5a1f" stroke-width="2"/>
+      <text x="360" y="34" fill="#f4f4f7" font-size="14" font-weight="700" text-anchor="middle">Chief of Staff</text>
+      <g font-size="12.5" font-weight="700" fill="#f4f4f7" text-anchor="middle">
+        <rect x="50" y="100" width="160" height="30" rx="8" fill="#111117" stroke="#2a2a33"/><text x="130" y="120">Personal agents</text>
+        <rect x="280" y="100" width="160" height="30" rx="8" fill="#111117" stroke="#2a2a33"/><text x="360" y="120">Server agent</text>
+        <rect x="510" y="100" width="160" height="30" rx="8" fill="#111117" stroke="#2a2a33"/><text x="590" y="120">Coding agents</text>
+      </g>
+      <rect x="265" y="166" width="190" height="36" rx="10" fill="url(#g)"/>
+      <text x="360" y="189" fill="#0b0b0f" font-size="14" font-weight="800" text-anchor="middle">Shared memory</text>
+    </svg>
+    <p style="margin:6px 0 0;color:var(--muted)">One agent routes the work. The others build, run 24/7 or write code. They all read and write one memory, so each one knows what the others did yesterday.</p>
+  </div>
+
+  <h2>4 rules that make it work</h2>
+  <div class="rules">
+    <div><b>Read first.</b> Every session starts by loading the agent's Profile, Signals and recent Timeline.</div>
+    <div><b>Write as you go.</b> Log each real step to the Timeline, not just the final answer.</div>
+    <div><b>Signals are "now".</b> Overwrite them; never let two agents keep separate versions of the truth.</div>
+    <div><b>One ID per job.</b> Tag related events with the same ID so you can follow a task across agents.</div>
+  </div>
+  <div class="foot"><span>Mad EZ Media · built on ACMI (open source, MIT)</span><span>1 / 2</span></div>
+</section>
+
+<section class="page">
+  <div class="eyebrow">Mad EZ Media · <b>Set it up free</b></div>
+  <h1>Your first agent that <span>remembers.</span></h1>
+  <p class="lede">About 5 minutes. Free database tier, free open-source tools. Works with Claude Code, Claude Desktop, Cursor, Cline and Windsurf.</p>
+
+  <div class="step"><div class="num">1</div><div><h2>Create a free memory database</h2><p>At console.upstash.com, create a Redis database (free tier is fine). From the REST API tab, copy <code>UPSTASH_REDIS_REST_URL</code> and <code>UPSTASH_REDIS_REST_TOKEN</code>. Treat the token like a password.</p></div></div>
+  <div class="step"><div class="num">2</div><div><h2>Install the ACMI server</h2><pre>npm install -g @madezmedia/acmi-mcp</pre></div></div>
+  <div class="step"><div class="num">3</div><div><h2>Connect it to Claude Code</h2>
+<pre>claude mcp add acmi acmi-mcp \
+  -e UPSTASH_REDIS_REST_URL=https://&lt;your-id&gt;.upstash.io \
+  -e UPSTASH_REDIS_REST_TOKEN=&lt;your-token&gt;</pre>
+    <p style="margin-top:6px;color:var(--muted)">Cursor / Claude Desktop / Cline / Windsurf: add the same two env vars to an "acmi" entry in your MCP settings, then restart the app.</p></div></div>
+  <div class="step"><div class="num">4</div><div><h2>Give your agent a memory</h2>
+<pre>Using the ACMI tools: write a profile for agent:my-first-agent
+(role "personal assistant"), log a "spawn" event, and set the
+signal current_task = "learning ACMI".</pre></div></div>
+  <div class="step"><div class="num">5</div><div><h2>Close the chat. Open a new one.</h2>
+<pre>Bootstrap agent:my-first-agent from ACMI and tell me what it was doing.</pre>
+    <p style="margin-top:6px">If it answers <b>"learning ACMI"</b>, your agent now remembers between sessions.</p></div></div>
+
+  <div class="cta">
+    <b>Want the whole team?</b> <span class="hot" style="font-weight:800">AI Agent Lab</span> walks you through the chief of staff, always-on agents and coding agents: one build a week. Start with Drop #1, "Your AI Agent Team: The Map."<br>
+    <b>$1 for 3 days</b>, then $39/month. Cancel anytime. 7-day money-back guarantee on your first $39.<br>
+    <span style="color:var(--muted)">whop.com/ai-automation-tools/ai-agent-lab-c1 · Source code: github.com/madezmedia/acmi</span>
+  </div>
+  <div class="foot"><span>Mad EZ Media · built on ACMI (open source, MIT)</span><span>2 / 2</span></div>
+</section>
+</body>
+</html>

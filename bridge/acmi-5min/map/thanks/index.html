@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Agent Memory Map</title>
+<meta name="robots" content="noindex">
+<style>
+  :root { --bg:#07070a; --panel:#111117; --line:#2a2a33; --text:#f4f4f7; --muted:#a6a6b0; --a1:#ff5a1f; --a2:#ff2d55; }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px 16px; color: var(--text);
+    background: radial-gradient(60% 50% at 80% 10%, rgba(255,90,31,.25), transparent 70%), var(--bg);
+    font: 17px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { width: 100%; max-width: 580px; display: grid; gap: 16px; }
+  h1 { font-size: clamp(28px, 5.5vw, 40px); line-height: 1.1; margin: 0; letter-spacing: -.02em; }
+  h1 span { background: linear-gradient(90deg, var(--a1), var(--a2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  p { margin: 0; color: var(--muted); }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 18px; display: grid; gap: 10px; }
+  .card b { color: var(--text); }
+  a.btn { display: inline-block; text-align: center; font-weight: 700; text-decoration: none; padding: 14px 20px; border-radius: 12px; }
+  a.primary { color: #0b0b0f; background: linear-gradient(90deg, var(--a1), var(--a2)); }
+  a.ghost { color: var(--text); border: 2px solid var(--a1); }
+  .fine { font-size: 13px; }
+</style>
+<script>
+!function(w,d,s,u,n,a,b){if(w[n])return;a=w[n]={q:[],t:+new Date,s:[],o:u,track:function(){a.q.push([+new Date].concat([].slice.call(arguments)))},setScope:function(){a.s=[].slice.call(arguments).filter(function(x){return typeof x==="string"});a.q.push([+new Date,"setScope"].concat(a.s))},scope:function(){var c=[].slice.call(arguments);return{track:function(){a.q.push([+new Date].concat([].slice.call(arguments)).concat([{__scope:c}]))}}}};b=d.createElement(s);b.async=1;b.src=u+"/s.js";d.getElementsByTagName(s)[0].parentNode.insertBefore(b,d.getElementsByTagName(s)[0])}(window,document,"script","https://t.whop.tw","whop");
+whop.setScope("biz_KcfL8Gsb1rw7SL");
+whop.track("page");
+if (new URLSearchParams(location.search).get('ok') === '1') whop.track("lead");
+</script>
+</head>
+<body>
+<main>
+  <h1>Your map is <span>ready.</span></h1>
+  <p>It's also on its way to your inbox.</p>
+  <a class="btn primary" href="/downloads/agent-memory-map.pdf" download>Download the Agent Memory Map (PDF)</a>
+
+  <div class="card">
+    <b>Step 2: get the next free guide</b>
+    <p>Join Mad EZ Media's free AI Automation Toolkit on Whop. It's free. New agent guides land there first.</p>
+    <a class="btn ghost" href="/free_join">Join free on Whop →</a>
+  </div>
+
+  <div class="card">
+    <b>Want the whole agent team?</b>
+    <p>AI Agent Lab walks you through the chief of staff, always-on agents and coding agents, one build a week, starting with Drop #1, "Your AI Agent Team: The Map."</p>
+    <p class="fine">$1 for 3 days, then $39/month. Cancel anytime. 7-day money-back guarantee on your first $39.</p>
+    <a class="btn ghost" href="/lab_click">Try AI Agent Lab for $1 →</a>
+  </div>
+</main>
+</body>
+</html>
