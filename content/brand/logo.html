@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mad EZ Media logo</title>
+<!-- Mad EZ Media "EZ." mark: same construction as the EZ Influencer Lab mark (Bricolage Grotesque
+     ExtraBold "EZ" + a dot + two viewfinder corners), in the Mad EZ builder palette.
+     Render: node content/storefront/render.mjs content/brand/logo.html content/brand/png/logo -->
+<style>
+  @font-face { font-family: "Bricolage Grotesque"; src: url(../ez-influencer/fonts/BricolageGrotesque-ExtraBold.woff2) format("woff2"); font-weight: 800; }
+  @font-face { font-family: "DM Mono"; src: url(../ez-influencer/fonts/DMMono-Medium.woff2) format("woff2"); font-weight: 500; }
+  :root { --bg: #07070a; --ink: #f4f4f7; --muted: #a6a6b0; --a1: #ff5a1f; --a2: #ff2d55; --paper: #f7f5f2; --ink-dark: #111117; }
+  body { margin: 0; background: #2a2a2a; }
+  section.panel { position: relative; overflow: hidden; margin: 0 0 40px; display: grid; place-items: center; }
+  .dark { background: var(--bg); }
+  .light { background: var(--paper); }
+  .glow { position: absolute; border-radius: 50%; background: radial-gradient(circle, rgba(255,90,31,.32), rgba(255,90,31,0) 62%); }
+
+  /* the mark: EZ + dot, framed by two corners (top-left a1, bottom-right a2) */
+  .mark { position: relative; display: grid; place-items: center; }
+  .ez { font: 800 1em/.8 "Bricolage Grotesque", "Arial Black", sans-serif; letter-spacing: -.05em; color: var(--ink); white-space: nowrap; }
+  .light .ez { color: var(--ink-dark); }
+  .dot { display: inline-block; width: .2em; height: .2em; border-radius: 45%; margin-left: .02em;
+    background: linear-gradient(135deg, var(--a1), var(--a2)); }
+  .corner { position: absolute; width: .4em; height: .4em; border-style: solid; border-width: 0; }
+  .corner.tl { left: 0; top: 0; border-top-width: .058em; border-left-width: .058em; border-color: var(--a1); }
+  .corner.br { right: 0; bottom: 0; border-bottom-width: .058em; border-right-width: .058em; border-color: var(--a2); }
+
+  .avatar { width: 1024px; height: 1024px; }
+  .avatar .mark { font-size: 380px; width: 1.68em; height: 1.68em; }
+  .favicon { width: 512px; height: 512px; }
+  .favicon .mark { font-size: 230px; width: 1.85em; height: 1.85em; }
+  .lockup { width: 1800px; height: 560px; }
+  .lockup .row { display: flex; align-items: center; gap: 90px; }
+  .lockup .mark { font-size: 230px; width: 1.85em; height: 1.85em; }
+  .word { font: 800 150px/.9 "Bricolage Grotesque", "Arial Black", sans-serif; letter-spacing: -.035em; color: var(--ink); }
+  .light .word { color: var(--ink-dark); }
+  .word small { display: block; margin-top: 26px; font: 500 34px/1 "DM Mono", ui-monospace, monospace; letter-spacing: .2em; color: var(--muted); }
+  .light .word small { color: #6b6b75; }
+</style>
+</head>
+<body>
+<!-- store avatar (Whop crops to a circle: keep the mark inside the center 80%) -->
+<section class="panel avatar dark" id="01-logo-avatar">
+  <div class="glow" style="width:900px;height:900px;right:-260px;top:-360px"></div>
+  <div class="mark"><span class="corner tl"></span><span class="corner br"></span><div class="ez">EZ<span class="dot"></span></div></div>
+</section>
+<section class="panel favicon dark" id="02-logo-favicon">
+  <div class="mark"><span class="corner tl"></span><span class="corner br"></span><div class="ez">EZ<span class="dot"></span></div></div>
+</section>
+<section class="panel lockup dark" id="03-logo-lockup-dark">
+  <div class="glow" style="width:1000px;height:1000px;right:-300px;top:-520px"></div>
+  <div class="row">
+    <div class="mark"><span class="corner tl"></span><span class="corner br"></span><div class="ez">EZ<span class="dot"></span></div></div>
+    <div class="word">Mad EZ Media<small>AI AGENTS · AUTOMATION · CONTENT</small></div>
+  </div>
+</section>
+<section class="panel lockup light" id="04-logo-lockup-light">
+  <div class="row">
+    <div class="mark"><span class="corner tl"></span><span class="corner br"></span><div class="ez">EZ<span class="dot"></span></div></div>
+    <div class="word">Mad EZ Media<small>AI AGENTS · AUTOMATION · CONTENT</small></div>
+  </div>
+</section>
+</body>
+</html>
