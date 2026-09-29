@@ -38,6 +38,7 @@ Compare variants A/B/C/D using Whop's per-ad reporting, not our tags.
 | ~30 min to your first agent that remembers between sessions | A dollar value for the kit ("$47 value"). Just say the files are included |
 | Private member chat + forum inside the Lab | The Tue Sep 29 live build (it's in the past by launch) |
 | Cancel anytime *(Mikey approved 2026-09-26)* | |
+| 7-day money-back guarantee on the first $39 payment *(Mikey approved 2026-09-29; wording from content/storefront/guarantee.md)* | A "14-day" or any other refund window |
 | Members get the Starter Kit files in the Lab *(Mikey approved 2026-09-26)* | |
 | Works with Claude, Cursor, Gemini, and other MCP tools | New prices, bundles, tiers, discounts |
 | ACMI, the memory layer underneath, is open source (MIT) | |

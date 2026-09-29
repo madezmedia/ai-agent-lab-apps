@@ -71,7 +71,7 @@ acmi: work:agent-lab-offer-consolidate-20260925
 > I turned the whole setup into **AI Agent Lab**: a new agent build every week, starting with
 > "Your AI Agent Team: The Map." You get your first agent that remembers between chats in about 30 minutes.
 >
-> It's **$1 to try for 3 days** (then $39/month, cancel anytime):
+> It's **$1 to try for 3 days** (then $39/month, cancel anytime, and a 7-day money-back guarantee on your first $39):
 > https://whop.com/ai-automation-tools/ai-agent-lab-c1/?utm_source=personal&utm_medium=email&utm_campaign=agentlab-launch
 >
 > Would genuinely love your take, even if it's "not for me."

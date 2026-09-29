@@ -3,6 +3,7 @@ asset: AI Agent Lab email blasts v1 (launch week + trial onboarding + weekly dro
 status: DRAFT. Nothing sends until Mikey GO per email; each blast also has its own gate below
 product: AI Agent Lab (prod_abuw9zSNHSlCl) · offer "$1 for 3 days, then $39/mo. Cancel anytime." (Mikey "All Go" 2026-09-26)
 acmi: work:agent-lab-offer-consolidate-20260925
+guarantee: content/storefront/guarantee.md (Mikey GO 2026-09-29)
 rules: no new prices/products; no member counts, results or income claims; no Discord; no client/member names; EZ Influencer list never gets these
 ---
 
@@ -82,7 +83,7 @@ rate above ~5%, hold Blasts 2–3 and review with Claude.
 > - give your first agent a memory (free, open-source tools)
 > - close the chat, open a new one, and watch it pick up where it left off
 >
-> **Try the Lab for $1 for 3 days**, then it's $39/month. Cancel anytime.
+> **Try the Lab for $1 for 3 days**, then it's $39/month. Cancel anytime, and there's a 7-day money-back guarantee on your first $39.
 > You get Drop #1 now, a new build every week, the Starter Kit files, and the member chat and forum.
 >
 > **[Start AI Agent Lab for $1 →]**(Lab page link)
@@ -151,7 +152,7 @@ Value first, for people who didn't click Blast 1. Only send to A/B members who h
 >
 > If you'd rather have me walk you through it, and then add a chief of staff, always-on agents and
 > coding agents on top, that's what **AI Agent Lab** is: one build a week.
-> **$1 for 3 days**, then $39/month. Cancel anytime.
+> **$1 for 3 days**, then $39/month. Cancel anytime. 7-day money-back guarantee on your first $39.
 >
 > **[Try AI Agent Lab for $1 →]**(Lab page link)
 >
@@ -224,6 +225,9 @@ and chargebacks put the whole store at risk.
 > If it's not for you, cancel before then in Whop: **whop.com → your memberships → AI Agent Lab →
 > Cancel**. No hard feelings.
 >
+> And if you stay and change your mind, you're still covered: ask within 7 days of your first $39
+> payment and I'll refund it in full.
+>
 > If you stay, the next build is **Drop #2, "Grok Bot as Chief of Staff"**: one bot that takes a
 > messy idea and splits it across a whole team of agents.
 >
@@ -267,7 +271,7 @@ Upcoming (drafted, each gated on review + fresh-account test): #2 Grok Bot as Ch
 - [ ] Mikey GO for this specific email (log a `decision` event with the cid).
 - [ ] Segment deduped (no trialist or paid member gets an upgrade pitch). EZ Influencer list excluded.
 - [ ] Every link opens: Lab page, `[DROP LINK]`, `[LIVE LINK]`, GitHub.
-- [ ] Price text is exactly "$1 for 3 days, then $39/month. Cancel anytime."
+- [ ] Price text is exactly "$1 for 3 days, then $39/month. Cancel anytime." Guarantee wording only from content/storefront/guarantee.md.
 - [ ] No member counts, results, income claims, Discord, client or member names.
 - [ ] Footer: unsubscribe + `[MAILING ADDRESS]` (if not sent through Whop).
 - [ ] After each send, log a `work-update` with segment, count sent, and (48h later) opens, clicks and upgrades.

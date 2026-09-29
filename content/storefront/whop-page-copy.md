@@ -1,6 +1,6 @@
 ---
 asset: Whop product page copy — AI Agent Lab (prod_abuw9zSNHSlCl)
-status: APPROVED to publish by Mikey 2026-09-26 ("push and publish everything")
+status: APPROVED to publish by Mikey 2026-09-26 ("push and publish everything"); guarantee added 2026-09-29 ("go guarantee", see guarantee.md)
 pairs_with: content/storefront/png/01–06 (same order, same claims)
 claims: approved list only (content/ads/meta-agentlab-test-v1.md §2). No member counts, results, income, Discord.
 do_not_touch: price, plans (plan_7a7WB6eEedwR7 only), checkout settings
@@ -47,6 +47,8 @@ agents to work together, not in silos.
 
 **Try it for $1 for 3 days, then $39/month. Cancel anytime.**
 
+**The First Agent Guarantee:** cancel before the trial ends and you're never charged the $39. Still not sure after your first $39 payment? Ask within 7 days of that payment for a full refund, no hoops. And if you follow Drop #1 and your first agent doesn't remember its work between chats, and we can't get it working together, you get a refund.
+
 ## Feature bullets (if the page has a features list)
 
 - New agent build every week
@@ -55,6 +57,7 @@ agents to work together, not in silos.
 - Private member chat + forum inside the Lab
 - Works with Claude Code, Claude Desktop, Cursor, Cline, Windsurf
 - $1 for 3 days, then $39/mo. Cancel anytime
+- 7-day money-back guarantee on your first $39 payment
 
 ## FAQ (if the page supports it)
 
@@ -71,7 +74,10 @@ A new build drops every week.
 Post in the member chat or forum inside the Lab.
 
 **Can I cancel?**
-Yes, anytime.
+Yes, anytime. Cancel before the 3-day trial ends and you're never charged the $39.
+
+**Is there a guarantee?**
+Yes. If you're not happy, ask within 7 days of your first $39 payment and you get a full refund, no reason needed. Just message Mikey in the Lab chat or reply to any Lab email. And if you follow Drop #1 and your first agent doesn't remember its work between chats, and we can't get it working together, you get a refund.
 
 ## Gallery order
 

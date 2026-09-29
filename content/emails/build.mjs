@@ -11,7 +11,7 @@ fs.mkdirSync(out, { recursive: true });
 const ASSETS = 'https://acmi-5min.vercel.app';
 const LAB = (id) =>
   `https://whop.com/ai-automation-tools/ai-agent-lab-c1/?utm_source=email&utm_medium=blast&utm_campaign=agentlab-launch&utm_content=${id}`;
-const OFFER = '$1 for 3 days, then $39/month. Cancel anytime.';
+const OFFER = '$1 for 3 days, then $39/month. Cancel anytime. 7-day money-back guarantee on your first $39.';
 
 const C = { bg: '#07070a', panel: '#111117', line: '#2a2a33', text: '#f4f4f7', muted: '#a6a6b0', a1: '#ff5a1f', a2: '#ff2d55' };
 const FONT = "Helvetica, Arial, sans-serif";
@@ -172,7 +172,7 @@ const EMAILS = [
     body:
       p('[first name], a heads-up so nothing surprises you.') +
       h(`Your trial ends ${accent('tomorrow.')}`) +
-      box('If you stay, your AI Agent Lab membership continues at <b>$39/month</b>. Nothing to do.<br><br>If it\'s not for you, cancel before then in Whop: <b>[CANCEL PATH]</b>. No hard feelings.') +
+      box('If you stay, your AI Agent Lab membership continues at <b>$39/month</b>. Nothing to do.<br><br>If it\'s not for you, cancel before then in Whop: <b>[CANCEL PATH]</b>. No hard feelings.<br><br>Change your mind after the first $39? Ask within 7 days of that payment and I\'ll refund it in full.') +
       p('If you stay, the next build is <b>Drop #2, "Grok Bot as Chief of Staff"</b>: one bot that takes a messy idea and splits it across a whole team of agents.') +
       p('Questions? Just reply.') +
       sign,
