@@ -17,7 +17,9 @@ export const Route = createFileRoute("/experiences/$experienceId")({
 function ExperiencePage() {
   const gate = Route.useLoaderData();
   if (gate.status !== "ok") {
-    return <GateFallback status={gate.status} appName="Talk to Folana" />;
+    return (
+      <GateFallback status={gate.status} appName="Talk to Folana" productName="EZ Influencer Lab" />
+    );
   }
   return <PersonaChat />;
 }

@@ -16,7 +16,9 @@ export const Route = createFileRoute("/dashboard/$companyId")({
 function DashboardPage() {
   const gate = Route.useLoaderData();
   if (gate.status !== "ok") {
-    return <GateFallback status={gate.status} appName="Talk to Folana" />;
+    return (
+      <GateFallback status={gate.status} appName="Talk to Folana" productName="EZ Influencer Lab" />
+    );
   }
   return (
     <AppShell kicker="Creator dashboard" title="Talk to Folana" lede="Attach this app to the Influencer hub in Whop.">
