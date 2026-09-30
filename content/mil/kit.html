@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Modern Income Lab asset kit</title>
+<!-- Every Whop/lander/email/PDF-cover asset for Modern Income Lab (biz_OAm2latR36c47Y).
+     Render: node content/storefront/render.mjs content/mil/kit.html content/mil/png
+     Copy rules: no income figures, no results, no testimonials, no cash imagery. Claims = only what the offer is. -->
+<style>
+  @font-face { font-family: "Plus Jakarta Sans"; src: url(fonts/PlusJakartaSans-ExtraBold.woff2) format("woff2"); font-weight: 800; }
+  @font-face { font-family: "Atkinson Hyperlegible"; src: url(fonts/AtkinsonHyperlegible-Regular.woff2) format("woff2"); font-weight: 400; }
+  @font-face { font-family: "Atkinson Hyperlegible"; src: url(fonts/AtkinsonHyperlegible-Bold.woff2) format("woff2"); font-weight: 700; }
+  :root {
+    --paper: #f5f7f4; --surface: #ffffff; --ink: #152420; --muted: #50605a; --line: #dde4df;
+    --green: #16774f; --green-soft: #e3f1ea; --marigold: #f2a81d; --marigold-soft: #fdf1d8; --deep: #10231c;
+    --display: "Plus Jakarta Sans", "Arial Black", system-ui, sans-serif;
+    --body: "Atkinson Hyperlegible", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #888; font-family: var(--body); color: var(--ink); }
+  section.panel { position: relative; overflow: hidden; background: var(--paper); margin: 0 0 40px; }
+  /* ledger paper: faint ruled lines + one margin line */
+  .ledger { position: absolute; inset: 0; background-image: repeating-linear-gradient(to bottom, transparent 0 47px, rgba(22,119,79,.07) 47px 48px); }
+  .ledger::after { content: ""; position: absolute; top: 0; bottom: 0; left: 96px; width: 2px; background: rgba(242,168,29,.35); }
+  h2 { font-family: var(--display); font-weight: 800; letter-spacing: -.025em; margin: 0; text-wrap: balance; color: var(--ink); }
+  h2 em { font-style: normal; color: var(--green); }
+  .eyebrow { font: 700 26px/1 var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--green); }
+  .lede { font: 400 36px/1.45 var(--body); color: var(--muted); margin: 0; }
+  .chip { display: inline-flex; align-items: center; gap: 12px; padding: 14px 26px; border-radius: 999px; font: 700 30px/1 var(--body);
+    background: var(--surface); border: 2px solid var(--line); color: var(--ink); }
+  .chip.green { background: var(--green); border-color: var(--green); color: #fff; }
+  .chip.gold { background: var(--marigold); border-color: var(--marigold); color: var(--deep); }
+  .chips { display: flex; flex-wrap: wrap; gap: 16px; }
+  .check { display: flex; gap: 20px; align-items: flex-start; font: 400 34px/1.35 var(--body); color: var(--ink); }
+  .check::before { content: "✓"; flex: 0 0 48px; height: 48px; border-radius: 12px; background: var(--green); color: #fff;
+    font: 800 30px/48px var(--display); text-align: center; }
+  .tile { position: absolute; border-radius: 56px; background: var(--surface); border: 3px solid var(--line); display: grid; place-items: center;
+    box-shadow: 0 30px 80px rgba(16,35,28,.12); }
+  .band { position: absolute; left: 0; right: 0; bottom: 0; background: var(--deep); }
+  .band .ledger-dark { position: absolute; inset: 0; background-image: repeating-linear-gradient(to bottom, transparent 0 47px, rgba(255,255,255,.04) 47px 48px); }
+  .step { display: grid; gap: 16px; align-content: start; background: var(--surface); border: 3px solid var(--line); border-radius: 28px; padding: 40px; }
+  .step .n { width: 64px; height: 64px; border-radius: 50%; background: var(--marigold); color: var(--deep); font: 800 32px/64px var(--display); text-align: center; }
+  .step h3 { margin: 0; font: 800 44px/1.1 var(--display); letter-spacing: -.02em; }
+  .step p { margin: 0; font: 400 30px/1.4 var(--body); color: var(--muted); }
+  .cover { width: 1275px; height: 1650px; }
+  .cover .spine { position: absolute; left: 0; top: 0; bottom: 0; width: 36px; background: var(--green); }
+</style>
+</head>
+<body>
+<div id="out"></div>
+<script>
+// The mark: the Opportunity Score dial (a gauge, needle, marigold pivot). Size in px.
+function dial(size, opts) {
+  opts = opts || {};
+  var track = opts.dark ? 'rgba(255,255,255,.18)' : '#dde4df';
+  var needle = opts.dark ? '#ffffff' : '#152420';
+  return `<svg width="${size}" height="${size * 0.62}" viewBox="0 0 200 124" aria-hidden="true">
+    <path d="M20 110 A80 80 0 0 1 180 110" fill="none" stroke="${track}" stroke-width="22" stroke-linecap="round"/>
+    <path d="M20 110 A80 80 0 0 1 157 53" fill="none" stroke="#16774f" stroke-width="22" stroke-linecap="round"/>
+    <line x1="100" y1="110" x2="146" y2="58" stroke="${needle}" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="100" cy="110" r="14" fill="#f2a81d"/>
+  </svg>`;
+}
+const wordmark = (size, dark) => `<div style="display:flex;align-items:center;gap:${size * .35}px">
+  <div style="margin-top:${size * .1}px">${dial(size * 1.3, { dark })}</div>
+  <div style="font:800 ${size}px/.95 var(--display);letter-spacing:-.03em;color:${dark ? '#fff' : 'var(--ink)'}">Modern<br>Income Lab</div></div>`;
+const chips = (c) => `<div class="chips">${c.map(([t, k]) => `<span class="chip ${k || ''}">${t}</span>`).join('')}</div>`;
+
+// Glyphs for product icons (on white tiles)
+const G = {
+  hub: `<svg viewBox="0 0 120 120" width="62%" aria-hidden="true"><rect x="16" y="22" width="88" height="76" rx="14" fill="none" stroke="#16774f" stroke-width="8"/><path d="M16 46h88" stroke="#16774f" stroke-width="8"/><path d="M36 68l12 12 26-26" fill="none" stroke="#f2a81d" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  kit: `<svg viewBox="0 0 120 120" width="62%" aria-hidden="true"><rect x="18" y="26" width="84" height="80" rx="12" fill="none" stroke="#16774f" stroke-width="8"/><path d="M18 50h84M40 14v22M80 14v22" stroke="#16774f" stroke-width="8" stroke-linecap="round"/><circle cx="44" cy="74" r="7" fill="#f2a81d"/><circle cx="66" cy="74" r="7" fill="#16774f"/><circle cx="88" cy="74" r="7" fill="#16774f"/></svg>`,
+};
+
+// Products (names + prices as live on the lander / Whop plans, 2026-09-30)
+const P = [
+  { slug: 'ai-opportunity-hub', glyph: 'hub', eyebrow: 'Free · AI Opportunity Hub',
+    hook: 'Find your <em>first small step</em> with AI', lede: 'A free, beginner-friendly home base: your Start Here guide, a worksheet and a simple AI coach.',
+    chips: [['Free', 'green'], ['No coding', ''], ['Beginner friendly', '']] },
+  { slug: 'side-income-starter-kit', glyph: 'kit', eyebrow: '$7 one-time · Side-Income Starter Kit',
+    hook: 'The step-by-step <em>90-day plan</em>', lede: 'A one-time add-on with a 90-day calendar and the guidebook, so you always know the next step.',
+    chips: [['$7 one-time', 'gold'], ['90-day calendar', ''], ['Guidebook included', '']] },
+];
+
+let html = '';
+// Store banner
+html += `<section class="panel" id="01-store-banner" style="width:1920px;height:1080px"><div class="ledger"></div>
+  <div style="position:absolute;left:170px;top:150px">${wordmark(64)}</div>
+  <div style="position:absolute;left:170px;top:420px;width:1100px;display:grid;gap:34px">
+    <h2 style="font-size:104px;line-height:1.02">Practical AI steps for <em>everyday people</em></h2>
+    <p class="lede" style="max-width:980px">Take the free 45-second audit, get a simple plan, and start with one small action.</p>
+    ${chips([['Free audit', 'green'], ['No coding', ''], ['Plain-English guides', '']])}
+  </div>
+  <div class="tile" style="right:170px;top:330px;width:460px;height:460px">${dial(340)}</div></section>`;
+// Avatar
+html += `<section class="panel" id="02-store-avatar" style="width:1024px;height:1024px;display:grid;place-items:center;background:var(--green-soft)">
+  <div style="width:760px;height:760px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 20px 60px rgba(16,35,28,.12)">${dial(560)}</div></section>`;
+// Social / OG
+html += `<section class="panel" id="03-social-card" style="width:1200px;height:630px"><div class="ledger"></div>
+  <div style="position:absolute;left:130px;top:70px">${wordmark(38)}</div>
+  <div style="position:absolute;left:130px;top:230px;width:760px;display:grid;gap:22px">
+    <h2 style="font-size:66px;line-height:1.05">Your free 45-second <em>AI Opportunity Audit</em></h2>
+    <p style="margin:0;font:400 26px/1.4 var(--body);color:var(--muted)">A practical next step. No coding. No promises of overnight money.</p>
+  </div>
+  <div class="tile" style="right:80px;top:210px;width:260px;height:260px;border-radius:36px">${dial(190)}</div></section>`;
+
+for (const p of P) {
+  // Card: light top, deep ink band for Whop's white title overlay
+  html += `<section class="panel" id="card-${p.slug}" style="width:1920px;height:1080px"><div class="ledger"></div>
+    <div class="band" style="height:44%"><div class="ledger-dark"></div></div>
+    <div style="position:absolute;left:170px;top:120px;width:1100px;display:grid;gap:26px">
+      <div class="eyebrow">${p.eyebrow}</div><h2 style="font-size:100px;line-height:1.02">${p.hook}</h2></div>
+    <div class="tile" style="right:170px;top:110px;width:430px;height:430px">${G[p.glyph]}</div></section>`;
+  html += `<section class="panel" id="icon-${p.slug}" style="width:1024px;height:1024px;display:grid;place-items:center;background:var(--green-soft)">
+    <div class="tile" style="position:relative;width:780px;height:780px;border-radius:120px">${G[p.glyph]}</div></section>`;
+}
+
+// Gallery 01: what's inside (free + $7, exactly as described on the lander)
+html += `<section class="panel" id="gallery-01-whats-inside" style="width:1920px;height:1080px"><div class="ledger"></div>
+  <div style="position:absolute;left:170px;top:110px;display:grid;gap:22px"><div class="eyebrow">What's inside</div>
+  <h2 style="font-size:88px">Start free <em>· add the plan if you want it</em></h2></div>
+  <div style="position:absolute;left:170px;right:170px;top:400px;display:grid;grid-template-columns:1fr 1fr;gap:48px">
+    <div class="step" style="padding:48px"><span class="chip green" style="justify-self:start">Free · AI Opportunity Hub</span>
+      <div class="check">Start Here guide</div><div class="check">Your opportunity worksheet</div><div class="check">A simple AI coach to ask questions</div></div>
+    <div class="step" style="padding:48px"><span class="chip gold" style="justify-self:start">$7 one-time · Starter Kit</span>
+      <div class="check">90-day step-by-step calendar</div><div class="check">The guidebook</div><div class="check">Your opportunity report</div></div>
+  </div></section>`;
+// Gallery 02: how it works
+html += `<section class="panel" id="gallery-02-how-it-works" style="width:1920px;height:1080px"><div class="ledger"></div>
+  <div style="position:absolute;left:170px;top:110px;display:grid;gap:22px"><div class="eyebrow">How it works</div>
+  <h2 style="font-size:88px">Three steps, <em>one small action</em></h2></div>
+  <div style="position:absolute;left:170px;right:170px;top:420px;display:grid;grid-template-columns:repeat(3,1fr);gap:40px">
+    <div class="step"><div class="n">1</div><h3>Take the 45-second audit</h3><p>Four quick questions about your time, goals and comfort with AI.</p></div>
+    <div class="step"><div class="n">2</div><h3>Get your score and plan</h3><p>A Personal AI Opportunity Score (0–100) and a suggested next step.</p></div>
+    <div class="step"><div class="n">3</div><h3>Start small</h3><p>Pick one action from your plan and build from there, at your own pace.</p></div>
+  </div></section>`;
+// Gallery 03: the honest note (trust)
+html += `<section class="panel" id="gallery-03-our-promise" style="width:1920px;height:1080px"><div class="ledger"></div>
+  <div style="position:absolute;left:170px;top:150px;width:1150px;display:grid;gap:36px"><div class="eyebrow">Our promise</div>
+  <h2 style="font-size:92px;line-height:1.04">Plain English, <em>no hype</em></h2>
+  <div class="check">No coding or tech background needed</div>
+  <div class="check">Your score is a starting point, not a prediction of income</div>
+  <div class="check">Free to start. The $7 kit is optional and one-time</div></div>
+  <div class="tile" style="right:170px;top:330px;width:420px;height:420px">${dial(310)}</div></section>`;
+
+// Plan cards (1536x1024)
+[['plan-free', 'Free', 'AI Opportunity Hub', 'Start Here guide · worksheet · AI coach', 'green'],
+ ['plan-starter-kit', '$7', 'Side-Income Starter Kit', '90-day calendar · guidebook · report', 'gold']].forEach(([id, price, name, sub, k]) => {
+  html += `<section class="panel" id="${id}" style="width:1536px;height:1024px"><div class="ledger"></div>
+    <div style="position:absolute;inset:110px;background:#fff;border:3px solid var(--line);border-radius:40px;padding:80px;display:grid;gap:26px;align-content:start">
+      <span class="chip ${k}" style="justify-self:start">${price === 'Free' ? 'Free' : '$7 one-time'}</span>
+      <div style="font:800 170px/1 var(--display);letter-spacing:-.04em;color:${k === 'gold' ? 'var(--ink)' : 'var(--green)'}">${price}</div>
+      <div style="font:800 64px/1.05 var(--display);letter-spacing:-.02em">${name}</div>
+      <div style="font:400 36px/1.35 var(--body);color:var(--muted)">${sub}</div></div></section>`;
+});
+
+// PDF covers (US Letter @150dpi: 1275x1650)
+[['cover-worksheet', 'Worksheet', 'Your AI Opportunity <em>Worksheet</em>', 'Map your time, goals and first small step.', 'Free'],
+ ['cover-guidebook', 'Guidebook', 'The Side-Income <em>Guidebook</em>', 'Beginner-friendly ways to use AI tools, step by step.', 'Starter Kit'],
+ ['cover-report', 'Report', 'Your AI Opportunity <em>Report</em>', 'Your score explained, and a 90-day plan to follow.', 'Starter Kit']].forEach(([id, tag, title, sub, tier]) => {
+  html += `<section class="panel cover" id="${id}"><div class="ledger"></div><div class="spine"></div>
+    <div style="position:absolute;left:150px;top:150px">${wordmark(40)}</div>
+    <div style="position:absolute;left:150px;right:130px;top:560px;display:grid;gap:34px">
+      <div class="eyebrow">${tag}</div><h2 style="font-size:104px;line-height:1.02">${title}</h2>
+      <p class="lede" style="font-size:40px">${sub}</p></div>
+    <div style="position:absolute;left:150px;bottom:150px">${chips([[tier === 'Free' ? 'Free · AI Opportunity Hub' : 'Side-Income Starter Kit', tier === 'Free' ? 'green' : 'gold']])}</div>
+    <div style="position:absolute;right:130px;bottom:120px">${dial(220)}</div></section>`;
+});
+
+// Start Here header (Whop content banner) 1920x640
+html += `<section class="panel" id="start-here-header" style="width:1920px;height:640px;background:var(--deep)"><div class="band" style="top:0;height:auto"><div class="ledger-dark"></div></div>
+  <div style="position:absolute;left:170px;top:150px;display:grid;gap:26px">
+    <div class="eyebrow" style="color:var(--marigold)">Start here</div>
+    <h2 style="font-size:104px;color:#fff">Welcome <span style="color:var(--marigold)">· let's take one small step</span></h2></div>
+  <div style="position:absolute;right:170px;top:170px">${dial(330, { dark: true })}</div></section>`;
+// Email header 1200x400
+html += `<section class="panel" id="email-header" style="width:1200px;height:400px"><div class="ledger"></div>
+  <div style="position:absolute;left:110px;top:50%;transform:translateY(-50%)">${wordmark(56)}</div></section>`;
+
+document.getElementById('out').innerHTML = html;
+</script>
+</body>
+</html>
