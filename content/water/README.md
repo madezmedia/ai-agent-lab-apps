@@ -69,3 +69,8 @@ None of them go in the Whop community or the brand kit: they don't match the Off
 
 ## Before any spend (Mikey decides)
 Our last two pop tests got 5,710 views and 158 checkout clicks for 0 payments. If you test this, cap it at $10–20, send it to the bridge page (never straight to the hoplink), and read the outbound-click rate on the bridge before adding budget.
+
+## Hosting (live)
+- Vercel project `lytair` (team mad-ez-media). Deploy folder layout: `vercel.json` at the root, plus `water/index.html` (a copy of `bridge/index.html`).
+- `/` redirects to `/water/`. Every page sends `noindex`, because the bridge exists for paid traffic, not search.
+- Domains `lytair.com` and `www.lytair.com` are added to the project. DNS at Namecheap is pending: `A @ 216.150.1.1` and `CNAME www 092c993ffd2d9c09.vercel-dns-016.com.` Remove the parking and redirect records first.
