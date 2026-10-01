@@ -40,8 +40,12 @@ module.exports = async (req, res) => {
   const bot = Boolean(body.website) || !started || Date.now() - started < 2000 || DISPOSABLE.has(domain);
   if (bot) return redirect(res, '/map/thanks/');
 
+  // Until the lead webhook is wired (or if it fails), still send real people to the thanks page:
+  // they get the PDF + the free Whop claim (Whop captures the email on claim). ok=0 keeps the
+  // pixel 'lead' / blitz_optin from firing for a lead we didn't save.
+  const unsaved = '/map/thanks/?ok=0';
   const hook = process.env.LEAD_WEBHOOK_URL;
-  if (!hook) return redirect(res, '/map/?error=setup');
+  if (!hook) return redirect(res, unsaved);
 
   const lead = {
     email,
@@ -57,9 +61,9 @@ module.exports = async (req, res) => {
     const headers = { 'content-type': 'application/json' };
     if (process.env.LEAD_WEBHOOK_SECRET) headers['x-lead-secret'] = process.env.LEAD_WEBHOOK_SECRET;
     const r = await fetch(hook, { method: 'POST', headers, body: JSON.stringify(lead) });
-    if (!r.ok) return redirect(res, '/map/?error=setup');
+    if (!r.ok) return redirect(res, unsaved);
   } catch {
-    return redirect(res, '/map/?error=setup');
+    return redirect(res, unsaved);
   }
   return redirect(res, '/map/thanks/?ok=1');
 };
