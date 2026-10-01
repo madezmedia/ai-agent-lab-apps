@@ -54,5 +54,18 @@ Brand:
 - **Respect each subreddit's self-promotion rules.** Most of r/preppers, for example, wants no affiliate links at all.
 - **Only use the two tip cards' numbers with the source line kept on them.**
 
+## Vendor banners (Drive: airf-jws-banners.zip, 15 files)
+The seller's official affiliate banners. They're not stored in this repo, because the repo is public and these are the vendor's files. Use them only for display or native placements; popunders don't show banners.
+
+The FTC holds affiliates responsible for the claims in the ads they run, so here's how they sort:
+
+| Group | Files | Call |
+| --- | --- | --- |
+| A. Product only, the seller's "10 gallons from air in 24 hours" claim | `GD-ClVBo` (620×223), `hgdIgMG1` (620×223) | Usable for display, linked to the bridge page (never straight to the hoplink). The claim is the seller's; keep the bridge's "claims are the seller's" note. |
+| B. "God-given secret to survive a U.S. drought/famine" | `2xgpF26B`, `5FEif5_t`, `8Hnkq1rl`, `RFRp2i73`, `zj0iklKv`, `mxvIoR2A` (304×400), `ULxTz2E7` (620×223) | Mikey's call. Faith-audience hype; many networks accept it, and it fits the vendor's own funnel. |
+| C. Doom or dated: "delivers your family from death in 2025", "2025 crisis", "#1 threat to the US", burning city | `QBcgVEew`, `fUVKA2dJ`, `71oBzFAM`, `65P64qvM` (304×400), `VOSdhybr`, `lMpBm45y` (620×223) | Don't run them. "2025" is out of date, and death or disaster imagery gets rejected by most networks and invites deceptive-ad complaints. |
+
+None of them go in the Whop community or the brand kit: they don't match the Off-Grid Water Vault's "no scare tactics" promise.
+
 ## Before any spend (Mikey decides)
 Our last two pop tests got 5,710 views and 158 checkout clicks for 0 payments. If you test this, cap it at $10–20, send it to the bridge page (never straight to the hoplink), and read the outbound-click rate on the bridge before adding budget.
