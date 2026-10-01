@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Off-Grid Water Vault: asset kit</title>
+<!--
+  Off-Grid Water Vault: brand kit. Each <section class="panel"> renders to png/<id>.png:
+  node <render2.mjs> content/water/kit.html content/water/png
+  Facts on assets come from CDC "Making Water Safe in an Emergency" and Ready.gov "Water".
+  No product claims, no income/health promises, no fake alerts. Affiliate disclosure on every money surface.
+-->
+<style>
+  :root{
+    --paper:#f3efe6; --surface:#ffffff; --ink:#12222c; --muted:#4f5d66; --line:#dcd4c4;
+    --blue:#1c5d86; --blue-dark:#12415f; --blue-soft:#e2edf4; --orange:#c9561c; --orange-soft:#f8e6da; --deep:#0e1f29;
+    --display:"Bitstream Charter","Charter",Georgia,serif;
+    --body:"Liberation Sans","Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#888;font-family:var(--body);color:var(--ink);padding:40px;display:flex;flex-direction:column;gap:40px;align-items:flex-start}
+  .panel{position:relative;overflow:hidden;background:var(--paper)}
+  /* topo-line ground: faint contour lines */
+  .topo{position:absolute;inset:0;opacity:.55;pointer-events:none}
+  .h{font-family:var(--display);font-weight:700;letter-spacing:-.01em;line-height:1.04;color:var(--ink)}
+  .h em{font-style:normal;color:var(--blue)}
+  .eyebrow{font:700 22px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+  .chip{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;background:var(--surface);border:2px solid var(--line);font:700 26px/1 var(--body);color:var(--ink)}
+  .chip.fill{background:var(--blue);border-color:var(--blue);color:#fff}
+  .card{background:var(--surface);border:2px solid var(--line);border-radius:28px;box-shadow:0 24px 60px rgba(14,31,41,.10)}
+  .wordmark{display:flex;align-items:center;gap:22px}
+  .wordmark .name{font-family:var(--display);font-weight:700;line-height:.98;color:var(--ink)}
+  .num{font-family:var(--display);font-weight:700;color:var(--blue);line-height:.9;letter-spacing:-.02em}
+  .src{font:400 20px/1.4 var(--body);color:var(--muted)}
+  .disclose{font:400 22px/1.45 var(--body);color:var(--muted)}
+  .step{display:flex;gap:26px;align-items:flex-start}
+  .step b.n{flex:none;width:64px;height:64px;border-radius:18px;background:var(--orange);color:#fff;font:700 32px/64px var(--display);text-align:center}
+  ul.checks{list-style:none;display:grid;gap:26px}
+  ul.checks li{display:flex;gap:22px;align-items:flex-start;font:400 32px/1.35 var(--body)}
+  ul.checks li:before{content:"";flex:none;width:40px;height:40px;margin-top:2px;border-radius:12px;background:var(--blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.2 4.2L19 7' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/26px no-repeat}
+</style>
+</head>
+<body>
+
+<script>
+// Brand mark: a droplet with three water-level lines (a stored-water gauge), on a rounded tile.
+function mark(size, {tile='#1c5d86', drop='#ffffff', dot='#c9561c'} = {}) {
+  return `<svg width="${size}" height="${size}" viewBox="0 0 100 100" aria-hidden="true">
+    <rect width="100" height="100" rx="24" fill="${tile}"/>
+    <path d="M50 14 C50 14 24 44 24 61 a26 26 0 0 0 52 0 C76 44 50 14 50 14Z" fill="${drop}"/>
+    <g stroke="${tile}" stroke-width="4.5" stroke-linecap="round">
+      <line x1="37" y1="58" x2="63" y2="58"/><line x1="34" y1="68" x2="66" y2="68"/><line x1="39" y1="78" x2="61" y2="78"/>
+    </g>
+    <circle cx="77" cy="22" r="7" fill="${dot}"/>
+  </svg>`;
+}
+function wordmark(markSize, nameSize, color='#12222c') {
+  return `<div class="wordmark">${mark(markSize)}<div class="name" style="font-size:${nameSize}px;color:${color}">Off-Grid<br>Water Vault</div></div>`;
+}
+// faint topographic contour lines
+function topo(w, h, color='rgba(28,93,134,.10)') {
+  let p = '';
+  for (let i = 0; i < 9; i++) {
+    const y = h * (0.12 + i * 0.11), a = 26 + i * 4;
+    p += `<path d="M -50 ${y} C ${w*0.2} ${y-a}, ${w*0.35} ${y+a}, ${w*0.55} ${y} S ${w*0.85} ${y-a}, ${w+50} ${y+a*0.4}" fill="none" stroke="${color}" stroke-width="2"/>`;
+  }
+  return `<svg class="topo" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">${p}</svg>`;
+}
+function panel(id, w, h, inner, bg) {
+  document.write(`<section class="panel" id="${id}" style="width:${w}px;height:${h}px;${bg?`background:${bg}`:''}">${inner}</section>`);
+}
+const SRC = 'Sources: CDC “Making Water Safe in an Emergency” · Ready.gov “Water”';
+
+/* 01 Store banner 1920x1080 */
+panel('01-store-banner', 1920, 1080, `${topo(1920,1080)}
+  <div style="position:absolute;left:150px;top:130px">${wordmark(104, 52)}</div>
+  <div style="position:absolute;left:150px;top:350px;width:1000px">
+    <h1 class="h" style="font-size:112px">Clean water,<br><em>planned ahead</em></h1>
+    <p style="margin-top:34px;font:400 34px/1.45 var(--body);color:var(--muted);max-width:900px">A free community for household water readiness: how much to store, how to make it safe, and gear reviews with honest disclosure.</p>
+    <div style="display:flex;gap:16px;margin-top:44px;flex-wrap:wrap"><span class="chip fill">Free to join</span><span class="chip">Plain-English guides</span><span class="chip">Sourced from CDC &amp; Ready.gov</span></div>
+  </div>
+  <div class="card" style="position:absolute;right:150px;top:300px;width:520px;padding:56px 52px">
+    <div class="eyebrow">The baseline</div>
+    <div class="num" style="font-size:150px;margin-top:22px">1 gal</div>
+    <div style="font:700 34px/1.3 var(--body);margin-top:10px">per person, per day</div>
+    <div style="font:400 28px/1.45 var(--body);color:var(--muted);margin-top:18px">Store at least 3 days. Aim for 2 weeks at home.</div>
+    <div class="src" style="margin-top:26px">Ready.gov</div>
+  </div>`);
+
+/* 02 Store avatar 1024 (circle-safe) */
+panel('02-store-avatar', 1024, 1024, `<div style="position:absolute;inset:0;display:grid;place-items:center;background:var(--blue-soft)">
+  <div style="width:760px;height:760px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 30px 80px rgba(14,31,41,.12)">${mark(470)}</div></div>`);
+
+/* 03 Social / OG card 1200x630 */
+panel('03-social-card', 1200, 630, `${topo(1200,630)}
+  <div style="position:absolute;left:84px;top:72px">${wordmark(72, 36)}</div>
+  <h2 class="h" style="position:absolute;left:84px;top:236px;font-size:78px;width:760px">Clean water,<br><em>planned ahead</em></h2>
+  <p style="position:absolute;left:84px;bottom:66px;font:400 26px/1.4 var(--body);color:var(--muted);width:700px">Free household water plan · storage, treatment, honest gear notes</p>
+  <div style="position:absolute;right:90px;top:150px">${mark(300)}</div>`);
+
+/* Whop product card 1920x1080: light top, bottom 44% deep band for Whop's white title */
+panel('card-water-vault', 1920, 1080, `${topo(1920,620)}
+  <div style="position:absolute;left:150px;top:120px">${wordmark(96, 46)}</div>
+  <div style="position:absolute;left:150px;top:300px;font:700 46px/1.3 var(--body);color:var(--ink);width:1100px">Free household water plan + a community that keeps it practical</div>
+  <div style="position:absolute;right:170px;top:96px">${mark(360)}</div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:475px;background:var(--deep)"></div>`);
+
+/* Gallery 01: what's inside */
+panel('gallery-01-whats-inside', 1920, 1080, `${topo(1920,1080)}
+  <div style="position:absolute;left:150px;top:120px"><div class="eyebrow">What's inside</div>
+  <h2 class="h" style="font-size:92px;margin-top:22px;width:1500px">Everything is free to join</h2></div>
+  <ul class="checks" style="position:absolute;left:150px;top:400px;width:1560px">
+    <li><span><b>The Household Water Plan</b> (PDF): how much to store, containers, rotation, and safe treatment</span></li>
+    <li><span><b>Readiness basics</b>: boil and disinfection steps from the CDC, in plain English</span></li>
+    <li><span><b>Gear notes</b>: filters, containers and DIY projects, with what each one does and doesn't do</span></li>
+    <li><span><b>Member Q&amp;A</b>: share your setup and ask questions</span></li>
+  </ul>
+  <p class="disclose" style="position:absolute;left:150px;bottom:80px">Some gear links are affiliate links. We earn a commission at no cost to you.</p>`);
+
+/* Gallery 02: the plan (the numbers) */
+panel('gallery-02-the-plan', 1920, 1080, `${topo(1920,1080)}
+  <div style="position:absolute;left:150px;top:110px"><div class="eyebrow">The plan in four numbers</div>
+  <h2 class="h" style="font-size:88px;margin-top:22px">Know these before an outage</h2></div>
+  <div style="position:absolute;left:150px;right:150px;top:400px;display:grid;grid-template-columns:repeat(4,1fr);gap:30px">
+    ${[
+      ['1 gal','per person, per day','Plus extra for pets, heat and illness'],
+      ['2 wks','of water at home','At least 3 days if you must leave'],
+      ['1 min','rolling boil','3 minutes above 6,500 ft'],
+      ['8 drops','of 6% bleach per gallon','Unscented. Stir, wait 30 minutes'],
+    ].map(([n,a,b])=>`<div class="card" style="padding:44px 36px;height:440px"><div class="num" style="font-size:96px">${n}</div><div style="font:700 30px/1.3 var(--body);margin-top:22px">${a}</div><div style="font:400 26px/1.45 var(--body);color:var(--muted);margin-top:14px">${b}</div></div>`).join('')}
+  </div>
+  <p class="src" style="position:absolute;left:150px;bottom:80px;font-size:24px">${SRC}. Cloudy water: let it settle or filter first, then treat.</p>`);
+
+/* Gallery 03: how we work (trust + disclosure) */
+panel('gallery-03-how-we-work', 1920, 1080, `${topo(1920,1080)}
+  <div style="position:absolute;left:150px;top:120px"><div class="eyebrow">How we work</div>
+  <h2 class="h" style="font-size:92px;margin-top:22px">Straight answers, <em>no scare tactics</em></h2></div>
+  <div style="position:absolute;left:150px;right:150px;top:420px;display:grid;grid-template-columns:repeat(3,1fr);gap:34px">
+    ${[
+      ['1','We cite the source','Storage and treatment steps come from the CDC and Ready.gov.'],
+      ['2','We disclose links','Some links are affiliate links. We say so every time.'],
+      ['3','Claims stay with the seller','We share what a product says it does. Test and treat any water before you drink it.'],
+    ].map(([n,t,d])=>`<div class="card" style="padding:46px 40px;height:420px"><div class="step"><b class="n">${n}</b><div><div style="font:700 36px/1.25 var(--body)">${t}</div><div style="font:400 28px/1.5 var(--body);color:var(--muted);margin-top:16px">${d}</div></div></div></div>`).join('')}
+  </div>`);
+
+/* Social tip card 01 (1080x1350) */
+panel('tip-01-how-much', 1080, 1350, `${topo(1080,1350)}
+  <div style="position:absolute;left:90px;top:90px">${wordmark(70, 32)}</div>
+  <div style="position:absolute;left:90px;top:300px;width:900px"><div class="eyebrow">Water readiness</div>
+  <h2 class="h" style="font-size:96px;margin-top:22px">How much water should you store?</h2></div>
+  <div class="card" style="position:absolute;left:90px;right:90px;top:760px;padding:50px 54px">
+    <div class="num" style="font-size:130px">1 gallon</div>
+    <div style="font:700 36px/1.3 var(--body);margin-top:14px">per person, per day</div>
+    <div style="font:400 30px/1.45 var(--body);color:var(--muted);margin-top:16px">At least 3 days. Aim for 2 weeks at home. Family of 4 for 2 weeks = 56 gallons.</div>
+  </div>
+  <p class="src" style="position:absolute;left:90px;bottom:70px">Source: Ready.gov</p>`);
+
+/* Social tip card 02 (1080x1350) */
+panel('tip-02-make-it-safe', 1080, 1350, `${topo(1080,1350)}
+  <div style="position:absolute;left:90px;top:90px">${wordmark(70, 32)}</div>
+  <div style="position:absolute;left:90px;top:290px;width:900px"><div class="eyebrow">Boil-water notice?</div>
+  <h2 class="h" style="font-size:92px;margin-top:22px">Two ways to make tap water safe</h2></div>
+  <div style="position:absolute;left:90px;right:90px;top:740px;display:grid;gap:26px">
+    <div class="card" style="padding:40px 44px"><div class="step"><b class="n">1</b><div><div style="font:700 34px/1.25 var(--body)">Boil</div><div style="font:400 28px/1.45 var(--body);color:var(--muted);margin-top:10px">Rolling boil for 1 minute (3 above 6,500 ft). Let it cool.</div></div></div></div>
+    <div class="card" style="padding:40px 44px"><div class="step"><b class="n">2</b><div><div style="font:700 34px/1.25 var(--body)">Disinfect</div><div style="font:400 28px/1.45 var(--body);color:var(--muted);margin-top:10px">8 drops of unscented 6% bleach per gallon. Stir, wait 30 minutes.</div></div></div></div>
+  </div>
+  <p class="src" style="position:absolute;left:90px;bottom:70px">Source: CDC. Follow your local utility's notice first.</p>`);
+
+/* PDF cover 1275x1650 */
+panel('cover-water-plan', 1275, 1650, `${topo(1275,1650)}
+  <div style="position:absolute;left:0;top:0;bottom:0;width:60px;background:var(--blue)"></div>
+  <div style="position:absolute;left:150px;top:140px">${wordmark(90, 42)}</div>
+  <div style="position:absolute;left:150px;top:520px;width:960px"><div class="eyebrow">Free guide</div>
+  <h1 class="h" style="font-size:124px;margin-top:26px">The Household<br><em>Water Plan</em></h1>
+  <p style="margin-top:36px;font:400 36px/1.45 var(--body);color:var(--muted)">How much to store, how to store it, and how to make water safe when the tap isn't.</p></div>
+  <div style="position:absolute;left:150px;bottom:150px"><span class="chip fill">Free · 2 pages</span></div>
+  <p class="src" style="position:absolute;left:150px;bottom:90px">Based on CDC and Ready.gov guidance</p>`);
+</script>
+</body>
+</html>

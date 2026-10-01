@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Household Water Plan</title>
+<!-- Lead magnet, 2 pages US Letter. Print: node content/water/print.mjs. Facts: CDC "Making Water Safe in an Emergency", Ready.gov "Water". -->
+<style>
+  @page{size:Letter;margin:0}
+  :root{--paper:#f3efe6;--ink:#12222c;--muted:#4f5d66;--line:#dcd4c4;--blue:#1c5d86;--orange:#c9561c;--soft:#e2edf4;
+    --display:"Bitstream Charter",Georgia,serif;--body:"Liberation Sans",Arial,sans-serif}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font:400 11.5pt/1.5 var(--body);color:var(--ink)}
+  .page{width:8.5in;height:11in;padding:.65in .7in;background:var(--paper);position:relative;page-break-after:always;overflow:hidden}
+  .page:last-child{page-break-after:auto}
+  .brand{display:flex;align-items:center;gap:10px;font:700 13pt/1 var(--display)}
+  h1{font:700 34pt/1.05 var(--display);margin:.32in 0 .1in}
+  h1 em,h2 em{font-style:normal;color:var(--blue)}
+  h2{font:700 17pt/1.2 var(--display);margin:0 0 .08in}
+  .lede{color:var(--muted);font-size:12.5pt;max-width:6.3in}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:.18in;margin-top:.24in}
+  .box{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:.18in .2in}
+  .big{font:700 26pt/1 var(--display);color:var(--blue)}
+  ul{padding-left:.2in;margin-top:.05in} li{margin:.04in 0}
+  .check li{list-style:none;position:relative;padding-left:.26in}
+  .check li:before{content:"";position:absolute;left:0;top:.05in;width:.13in;height:.13in;border:1.5px solid var(--blue);border-radius:3px;background:#fff}
+  .warn{background:#f8e6da;border:1.5px solid var(--orange);border-radius:12px;padding:.14in .2in;margin-top:.2in;font-size:10.5pt}
+  .foot{position:absolute;left:.7in;right:.7in;bottom:.45in;font-size:9pt;color:var(--muted);border-top:1px solid var(--line);padding-top:.08in}
+  table{width:100%;border-collapse:collapse;margin-top:.08in;font-size:10.5pt}
+  td,th{border-bottom:1px solid var(--line);padding:.05in .04in;text-align:left} th{color:var(--muted);font-weight:700}
+</style>
+</head>
+<body>
+<script>
+const mark = s => `<svg width="${s}" height="${s}" viewBox="0 0 100 100"><rect width="100" height="100" rx="24" fill="#1c5d86"/><path d="M50 14 C50 14 24 44 24 61 a26 26 0 0 0 52 0 C76 44 50 14 50 14Z" fill="#fff"/><g stroke="#1c5d86" stroke-width="4.5" stroke-linecap="round"><line x1="37" y1="58" x2="63" y2="58"/><line x1="34" y1="68" x2="66" y2="68"/><line x1="39" y1="78" x2="61" y2="78"/></g><circle cx="77" cy="22" r="7" fill="#c9561c"/></svg>`;
+document.write(`
+<div class="page">
+  <div class="brand">${mark(34)} Off-Grid Water Vault</div>
+  <h1>The Household <em>Water Plan</em></h1>
+  <p class="lede">How much water to store, how to store it, and how to make water safe when the tap isn't. Everything here follows CDC and Ready.gov guidance.</p>
+  <div class="grid">
+    <div class="box"><div class="big">1 gallon</div><p>per person, per day, for drinking and basic hygiene. Store more for children, nursing mothers, sick people, hot climates and pets.</p></div>
+    <div class="box"><div class="big">2 weeks</div><p>is the goal for home. Keep at least 3 days ready to take with you if you have to leave.</p></div>
+  </div>
+  <h2 style="margin-top:.28in">Work out your number</h2>
+  <table>
+    <tr><th>Household</th><th>3 days</th><th>2 weeks</th></tr>
+    <tr><td>1 person</td><td>3 gal</td><td>14 gal</td></tr>
+    <tr><td>2 people</td><td>6 gal</td><td>28 gal</td></tr>
+    <tr><td>4 people</td><td>12 gal</td><td>56 gal</td></tr>
+    <tr><td>Each pet (approx.)</td><td colspan="2">Ask your vet; add it on top</td></tr>
+  </table>
+  <h2 style="margin-top:.26in">Store it right</h2>
+  <ul class="check">
+    <li>Store-bought water: keep it sealed in its original container and watch the expiration date.</li>
+    <li>Filling your own: use food-grade containers made for water. Don't reuse milk or juice jugs.</li>
+    <li>Label each container with the date. Replace water you bottled yourself every 6 months.</li>
+    <li>Keep it in a cool, dark place, away from gasoline, pesticides and other chemicals.</li>
+  </ul>
+  <div class="foot">Sources: Ready.gov “Water”; CDC “Making Water Safe in an Emergency”. Educational only, not medical advice. Always follow your local water utility's instructions first.</div>
+</div>
+
+<div class="page">
+  <div class="brand">${mark(34)} Off-Grid Water Vault</div>
+  <h1 style="font-size:28pt">Making water <em>safe</em></h1>
+  <p class="lede">If your utility issues a boil-water notice, or you're unsure about your water, treat it before drinking, cooking, brushing teeth or making ice.</p>
+  <div class="grid">
+    <div class="box"><h2>1. Boil (best option)</h2><ul><li>If the water is cloudy, let it settle or filter it through a clean cloth or coffee filter first.</li><li>Bring it to a <b>rolling boil for 1 minute</b>. Above 6,500 feet, boil for 3 minutes.</li><li>Let it cool, then store it in clean, covered containers.</li></ul></div>
+    <div class="box"><h2>2. Disinfect with bleach</h2><ul><li>Use <b>unscented</b> household bleach with 6% or 8.25% sodium hypochlorite.</li><li>Per gallon: <b>8 drops of 6%</b> or <b>6 drops of 8.25%</b>. Double it if the water is cloudy or very cold.</li><li>Stir and wait 30 minutes. It should smell faintly of chlorine.</li></ul></div>
+  </div>
+  <div class="warn"><b>About filters:</b> many portable filters remove bacteria and parasites but <b>not viruses</b>. If you use a filter, pair it with boiling or disinfection unless the filter is certified for viruses. Filters don't remove chemicals unless they're rated for them.</div>
+  <h2 style="margin-top:.26in">Your readiness checklist</h2>
+  <ul class="check">
+    <li>My household number: ______ gallons for 2 weeks.</li>
+    <li>Containers are food-grade, sealed, labeled and dated.</li>
+    <li>Unscented 6% or 8.25% bleach and a clean dropper are stored with the water.</li>
+    <li>A pot and a way to boil without grid power (camp stove, used outdoors only).</li>
+    <li>I know where my home's water shut-off valve is.</li>
+    <li>Calendar reminder set to rotate stored water in 6 months.</li>
+  </ul>
+  <p style="margin-top:.22in;font-size:10.5pt;color:var(--muted)">Members share their setups and questions in the Off-Grid Water Vault community. Some gear we mention uses affiliate links: we may earn a commission at no cost to you, and we always say so.</p>
+  <div class="foot">Sources: CDC “Making Water Safe in an Emergency”; Ready.gov “Water”. Check cdc.gov for the latest guidance. Educational only, not medical advice.</div>
+</div>`);
+</script>
+</body>
+</html>
