@@ -93,11 +93,26 @@
       <div><b>1 minute</b>rolling boil makes tap water safe</div>
       <div><b>8 drops</b>unscented 6% bleach per gallon, wait 30 min</div>
     </div>
-    <a class="btn ghost" href="/water/household-water-plan.pdf" download>⬇ Free Household Water Plan (PDF)</a>
-    <p class="note">Sources: Ready.gov and CDC. Follow your local utility's notice first.</p>
+    <p class="note" style="text-align:left;margin:0 0 10px">Sources: Ready.gov and CDC. Follow your local utility's notice first.</p>
+    <form id="plan" action="/api/subscribe" method="post">
+      <label for="email" style="display:block;font-weight:700;margin-bottom:6px">Get the free Household Water Plan (PDF)</label>
+      <input id="email" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="you@example.com" style="width:100%;min-height:56px;padding:12px 14px;border:2px solid #7d8a91;border-radius:12px;font:inherit;background:#fff">
+      <input name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+      <input type="hidden" name="source" value="bridge_pdf"><input type="hidden" name="t" id="t">
+      <input type="hidden" name="utm_source"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content">
+      <p id="err" role="alert" style="color:#b4412f;font-weight:700;font-size:15px;margin-top:6px"></p>
+      <button class="btn blue" type="submit" style="width:100%;border:0;cursor:pointer;margin-top:8px">⬇ Send me the free plan</button>
+      <p class="note" style="text-align:left">You'll get the plan plus occasional water-readiness tips. Unsubscribe anytime. We never sell your email. <a href="/water/privacy/" style="color:inherit">Privacy</a></p>
+    </form>
+    <a class="btn ghost" href="/water/quiz/" style="margin-top:12px">Or take the 30-second readiness check →</a>
   </section>
 
   <footer>Off-Grid Water Vault is independent and is not a utility, government agency or the product's seller. Educational content only, not medical or engineering advice.</footer>
 </main>
+<script>
+(function(){var f=document.getElementById('plan');if(!f)return;document.getElementById('t').value=Date.now();
+var q=new URLSearchParams(location.search);['utm_source','utm_campaign','utm_content'].forEach(function(k){f.elements[k].value=(q.get(k)||'').slice(0,64);});
+if(q.get('error')==='email'){document.getElementById('err').textContent='Please enter a valid email address.';}})();
+</script>
 </body>
 </html>

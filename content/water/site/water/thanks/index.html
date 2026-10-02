@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Your Free Water Plan | Off-Grid Water Vault</title>
+<meta name="robots" content="noindex">
+<style>
+  :root{--paper:#f3efe6;--ink:#12222c;--muted:#4f5d66;--line:#dcd4c4;--blue:#1c5d86;--red:#d42a1e;--red-dark:#a91f15;--display:"Charter","Bitstream Charter",Georgia,serif;--body:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--ink);font:17px/1.6 var(--body)}
+  img{display:block;max-width:100%;height:auto}
+  .disclose{background:#fff;border-bottom:1px solid var(--line);color:var(--muted);font-size:13px;text-align:center;padding:8px 16px}
+  .wrap{max-width:620px;margin:0 auto;padding:24px 16px 44px}
+  h1{font:700 clamp(28px,6.5vw,38px)/1.12 var(--display);margin:6px 0 10px}
+  h2{font:700 24px/1.2 var(--display);margin:0 0 10px} h1 em,h2 em{font-style:normal;color:var(--blue)}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:16px}
+  .btn{display:flex;align-items:center;justify-content:center;width:100%;text-align:center;background:var(--red);color:#fff;text-decoration:none;font:800 19px/1.2 var(--body);padding:17px;border-radius:12px;min-height:58px;margin-top:12px;box-shadow:0 6px 18px rgba(212,42,30,.28)}
+  .btn:hover{background:var(--red-dark)} .btn.blue{background:var(--blue);box-shadow:none}
+  .btn:focus-visible{outline:3px solid #1d5fd1;outline-offset:3px}
+  .fine{font-size:13px;color:var(--muted);margin-top:8px}
+  .mock{margin:10px 0 0;border-radius:10px}
+</style>
+</head>
+<body>
+<div class="disclose">Disclosure: this page contains affiliate links. If you buy, we may earn a commission at no extra cost to you.</div>
+<main class="wrap">
+  <h1>Your free <em>Household Water Plan</em> is ready</h1>
+  <p id="msg">Download it below. Keep a printed copy with your stored water.</p>
+  <a class="btn blue" href="/water/household-water-plan.pdf" download>⬇ Download the plan (PDF)</a>
+  <div class="card">
+    <h2>Next: see the <em>DIY backup</em> option</h2>
+    <p>Joseph's Well is a step-by-step DIY guide to building an "Air Fountain", a backyard unit designed to pull water from the air.</p>
+    <img class="mock" src="/water/img/bundle.webp" width="800" height="468" alt="The Joseph's Well guide shown as a book, on a laptop and on a phone">
+    <a class="btn" href="https://uswaterrevolution.com/?tid=pdf_thanks#aff=madezmedia" rel="sponsored noopener">▶ Watch the free presentation</a>
+    <p class="fine">Affiliate link. Output and cost claims are the seller's; we haven't tested them. Test and treat any water you collect before drinking.</p>
+  </div>
+  <p class="fine" style="margin-top:22px">Off-Grid Water Vault is independent and is not a utility, government agency or the product's seller. <a href="/water/privacy/" style="color:inherit">Privacy</a></p>
+</main>
+<script>
+  if (new URLSearchParams(location.search).get('ok') === '1') {
+    document.getElementById('msg').textContent = "You're on the list. Download your plan below. Keep a printed copy with your stored water.";
+  }
+</script>
+</body>
+</html>
