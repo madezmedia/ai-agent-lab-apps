@@ -24,8 +24,8 @@ Brand:
 - Mark: a droplet with three level lines, the "stored-water gauge".
 
 ## Bridge page
-- Replace `YOUR_ID` in the hoplink. Keep `tid` per source: `pop_fleet1`, `whop_vault`, `organic_ig`, and so on.
-- Replace `#WHOP_FREE_CLAIM_URL` with the free Whop plan's checkout link.
+- Affiliate hoplink is live as `madezmedia`. Keep `tid` per source: `pop_fleet1`, `whop_vault`, `organic_ig`, and so on.
+- Free Whop claim is live (secondary CTA on the bridge, not the red affiliate button): https://whop.com/checkout/plan_Lv0hlGPbiyphP — product `prod_9NIkZby2XSU0q`, plan `plan_Lv0hlGPbiyphP`. Opens in a new tab.
 - Host it on `lytair.com/water/`. Never on a madezmedia.com domain, so pop-network flags can't touch Mad EZ.
 - Keep these as they are:
   - the disclosure bar;
@@ -71,6 +71,6 @@ None of them go in the Whop community or the brand kit: they don't match the Off
 Our last two pop tests got 5,710 views and 158 checkout clicks for 0 payments. If you test this, cap it at $10–20, send it to the bridge page (never straight to the hoplink), and read the outbound-click rate on the bridge before adding budget.
 
 ## Hosting (live)
-- Vercel project `lytair` (team mad-ez-media). Deploy folder layout: `vercel.json` at the root, plus `water/index.html` (a copy of `bridge/index.html`).
+- Vercel project `lytair` (team mad-ez-media, `prj_hDMy4ualzga0b8m1aYFd5g5AL4tY`). Deploy from `content/water/site/`: root `vercel.json` (same redirect and `noindex` header as `bridge/vercel.json`), `water/index.html` (a copy of `bridge/index.html`), plus `api/subscribe`, privacy, quiz, and thanks.
 - `/` redirects to `/water/`. Every page sends `noindex`, because the bridge exists for paid traffic, not search.
 - Domains `lytair.com` and `www.lytair.com` are added to the project. DNS at Namecheap is pending: `A @ 216.150.1.1` and `CNAME www 092c993ffd2d9c09.vercel-dns-016.com.` Remove the parking and redirect records first.
