@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Your Free Water Plan | Off-Grid Water Vault</title>
+<script src="/water/whop-pixel.js"></script>
 <meta name="robots" content="noindex">
 <style>
   :root{--paper:#f3efe6;--ink:#12222c;--muted:#4f5d66;--line:#dcd4c4;--blue:#1c5d86;--red:#d42a1e;--red-dark:#a91f15;--display:"Charter","Bitstream Charter",Georgia,serif;--body:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
@@ -39,6 +40,7 @@
 </main>
 <script>
   if (new URLSearchParams(location.search).get('ok') === '1') {
+    owvWhop('lead');
     document.getElementById('msg').textContent = "You're on the list. Download your plan below. Keep a printed copy with your stored water.";
   }
 </script>

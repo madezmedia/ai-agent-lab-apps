@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>30-Second Water Readiness Check | Off-Grid Water Vault</title>
+<script src="/water/whop-pixel.js"></script>
 <meta name="description" content="Three quick questions, an honest readiness snapshot, and a free Household Water Plan.">
 <!--
   Quiz lander (pop test variant B). 3 taps -> optional email -> result. Affiliate link tid=quiz_pop.
@@ -190,6 +191,7 @@
     err.textContent='';
     var data={}; [].forEach.call(form.elements,function(el){ if(el.name) data[el.name]=el.value; });
     fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+      .then(function(r){return r.json();}).then(function(j){if(j&&j.ok)owvWhop('lead');})
       .catch(function(){}).then(result);
   });
 })();

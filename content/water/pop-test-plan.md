@@ -70,5 +70,8 @@ Sending is blocked until `[MAILING ADDRESS]` is the full street address, or a PO
   - The landing pixel `tiotrk.com/action/land` is on `/water/` and `/water/quiz/`.
   - The conversion pixel `tiotrk.com/action/conversion` fires on every click through to the seller's presentation (bridge arms A and B, the B skip link, and the quiz button) just before the redirect, and on `/water/thanks/`.
   - **In Traffics.io, a conversion = a presentation click**, so the network optimizes toward visitors who click.
-- **Whop pixels:** none on lytair.com. The water lane has no Whop business and must never use the Mad EZ or MIL pixels.
+- **Whop pixel** (live 2026-10-02, Water Vault business `biz_QMumkXr0qSGd2L` only, via `/water/whop-pixel.js`):
+  - `page` on `/water/`, `/water/quiz/`, `/water/thanks/` and `/water/privacy/`;
+  - `lead` when an email is actually saved: bridge arm B gate, quiz, and `/water/thanks/?ok=1`.
+  - Never the Mad EZ, MIL or EZ business ids.
 - **Not tracked by the network:** affiliate sales (see them in the affiliate dashboard by tid) and email sign-ups (see them in the Resend "Off-Grid Water Vault" audience).
