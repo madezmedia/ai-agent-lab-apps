@@ -8,7 +8,7 @@ Two landers, sharing the budget 50/50:
 | Variant | URL | Affiliate link tag |
 | --- | --- | --- |
 | **A: bridge page** | `https://lytair.com/water/?utm_source=pop&utm_campaign=water-v1&utm_content=bridge` | `tid=pop_fleet1` |
-| **B: Heyflow quiz** | Heyflow funnel URL (filled in once it's published) + `?utm_source=pop&utm_campaign=water-v1&utm_content=quiz` | `tid=heyflow_pop` |
+| **B: quiz** | `https://lytair.com/water/quiz/?utm_source=pop&utm_campaign=water-v1&utm_content=quiz` | `tid=quiz_pop` |
 
 The question: does a 3-tap quiz get more people to click through to the presentation than the static bridge page?
 
@@ -26,7 +26,7 @@ The question: does a 3-tap quiz get more people to click through to the presenta
 | Signal | Where | Kill if | Keep testing if |
 | --- | --- | --- | --- |
 | Visits that load the page | Network stats vs Vercel/Heyflow visits | Under 60% of paid clicks load the page (bots or a slow page) | Over 75% |
-| Engagement | Heyflow: starts and completion rate. Bridge: clicks on either button | Quiz completion under 15%, or bridge button clicks under 2% | Quiz completion over 30%, bridge clicks over 5% |
+| Engagement | Email sign-ups per lander (in Resend, tagged by source), plus quiz completion | Quiz completion under 15%, or bridge button clicks under 2% | Quiz completion over 30%, bridge clicks over 5% |
 | Clicks to the seller (`tid`) | Affiliate dashboard → clicks by tid | Under 1% of visits | Over 3% |
 | Sales | Affiliate dashboard | 0 sales after the $20 is normal; don't judge on sales alone at this budget | Any sale means scale the winner to $50 |
 
@@ -37,3 +37,10 @@ The question: does a 3-tap quiz get more people to click through to the presenta
 - No fake alerts, countdowns or claims about gallons, cost or health.
 - Pop traffic goes to our page, never straight to the affiliate link.
 - Kept separate from Mad EZ: lytair.com, its own Vercel project, and no Mad EZ pixels or lists.
+
+## Email list (both landers)
+- Bridge page: an email form for the PDF. Quiz: optional email before the result, which can be skipped.
+- Sign-ups go to `POST /api/subscribe` → Resend audience (`RESEND_API_KEY` + `RESEND_AUDIENCE_ID` in the Vercel `lytair` project) and/or `LEAD_WEBHOOK_URL` (n8n).
+- Until those are set, people still get the PDF and their results, but nothing is saved (`/water/thanks/?ok=0`). **Set the env vars before spending.**
+- Bots (hidden honeypot field, submitted in under 2.5 seconds, disposable email domains) are dropped silently. Every form shows consent wording and links to `/water/privacy/`.
+- Emails sent to this list need the full physical mailing address in the footer (CAN-SPAM).
