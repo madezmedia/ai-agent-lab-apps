@@ -98,7 +98,7 @@ module.exports = async (req, res) => {
   const started = Number(body.t || 0);
   const domain = email.split('@')[1] || '';
   const bot = Boolean(body.website) || !started || Date.now() - started < 2500 || DISPOSABLE.has(domain);
-  if (bot) return done(req, res, 200, true, thanks);   // looks like success; never saved
+  if (bot) { console.log(JSON.stringify({ evt: 'subscribe', source, saved: false, bot: true })); return done(req, res, 200, true, thanks); }   // looks like success; never saved
 
   const pick = (v) => (ANSWERS.has(String(v || '')) ? String(v || '') : '');
   const lead = {
@@ -115,5 +115,7 @@ module.exports = async (req, res) => {
   try { const a = await saveToResend(email); if (a) saved = true; } catch {}
   if (saved) { try { await sendPlanEmail(email); } catch {} }
   try { const b = await forwardToWebhook(lead); if (b) saved = true; } catch {}
+  // Counts only, never the email, so sign-ups can be read from the Vercel logs.
+  console.log(JSON.stringify({ evt: 'subscribe', source, saved, bot: false, utm_source: lead.utm_source, utm_campaign: lead.utm_campaign }));
   return done(req, res, 200, saved, saved ? `${thanks}?ok=1` : `${thanks}?ok=0`);
 };
