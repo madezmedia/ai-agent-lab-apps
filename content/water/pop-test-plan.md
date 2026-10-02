@@ -64,3 +64,11 @@ The **marketing** follow-up below (it includes the affiliate link) is NOT automa
 > [MAILING ADDRESS] · Unsubscribe
 
 Sending is blocked until `[MAILING ADDRESS]` is the full street address, or a PO box.
+
+## Tracking pixels
+- **Traffics.io** (live on lytair.com):
+  - The landing pixel `tiotrk.com/action/land` is on `/water/` and `/water/quiz/`.
+  - The conversion pixel `tiotrk.com/action/conversion` fires on every click through to the seller's presentation (bridge arms A and B, the B skip link, and the quiz button) just before the redirect, and on `/water/thanks/`.
+  - **In Traffics.io, a conversion = a presentation click**, so the network optimizes toward visitors who click.
+- **Whop pixels:** none on lytair.com. The water lane has no Whop business and must never use the Mad EZ or MIL pixels.
+- **Not tracked by the network:** affiliate sales (see them in the affiliate dashboard by tid) and email sign-ups (see them in the Resend "Off-Grid Water Vault" audience).

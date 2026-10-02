@@ -95,6 +95,12 @@
     Off-Grid Water Vault is an independent site, not the product's seller, a utility or a government agency. Some links are affiliate links; we may earn a commission at no extra cost to you. Output and cost claims in the presentation are the seller's own; we haven't independently tested them. Any water you collect yourself should be tested and treated before drinking. Educational content only, not medical or engineering advice. <a href="/water/privacy/">Privacy</a>
   </footer>
 </main>
+<script>
+/* Traffics.io conversion = click through to the seller's presentation. Fires the conversion pixel, then navigates. */
+function tioConvert(url){var done=false,go=function(){if(!done){done=true;location.href=url;}};
+  try{var s=document.createElement('script');s.src='https://tiotrk.com/action/conversion';s.onload=go;s.onerror=go;document.body.appendChild(s);}catch(e){}
+  setTimeout(go,800);}
+</script>
 <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-h">
   <div class="box">
     <h3 id="gate-h">Where should we send your free Water Plan?</h3>
@@ -121,18 +127,18 @@
   document.documentElement.setAttribute('data-cta',v);
   var direct=HOP.replace('TID','pop_cta_direct'), gated=HOP.replace('TID','pop_cta_email'), skipped=HOP.replace('TID','pop_cta_skip');
   var ctas=document.querySelectorAll('a.cta');
-  if(v==='a'){ ctas.forEach(function(a){a.href=direct;}); return; }
+  if(v==='a'){ ctas.forEach(function(a){a.href=direct; a.addEventListener('click',function(e){ if(e.metaKey||e.ctrlKey||e.button) return; e.preventDefault(); tioConvert(direct); });}); return; }
   var gate=document.getElementById('gate'), form=document.getElementById('gateform'), err=document.getElementById('gerr'), t0=Date.now();
   ctas.forEach(function(a){ a.href=gated; a.addEventListener('click',function(e){ e.preventDefault(); gate.classList.add('on'); setTimeout(function(){document.getElementById('gemail').focus();},50); }); });
   gate.addEventListener('click',function(e){ if(e.target===gate) gate.classList.remove('on'); });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') gate.classList.remove('on'); });
-  document.getElementById('gskip').addEventListener('click',function(){ location.href=skipped; });
+  document.getElementById('gskip').addEventListener('click',function(){ tioConvert(skipped); });
   form.addEventListener('submit',function(e){
     e.preventDefault();
     var email=form.elements.email.value.trim();
     if(!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)){ err.textContent='Please enter a valid email address.'; return; }
     err.textContent='';
-    var go=function(){ location.href=gated; };
+    var go=function(){ tioConvert(gated); };
     var body={email:email,website:form.elements.website.value,source:'bridge_gate',t:t0,
       utm_source:(q.get('utm_source')||'').slice(0,64),utm_campaign:(q.get('utm_campaign')||'').slice(0,64),utm_content:'cta_email'};
     var done=false, fin=function(){ if(!done){done=true;go();} };
@@ -141,5 +147,6 @@
   });
 })();
 </script>
+<script type="text/javascript" src="https://tiotrk.com/action/land"></script>
 </body>
 </html>
