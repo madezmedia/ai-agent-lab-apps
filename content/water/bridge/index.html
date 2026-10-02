@@ -3,68 +3,98 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Household Water Readiness | Off-Grid Water Vault</title>
-<meta name="description" content="A plain-English starting point for household water readiness, plus an independent look at a popular DIY water guide.">
+<title>Joseph's Well DIY Guide: Honest Look | Off-Grid Water Vault</title>
+<meta name="description" content="An independent look at the Joseph's Well 'Air Fountain' DIY guide, plus free household water basics from the CDC and Ready.gov.">
 <!--
-  Honest presell bridge for US Water Revolution (affiliate). Single file, no external requests, system fonts: fast on pop traffic.
-  Affiliate ID: madezmedia (#aff=). Keep tid per traffic source (tid=pop_fleet1, tid=whop_vault, ...).
-  Rules: disclosure stays above the fold; no fake alerts, no countdowns, no gallons/health promises; claims belong to the seller.
+  Presell bridge v2 (visual) for US Water Revolution / Joseph's Well (affiliate id: madezmedia, #aff=). One HTML file + 4 small webp images (~90 KB total).
+  Images: the seller's own affiliate creatives (product mockup + banner photos), served from /water/img/. Not stored in the public repo.
+  Keep tid per traffic source (pop_fleet1, whop_vault, ...). Rules: disclosure above the fold; no fake alerts, countdowns,
+  or gallon/health promises; claims belong to the seller; test and treat any water.
 -->
+<link rel="preload" as="image" href="img/bundle.webp">
 <style>
-  :root{--paper:#f3efe6;--surface:#fff;--ink:#12222c;--muted:#4f5d66;--line:#dcd4c4;--blue:#1c5d86;--blue-dark:#12415f;--orange:#c9561c;
+  :root{--paper:#f3efe6;--surface:#fff;--ink:#12222c;--muted:#4f5d66;--line:#dcd4c4;--blue:#1c5d86;--blue-dark:#12415f;--soft:#e2edf4;--red:#d42a1e;--red-dark:#a91f15;
     --display:"Charter","Bitstream Charter",Georgia,serif;--body:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--paper);color:var(--ink);font:17px/1.6 var(--body)}
-  .disclose{background:#fff;border-bottom:1px solid var(--line);color:var(--muted);font-size:13px;text-align:center;padding:9px 16px}
-  .wrap{max-width:680px;margin:0 auto;padding:28px 16px 48px}
-  .brand{display:flex;align-items:center;gap:10px;font:700 17px/1.1 var(--display)}
-  h1{font:700 clamp(30px,6vw,42px)/1.12 var(--display);margin:22px 0 12px}
+  img{display:block;max-width:100%;height:auto}
+  .shots img{width:100%;aspect-ratio:304/190;object-fit:cover}
+  .disclose{background:#fff;border-bottom:1px solid var(--line);color:var(--muted);font-size:13px;text-align:center;padding:8px 16px}
+  .wrap{max-width:720px;margin:0 auto;padding:22px 16px 48px}
+  .brand{display:flex;align-items:center;gap:10px;font:700 16px/1.1 var(--display)}
+  .hero{text-align:center;margin-top:18px}
+  .kicker{display:inline-block;background:var(--soft);color:var(--blue);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
+  h1{font:700 clamp(30px,7vw,46px)/1.08 var(--display);margin:14px 0 10px}
   h1 em{font-style:normal;color:var(--blue)}
-  h2{font:700 22px/1.25 var(--display);margin:0 0 10px}
-  .lede{color:var(--muted);font-size:18px}
-  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:22px}
-  .nums{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
-  .nums div{background:#e2edf4;border-radius:10px;padding:12px}
-  .nums b{display:block;font:700 26px/1.1 var(--display);color:var(--blue)}
-  ul{padding-left:20px} li{margin:6px 0}
-  .btn{display:block;text-align:center;background:var(--blue);color:#fff;text-decoration:none;font-weight:700;font-size:18px;padding:17px 18px;border-radius:12px;margin-top:16px;min-height:56px}
-  .btn:hover{background:var(--blue-dark)}
-  .btn.secondary{background:#fff;color:var(--ink);border:2px solid #7d8a91}
+  h2{font:700 clamp(22px,4.6vw,28px)/1.2 var(--display);margin:0 0 12px}
+  .lede{color:var(--muted);font-size:18px;max-width:560px;margin:0 auto}
+  .mock{margin:18px auto 6px;width:100%;max-width:min(100%,560px)}
+  .btn{display:flex;align-items:center;justify-content:center;gap:10px;text-align:center;background:var(--red);color:#fff;text-decoration:none;font-weight:800;font-size:19px;letter-spacing:.01em;padding:18px 18px;border-radius:12px;min-height:60px;box-shadow:0 6px 18px rgba(212,42,30,.28)}
+  .btn:hover{background:var(--red-dark)}
+  .btn.blue{background:var(--blue);box-shadow:0 6px 18px rgba(28,93,134,.25)} .btn.blue:hover{background:var(--blue-dark)}
+  .btn.ghost{background:#fff;color:var(--ink);border:2px solid #7d8a91;box-shadow:none;font-weight:700;font-size:17px}
   .btn:focus-visible{outline:3px solid #1d5fd1;outline-offset:3px}
-  .note{font-size:14px;color:var(--muted);margin-top:10px}
-  footer{font-size:13px;color:var(--muted);margin-top:30px;border-top:1px solid var(--line);padding-top:14px}
+  .note{font-size:13.5px;color:var(--muted);margin-top:8px;text-align:center}
+  section{margin-top:30px}
+  .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .shots figure{min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .shots figcaption{font-size:13.5px;font-weight:700;padding:8px 10px;line-height:1.3}
+  .src{font-size:12.5px;color:var(--muted);margin-top:8px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+  ul.ticks{list-style:none;display:grid;gap:10px;margin:4px 0 6px}
+  ul.ticks li{position:relative;padding-left:32px}
+  ul.ticks li:before{content:"";position:absolute;left:0;top:3px;width:22px;height:22px;border-radius:7px;background:var(--blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.2 4.2L19 7' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/15px no-repeat}
+  .nums{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 14px}
+  .nums div{background:var(--soft);border-radius:10px;padding:12px;font-size:15px;line-height:1.4}
+  .nums b{display:block;font:700 24px/1.1 var(--display);color:var(--blue);margin-bottom:2px}
+  footer{font-size:13px;color:var(--muted);margin-top:34px;border-top:1px solid var(--line);padding-top:14px}
+  @media(max-width:480px){.shots{grid-template-columns:1fr 1fr}.shots figure:last-child{grid-column:1 / -1}}
 </style>
 </head>
 <body>
-<div class="disclose">Disclosure: some links on this page are affiliate links. If you buy, we may earn a commission at no extra cost to you.</div>
+<div class="disclose">Disclosure: this page contains affiliate links. If you buy, we may earn a commission at no extra cost to you.</div>
 <main class="wrap">
-  <div class="brand"><svg width="30" height="30" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="24" fill="#1c5d86"/><path d="M50 14 C50 14 24 44 24 61 a26 26 0 0 0 52 0 C76 44 50 14 50 14Z" fill="#fff"/><g stroke="#1c5d86" stroke-width="4.5" stroke-linecap="round"><line x1="37" y1="58" x2="63" y2="58"/><line x1="34" y1="68" x2="66" y2="68"/><line x1="39" y1="78" x2="61" y2="78"/></g><circle cx="77" cy="22" r="7" fill="#c9561c"/></svg> Off-Grid Water Vault</div>
+  <div class="brand"><svg width="28" height="28" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="24" fill="#1c5d86"/><path d="M50 14 C50 14 24 44 24 61 a26 26 0 0 0 52 0 C76 44 50 14 50 14Z" fill="#fff"/><g stroke="#1c5d86" stroke-width="4.5" stroke-linecap="round"><line x1="37" y1="58" x2="63" y2="58"/><line x1="34" y1="68" x2="66" y2="68"/><line x1="39" y1="78" x2="61" y2="78"/></g><circle cx="77" cy="22" r="7" fill="#c9561c"/></svg> Off-Grid Water Vault</div>
 
-  <h1>Is your household ready if the <em>tap stops?</em></h1>
-  <p class="lede">Start with the basics most people skip, then decide whether a DIY water project is right for you.</p>
+  <div class="hero">
+    <span class="kicker">DIY backup water</span>
+    <h1>Could your home make its own <em>backup water?</em></h1>
+    <p class="lede">Joseph's Well is a step-by-step DIY guide to building an "Air Fountain": a backyard unit designed to pull water from the air. Watch the free presentation and decide for yourself.</p>
+    <img class="mock" src="img/bundle.webp" width="800" height="468" alt="The Joseph's Well: The Air Fountain System guide shown as a book, on a laptop and on a phone">
+    <a class="btn" href="https://uswaterrevolution.com/?tid=pop_fleet1#aff=madezmedia" rel="sponsored noopener">▶ Watch the free presentation</a>
+    <p class="note">Affiliate link. Opens the seller's site.</p>
+  </div>
+
+  <section aria-labelledby="inside">
+    <h2 id="inside">What the presentation walks through</h2>
+    <div class="shots">
+      <figure><img src="img/unit.webp" width="304" height="190" alt="An A-frame solar-panel unit with a fan box and collection jugs underneath" loading="lazy"><figcaption>The A-frame "Air Fountain" build</figcaption></figure>
+      <figure><img src="img/well.webp" width="304" height="190" alt="A brick well in a dry field" loading="lazy"><figcaption>The idea behind "Joseph's Well"</figcaption></figure>
+      <figure><img src="img/box.webp" width="304" height="190" alt="A wooden frame unit with collection basins in a field" loading="lazy"><figcaption>The DIY frame and collection setup</figcaption></figure>
+    </div>
+    <p class="src">Images from the seller's presentation.</p>
+  </section>
+
+  <section class="card" aria-labelledby="before">
+    <h2 id="before">Before you watch: the honest version</h2>
+    <ul class="ticks">
+      <li>Output and cost claims in the presentation are the seller's. We haven't tested them ourselves.</li>
+      <li>Any water you collect yourself should be tested and treated before drinking.</li>
+      <li>Check the price and refund terms on the seller's page before you buy.</li>
+    </ul>
+    <a class="btn" href="https://uswaterrevolution.com/?tid=pop_fleet1#aff=madezmedia" rel="sponsored noopener">▶ Watch the Joseph's Well presentation</a>
+  </section>
 
   <section class="card" aria-labelledby="basics">
-    <h2 id="basics">The basics first (free)</h2>
+    <h2 id="basics">Either way, cover the basics (free)</h2>
     <div class="nums">
       <div><b>1 gallon</b>per person, per day</div>
       <div><b>2 weeks</b>stored at home</div>
       <div><b>1 minute</b>rolling boil makes tap water safe</div>
       <div><b>8 drops</b>unscented 6% bleach per gallon, wait 30 min</div>
     </div>
+    <a class="btn ghost" href="/water/household-water-plan.pdf" download>⬇ Free Household Water Plan (PDF)</a>
     <p class="note">Sources: Ready.gov and CDC. Follow your local utility's notice first.</p>
-    <a class="btn secondary" href="/water/household-water-plan.pdf" download>Get the free Household Water Plan (PDF)</a>
-  </section>
-
-  <section class="card" aria-labelledby="diy">
-    <h2 id="diy">Thinking about a DIY water project?</h2>
-    <p>The <b>US Water Revolution</b> guide is a popular DIY presentation about building your own backup water setup. Before you watch:</p>
-    <ul>
-      <li>The claims in the presentation are the seller's. We haven't independently tested them.</li>
-      <li>Any water you collect or make yourself should be tested and treated before drinking.</li>
-      <li>Check the seller's price and refund terms before you buy.</li>
-    </ul>
-    <a class="btn" href="https://uswaterrevolution.com/?tid=pop_fleet1#aff=madezmedia" rel="sponsored noopener">Watch the US Water Revolution presentation</a>
-    <p class="note">Affiliate link. Opens the seller's site.</p>
   </section>
 
   <footer>Off-Grid Water Vault is independent and is not a utility, government agency or the product's seller. Educational content only, not medical or engineering advice.</footer>
