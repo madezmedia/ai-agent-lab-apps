@@ -50,6 +50,34 @@ async function saveToResend(email) {
   return r.ok || r.status === 409;
 }
 
+// Transactional delivery of what they asked for: the PDF link only, no promotion
+// (so no affiliate links here; marketing emails need the mailing address + unsubscribe).
+async function sendPlanEmail(email) {
+  const key = process.env.RESEND_API_KEY;
+  if (!key) return null;
+  const from = process.env.RESEND_FROM || 'Off-Grid Water Vault <plan@madezmedia.com>';
+  const pdf = 'https://lytair.com/water/household-water-plan.pdf';
+  const text = [
+    'Hi there,', '',
+    'Here is the free Household Water Plan you requested:', pdf, '',
+    'Print it and keep it with your stored water. It covers how much to store (1 gallon per person, per day; 2 weeks at home),',
+    'how to store it, and how to make tap water safe during a boil-water notice (CDC and Ready.gov guidance).', '',
+    'Off-Grid Water Vault',
+    'You received this because you asked for the plan at lytair.com.',
+  ].join('\n');
+  const html = `<div style="font-family:Arial,sans-serif;font-size:16px;line-height:1.6;color:#12222c;max-width:560px">
+    <p>Hi there,</p><p>Here is the free <b>Household Water Plan</b> you requested:</p>
+    <p><a href="${pdf}" style="display:inline-block;background:#1c5d86;color:#fff;text-decoration:none;font-weight:bold;padding:12px 18px;border-radius:8px">Download the plan (PDF)</a></p>
+    <p>Print it and keep it with your stored water. It covers how much to store (1 gallon per person, per day; 2 weeks at home), how to store it, and how to make tap water safe during a boil-water notice (CDC and Ready.gov guidance).</p>
+    <p>Off-Grid Water Vault</p><p style="font-size:12px;color:#4f5d66">You received this because you asked for the plan at lytair.com.</p></div>`;
+  const r = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ from, to: [email], subject: 'Your free Household Water Plan', text, html }),
+  });
+  return r.ok;
+}
+
 async function forwardToWebhook(lead) {
   const hook = process.env.LEAD_WEBHOOK_URL;
   if (!hook) return null;
@@ -85,6 +113,7 @@ module.exports = async (req, res) => {
 
   let saved = false;
   try { const a = await saveToResend(email); if (a) saved = true; } catch {}
+  if (saved) { try { await sendPlanEmail(email); } catch {} }
   try { const b = await forwardToWebhook(lead); if (b) saved = true; } catch {}
   return done(req, res, 200, saved, saved ? `${thanks}?ok=1` : `${thanks}?ok=0`);
 };

@@ -50,8 +50,10 @@ The quiz (`/water/quiz/`, `tid=quiz_pop`) stays live as a list builder for later
 - Bots (hidden honeypot field, submitted in under 2.5 seconds, disposable email domains) are dropped silently. Every form shows consent wording and links to `/water/privacy/`.
 - Emails sent to this list need the full physical mailing address in the footer (CAN-SPAM).
 
-## Before spending: welcome email (required for arm B)
-The email ask promises the free plan, so set up a Resend automation: **contact added to "Off-Grid Water Vault" → send this right away.**
+## Welcome email: LIVE (2026-10-02)
+`/api/subscribe` adds the contact to the Resend audience "Off-Grid Water Vault" (`546e7e94-…`) and immediately sends a **transactional** email with the PDF link only (from `plan@madezmedia.com`, no promotion). Tested live: contact added, email delivered.
+
+The **marketing** follow-up below (it includes the affiliate link) is NOT automated. It needs the full mailing address before it goes out as a Resend broadcast or automation:
 
 > **Subject:** Your free Household Water Plan
 > Hi there,
