@@ -3,14 +3,19 @@
 **Status: staged. No campaign is live and no money has been spent.** Mikey creates and starts the campaign in the network dashboard. Claude never sets a budget or starts spend.
 
 ## What we're testing
-Two landers, sharing the budget 50/50:
+**One URL for every pop campaign:** `https://lytair.com/water/?utm_source=pop&utm_campaign=water-v1`
 
-| Variant | URL | Affiliate link tag |
+Visitors are split 50/50 in the browser, and each visitor keeps the same version on return visits. To preview a version, add `?v=a` or `?v=b` to the URL.
+
+| Arm | What the red button does | Affiliate link tag |
 | --- | --- | --- |
-| **A: bridge page** | `https://lytair.com/water/?utm_source=pop&utm_campaign=water-v1&utm_content=bridge` | `tid=pop_fleet1` |
-| **B: quiz** | `https://lytair.com/water/quiz/?utm_source=pop&utm_campaign=water-v1&utm_content=quiz` | `tid=quiz_pop` |
+| **A: direct** | Goes straight to the seller's presentation | `tid=pop_cta_direct` |
+| **B: email ask** | Opens a short email ask, then goes straight to the presentation. "No thanks" also continues. | `tid=pop_cta_email` (gave email), `tid=pop_cta_skip` (skipped) |
 
-The question: does a 3-tap quiz get more people to click through to the presentation than the static bridge page?
+The question: does asking for an email first cost more presentation clicks than the list is worth?
+Arm B's email capture rate = Resend contacts with source `bridge_gate` ÷ (`pop_cta_email` + `pop_cta_skip` clicks).
+
+The quiz (`/water/quiz/`, `tid=quiz_pop`) stays live as a list builder for later tests. Keep it out of this $20 test so the budget isn't split three ways.
 
 ## Campaign settings (same for both variants)
 - **Network:** Traffics.io (we have the account; campaign 50938 is the old Agent Lab one, so make a NEW campaign rather than reusing it). PropellerAds or PopAds also work.
@@ -26,7 +31,7 @@ The question: does a 3-tap quiz get more people to click through to the presenta
 | Signal | Where | Kill if | Keep testing if |
 | --- | --- | --- | --- |
 | Visits that load the page | Network stats vs Vercel/Heyflow visits | Under 60% of paid clicks load the page (bots or a slow page) | Over 75% |
-| Engagement | Email sign-ups per lander (in Resend, tagged by source), plus quiz completion | Quiz completion under 15%, or bridge button clicks under 2% | Quiz completion over 30%, bridge clicks over 5% |
+| Button clicks | Affiliate dashboard: A = `pop_cta_direct`; B = `pop_cta_email` + `pop_cta_skip` | Under 2% of visits | Over 5% |
 | Clicks to the seller (`tid`) | Affiliate dashboard → clicks by tid | Under 1% of visits | Over 3% |
 | Sales | Affiliate dashboard | 0 sales after the $20 is normal; don't judge on sales alone at this budget | Any sale means scale the winner to $50 |
 
@@ -44,3 +49,16 @@ The question: does a 3-tap quiz get more people to click through to the presenta
 - Until those are set, people still get the PDF and their results, but nothing is saved (`/water/thanks/?ok=0`). **Set the env vars before spending.**
 - Bots (hidden honeypot field, submitted in under 2.5 seconds, disposable email domains) are dropped silently. Every form shows consent wording and links to `/water/privacy/`.
 - Emails sent to this list need the full physical mailing address in the footer (CAN-SPAM).
+
+## Before spending: welcome email (required for arm B)
+The email ask promises the free plan, so set up a Resend automation: **contact added to "Off-Grid Water Vault" → send this right away.**
+
+> **Subject:** Your free Household Water Plan
+> Hi there,
+> Here's the free Household Water Plan you asked for: https://lytair.com/water/household-water-plan.pdf
+> Print it and keep it with your stored water. It covers how much to store (1 gallon per person per day, 2 weeks at home), how to store it, and how to make tap water safe during a boil-water notice.
+> If you want to see the DIY backup option again, here's the Joseph's Well presentation: https://uswaterrevolution.com/?tid=email_welcome#aff=madezmedia (affiliate link; we may earn a commission).
+> — Off-Grid Water Vault
+> [MAILING ADDRESS] · Unsubscribe
+
+Sending is blocked until `[MAILING ADDRESS]` is the full street address, or a PO box.

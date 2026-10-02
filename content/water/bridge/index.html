@@ -45,6 +45,19 @@
   footer{font-size:12.5px;line-height:1.55;color:var(--muted);margin-top:34px;border-top:1px solid var(--line);padding-top:14px}
   footer a{color:inherit}
   @media(min-width:640px){.feature{grid-template-columns:1fr 1fr;align-items:center}}
+  .gate{position:fixed;inset:0;background:rgba(14,31,41,.62);display:none;align-items:flex-end;justify-content:center;padding:12px;z-index:10}
+  .gate.on{display:flex}
+  .gate .box{background:#fff;border-radius:18px;max-width:480px;width:100%;padding:22px 18px 18px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  .gate h3{font:700 24px/1.2 var(--display);margin:0 0 6px}
+  .gate p{color:var(--muted);font-size:15.5px;margin:0 0 12px}
+  .gate input[type=email]{width:100%;min-height:56px;padding:12px 14px;border:2px solid #7d8a91;border-radius:12px;font:inherit}
+  .gate input[type=email]:focus{outline:3px solid #1d5fd1;outline-offset:1px}
+  .gate button.btn{width:100%;border:0;cursor:pointer;margin-top:10px;font-size:18px}
+  .gate .skip{display:block;margin:12px auto 0;background:none;border:0;color:var(--muted);text-decoration:underline;font:15px var(--body);cursor:pointer}
+  .gate .fine{font-size:12.5px;color:var(--muted);margin-top:8px}
+  .gate .err{color:#b4412f;font-weight:700;font-size:14.5px;min-height:1.1em;margin-top:6px}
+  .hp{position:absolute;left:-9999px}
+  @media(min-width:640px){.gate{align-items:center}}
 </style>
 </head>
 <body>
@@ -58,7 +71,7 @@
     <p class="lede">Droughts, boil-water notices and outages are why more families want a backup they control. <b>Joseph's Well</b> shows you how to build a backyard "Air Fountain" designed to pull water from the air.</p>
     <div class="stakes" aria-hidden="true"><div><span>☀️</span>Drought</div><div><span>🚱</span>Boil-water notices</div><div><span>⚡</span>Outages</div></div>
     <img class="mock" src="img/bundle.webp" width="800" height="468" alt="The Joseph's Well: The Air Fountain System guide shown as a book, on a laptop and on a phone">
-    <a class="btn" href="https://uswaterrevolution.com/?tid=pop_fleet1#aff=madezmedia" rel="sponsored noopener">See How The Air Fountain System Works →</a>
+    <a class="btn cta" href="https://uswaterrevolution.com/?tid=pop_cta_direct#aff=madezmedia" rel="sponsored noopener">See How The Air Fountain System Works →</a>
     <p class="sub">Free presentation on the creator's site</p>
   </div>
 
@@ -75,12 +88,58 @@
   </section>
 
   <section>
-    <a class="btn" href="https://uswaterrevolution.com/?tid=pop_fleet1#aff=madezmedia" rel="sponsored noopener">See How The Air Fountain System Works →</a>
+    <a class="btn cta" href="https://uswaterrevolution.com/?tid=pop_cta_direct#aff=madezmedia" rel="sponsored noopener">See How The Air Fountain System Works →</a>
   </section>
 
   <footer>
     Off-Grid Water Vault is an independent site, not the product's seller, a utility or a government agency. Some links are affiliate links; we may earn a commission at no extra cost to you. Output and cost claims in the presentation are the seller's own; we haven't independently tested them. Any water you collect yourself should be tested and treated before drinking. Educational content only, not medical or engineering advice. <a href="/water/privacy/">Privacy</a>
   </footer>
 </main>
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-h">
+  <div class="box">
+    <h3 id="gate-h">Where should we send your free Water Plan?</h3>
+    <p>Enter your email and we'll take you straight to the Air Fountain presentation.</p>
+    <form id="gateform" novalidate>
+      <input id="gemail" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" aria-label="Email address">
+      <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="err" id="gerr" role="alert"></div>
+      <button class="btn" type="submit">Continue to the presentation →</button>
+      <p class="fine">You'll get the free Household Water Plan plus occasional water-readiness tips. Unsubscribe anytime. We never sell your email. <a href="/water/privacy/" style="color:inherit">Privacy</a></p>
+    </form>
+    <button class="skip" id="gskip" type="button">No thanks, just show me the presentation</button>
+  </div>
+</div>
+<script>
+/* CTA split test: A = direct to affiliate link, B = email ask, then straight to the link.
+   Sticky per visitor (localStorage); force with ?v=a or ?v=b. Separate tids per arm for the affiliate dashboard. */
+(function(){
+  var HOP='https://uswaterrevolution.com/?tid=TID#aff=madezmedia';
+  var q=new URLSearchParams(location.search), v=(q.get('v')||'').toLowerCase();
+  if(v!=='a'&&v!=='b'){ try{v=localStorage.getItem('owv_cta');}catch(e){} }
+  if(v!=='a'&&v!=='b'){ v=Math.random()<0.5?'a':'b'; }
+  try{localStorage.setItem('owv_cta',v);}catch(e){}
+  document.documentElement.setAttribute('data-cta',v);
+  var direct=HOP.replace('TID','pop_cta_direct'), gated=HOP.replace('TID','pop_cta_email'), skipped=HOP.replace('TID','pop_cta_skip');
+  var ctas=document.querySelectorAll('a.cta');
+  if(v==='a'){ ctas.forEach(function(a){a.href=direct;}); return; }
+  var gate=document.getElementById('gate'), form=document.getElementById('gateform'), err=document.getElementById('gerr'), t0=Date.now();
+  ctas.forEach(function(a){ a.href=gated; a.addEventListener('click',function(e){ e.preventDefault(); gate.classList.add('on'); setTimeout(function(){document.getElementById('gemail').focus();},50); }); });
+  gate.addEventListener('click',function(e){ if(e.target===gate) gate.classList.remove('on'); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') gate.classList.remove('on'); });
+  document.getElementById('gskip').addEventListener('click',function(){ location.href=skipped; });
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var email=form.elements.email.value.trim();
+    if(!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)){ err.textContent='Please enter a valid email address.'; return; }
+    err.textContent='';
+    var go=function(){ location.href=gated; };
+    var body={email:email,website:form.elements.website.value,source:'bridge_gate',t:t0,
+      utm_source:(q.get('utm_source')||'').slice(0,64),utm_campaign:(q.get('utm_campaign')||'').slice(0,64),utm_content:'cta_email'};
+    var done=false, fin=function(){ if(!done){done=true;go();} };
+    setTimeout(fin,1500);
+    fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),keepalive:true}).catch(function(){}).then(fin);
+  });
+})();
+</script>
 </body>
 </html>

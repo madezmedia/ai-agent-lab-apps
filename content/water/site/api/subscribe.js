@@ -8,7 +8,7 @@ const DISPOSABLE = new Set([
   'maildrop.cc', 'mail.tm', 'uberip.com', 'mailpoof.com', 'throwawaymail.com', 'fakeinbox.com',
 ]);
 const EMAIL = /^[^\s@]{1,64}@[^\s@]{1,190}\.[a-z]{2,24}$/i;
-const SOURCES = new Set(['bridge_pdf', 'quiz', 'thanks']);
+const SOURCES = new Set(['bridge_pdf', 'bridge_gate', 'quiz', 'thanks']);
 const ANSWERS = new Set(['none', 'days', 'week', 'twoweeks', 'yes', 'roughly', 'no', 'never', 'thought', 'researching', '']);
 
 function readBody(req) {
