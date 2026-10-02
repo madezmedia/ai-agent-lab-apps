@@ -31,7 +31,7 @@ Post the list of Drive file ids to ACMI before Step 1 starts.
    - card, gallery 1–3, and OG on the product;
    - the PDF goes in `#water-plan`.
 4. Create the channels exactly as listed in section 4. The affiliate link goes only in `#gear-notes`, with `tid=whop_vault`.
-5. Welcome DM: save the section 4 text as a **draft, not enabled**. Today's GO covers the business, the covers and the $7 images, not outbound messages. Turning the DM on needs its own GO from Mikey. Never import or message any list.
+5. Welcome DM: **ON (Mikey GO 2026-10-02, follow-up).** Use the section 4 text verbatim, sent automatically only to new members who join this free community. Don't edit the text. Never import a list, message anyone else, or add links beyond the in-community channels.
 6. Pixel: if Whop gives the business its own pixel, record its id. Never paste a Mad EZ, MIL or EZ pixel. Don't add any pixel to lytair.com; Claude does that.
 7. Report:
    - the business id, product id, plan id and free checkout URL;
