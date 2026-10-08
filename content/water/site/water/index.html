@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Air Fountain System: See How It's Built | Off-Grid Water Vault</title>
-<script src="/water/whop-pixel.js"></script>
 <meta name="description" content="See how the Joseph's Well 'Air Fountain' DIY backyard water backup is built.">
 <!--
   Bridge v3: single goal = click to the seller's presentation (pop test variant A, tid=pop_fleet1).
@@ -150,7 +149,7 @@ function tioConvert(url){var done=false,go=function(){if(!done){done=true;locati
       utm_source:(q.get('utm_source')||'').slice(0,64),utm_campaign:(q.get('utm_campaign')||'').slice(0,64),utm_content:'cta_email'};
     var done=false, fin=function(){ if(!done){done=true;go();} };
     setTimeout(fin,1500);
-    fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),keepalive:true}).then(function(r){return r.json();}).then(function(j){if(j&&j.ok)owvWhop('lead');}).catch(function(){}).then(fin);
+    fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),keepalive:true}).catch(function(){}).then(fin);
   });
 })();
 </script>
