@@ -5,7 +5,7 @@ Source reviewed: https://fbtrafficagent.com/ and public search snippets checked 
 Goal: build a compliant fleet-native Facebook traffic engine for Lytair, Whop offers, affiliate lanes, and future products.
 
 Research status: This is a dated snapshot. Recheck product facts, links, platform rules, and claims before implementation or use.
-Publishing gate: Draft only. No private member data, automated posting, public content, or outbound contact without exact approval.
+Publishing gate: Draft only. No private member data, automated posts, ads, or outbound contact without exact approval.
 
 ## Product Boundary
 
